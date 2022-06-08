@@ -28,7 +28,7 @@
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                        <i class="material-icons">face</i>
+                                        <i class="material-icons">person</i>
                                     </span>
                                 </div>
                                 <input type="text" name="name" class="form-control" placeholder="{{ __('Nombre...') }}"
@@ -45,7 +45,7 @@
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                        <i class="material-icons">fingerprint</i>
+                                        <i class="material-icons">face</i>
                                     </span>
                                 </div>
                                 <input type="text" name="username" class="form-control" placeholder="{{ __('Nombre de Usuario...') }}"
