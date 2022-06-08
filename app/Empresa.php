@@ -20,6 +20,9 @@ use Illuminate\Database\Eloquent\Model;
  * @property $created_at
  * @property $updated_at
  *
+ * @property Categoria[] $categorias
+ * @property Evento[] $eventos
+ * @property Trabajadore[] $trabajadores
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -43,5 +46,29 @@ class Empresa extends Model
     protected $fillable = ['nombre','logo','direccion','telefono','mision','vision','descripcion','instagram','facebook'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function categorias()
+    {
+        return $this->hasMany('App\Categoria', 'id_empresas', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function eventos()
+    {
+        return $this->hasMany('App\Evento', 'id_empresas', 'id');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function trabajadores()
+    {
+        return $this->hasMany('App\Trabajadore', 'id_empresas', 'id');
+    }
+    
 
 }

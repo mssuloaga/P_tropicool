@@ -26,6 +26,7 @@ class CreateEmpresasTable extends Migration
             $table->string('instagram')->nullable();
             $table->string('facebook')->nullable();
             $table->timestamps();
+
         });
     }
 
