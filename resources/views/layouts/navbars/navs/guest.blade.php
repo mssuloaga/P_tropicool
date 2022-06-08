@@ -29,7 +29,7 @@
         </li>
         {{-- <li class="nav-item ">
           <a href="#" class="nav-link">
-            <i class="material-icons">face</i> {{ __('Profile') }}
+            <i class="material-icons">face</i> {{ __('Perfil') }}
           </a>
         </li> --}}
       </ul>
