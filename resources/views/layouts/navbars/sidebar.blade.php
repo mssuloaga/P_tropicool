@@ -6,7 +6,7 @@
   -->
   <div class="logo">
     <a href="https://creative-tim.com/" class="simple-text logo-normal">
-      {{ __('Creative Tim') }}
+      {{ __('Tropicool') }}
     </a>
   </div>
   <div class="sidebar-wrapper">
@@ -53,7 +53,7 @@
       <li class="nav-item{{ $activePage == 'posts' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('posts.index') }}">
           <i class="material-icons">library_books</i>
-            <p>{{ __('Post') }}</p>
+            <p>{{ __('Publicaciones') }}</p>
         </a>
       </li>
       @endcan
@@ -61,7 +61,7 @@
       <li class="nav-item{{ $activePage == 'permissions' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('permissions.index') }}">
           <i class="material-icons">bubble_chart</i>
-          <p>{{ __('Permissions') }}</p>
+          <p>{{ __('Permisos') }}</p>
         </a>
       </li>
       @endcan
@@ -76,7 +76,7 @@
       <li class="nav-item{{ $activePage == 'notifications' ? ' active' : '' }}">
         <a class="nav-link" href="#">
           <i class="material-icons">notifications</i>
-          <p>{{ __('Notifications') }}</p>
+          <p>{{ __('Notificaciones') }}</p>
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'language' ? ' active' : '' }}">
