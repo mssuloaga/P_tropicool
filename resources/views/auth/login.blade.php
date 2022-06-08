@@ -12,7 +12,7 @@
 
                 <div class="card card-login card-hidden mb-3">
                     <div class="card-header card-header-primary text-center">
-                        <h4 class="card-title"><strong>{{ __('Entrar') }}</strong></h4>
+                        <h4 class="card-title"><strong>{{ __('Acceder') }}</strong></h4>
                         <div class="social-line">
                             <a href="#" class="btn btn-just-icon btn-link btn-white">
                                 <i class="fa fa-facebook-square"></i>
@@ -48,7 +48,7 @@
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
-                                        <i class="material-icons">face</i>
+                                        <i class="material-icons">person</i>
                                     </span>
                                 </div>
                                 <input type="text" name="username" class="form-control" placeholder="{{ __('Nombre de Usuario o Contraseña...') }}"
@@ -80,7 +80,7 @@
                         <div class="form-check mr-auto ml-3 mt-3">
                             <label class="form-check-label">
                                 <input class="form-check-input" type="checkbox" name="remember"
-                                    {{ old('remember') ? 'checked' : '' }}> {{ __('Recordar datos') }}
+                                    {{ old('remember') ? 'checked' : '' }}> {{ __('Recuérdame') }}
                                 <span class="form-check-sign">
                                     <span class="check"></span>
                                 </span>
