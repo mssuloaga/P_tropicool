@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Trabajadore
+    Categoria
 @endsection
 
 @section('content')
@@ -13,11 +13,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Trabajadore') }}
+                                {{ __('Categoria') }}
                             </span>
 
                              <div class="float-right">
-                                <a href="{{ route('trabajadores.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Create New') }}
                                 </a>
                               </div>
@@ -36,42 +36,24 @@
                                     <tr>
                                         <th>No</th>
                                         
-										<th>Imagen</th>
-										<th>Rut Usuario</th>
 										<th>Nombre</th>
-										<th>Direccion</th>
-										<th>Telefono</th>
-										<th>Email</th>
-										<th>Fecha Ingreso</th>
-										<th>Fecha Salida</th>
-										<th>Sueldo</th>
-										<th>Cargo</th>
 										<th>Id Empresas</th>
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($trabajadores as $trabajadore)
+                                    @foreach ($categorias as $categoria)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $trabajadore->imagen }}</td>
-											<td>{{ $trabajadore->rut_usuario }}</td>
-											<td>{{ $trabajadore->nombre }}</td>
-											<td>{{ $trabajadore->direccion }}</td>
-											<td>{{ $trabajadore->telefono }}</td>
-											<td>{{ $trabajadore->email }}</td>
-											<td>{{ $trabajadore->fecha_ingreso }}</td>
-											<td>{{ $trabajadore->fecha_salida }}</td>
-											<td>{{ $trabajadore->sueldo }}</td>
-											<td>{{ $trabajadore->cargo }}</td>
-											<td>{{ $trabajadore->id_empresas }}</td>
+											<td>{{ $categoria->nombre }}</td>
+											<td>{{ $categoria->id_empresas }}</td>
 
                                             <td>
-                                                <form action="{{ route('trabajadores.destroy',$trabajadore->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('trabajadores.show',$trabajadore->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('trabajadores.edit',$trabajadore->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
@@ -84,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $trabajadores->links() !!}
+                {!! $categorias->links() !!}
             </div>
         </div>
     </div>

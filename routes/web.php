@@ -32,8 +32,11 @@ Route::group(['middleware' => 'auth'], function() {
 
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
     Route::resource('roles', App\Http\Controllers\RoleController::class);
-    Route::resource('productos', App\Http\Controllers\ProductoController::class);
+    Route::resource('categorias', App\Http\Controllers\CategoriaController::class);
     Route::resource('trabajadores', App\Http\Controllers\TrabajadoreController::class);
     Route::resource('eventos', App\Http\Controllers\EventoController::class);
     Route::resource('empresas', App\Http\Controllers\EmpresaController::class);
+    Route::resource('productos', App\Http\Controllers\ProductoController::class);
+    Route::resource('calendarios', App\Http\Controllers\CalendarioController::class);
+    Route::resource('stocks', App\Http\Controllers\StockController::class);
 });

@@ -38,9 +38,11 @@
                                         
 										<th>Nombre</th>
 										<th>Direccion</th>
+										<th>Id Trabajador</th>
 										<th>Fecha Inicio</th>
 										<th>Fecha Termino</th>
 										<th>Precio</th>
+										<th>Id Empresas</th>
 
                                         <th></th>
                                     </tr>
@@ -52,9 +54,11 @@
                                             
 											<td>{{ $evento->nombre }}</td>
 											<td>{{ $evento->direccion }}</td>
+											<td>{{ $evento->id_trabajador }}</td>
 											<td>{{ $evento->fecha_inicio }}</td>
 											<td>{{ $evento->fecha_termino }}</td>
 											<td>{{ $evento->precio }}</td>
+											<td>{{ $evento->id_empresas }}</td>
 
                                             <td>
                                                 <form action="{{ route('eventos.destroy',$evento->id) }}" method="POST">

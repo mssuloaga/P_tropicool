@@ -40,6 +40,10 @@
                             <strong>Imagen:</strong>
                             {{ $producto->imagen }}
                         </div>
+                        <div class="form-group">
+                            <strong>Id Categorias:</strong>
+                            {{ $producto->id_categorias }}
+                        </div>
 
                     </div>
                 </div>

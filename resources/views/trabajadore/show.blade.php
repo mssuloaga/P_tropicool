@@ -60,6 +60,10 @@
                             <strong>Cargo:</strong>
                             {{ $trabajadore->cargo }}
                         </div>
+                        <div class="form-group">
+                            <strong>Id Empresas:</strong>
+                            {{ $trabajadore->id_empresas }}
+                        </div>
 
                     </div>
                 </div>

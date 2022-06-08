@@ -18,10 +18,14 @@ class CreateEventosTable extends Migration
             $table->bigIncrements('id');
             $table->string('nombre');
             $table->string('direccion');
+            $table->bigInteger('id_trabajador')->unsigned();
+            $table->foreign('id_trabajador')->references('id')->on('trabajadores')->onDelete("cascade");
             $table->date('fecha_inicio');
             $table->date('fecha_termino');
             $table->integer('precio');
             $table->timestamps();
+            $table->bigInteger('id_empresas')->unsigned();
+            $table->foreign('id_empresas')->references('id')->on('empresas')->onDelete("cascade");
         });
     }
 
