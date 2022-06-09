@@ -52,16 +52,7 @@
                             </div>
                         </div>
                         
-                            @if (Route::has('login'))
-                                @auth
-                                    <a href="{{ url('/home') }}">Inicio</a>
-                                @else
-                                    <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Acceder</a></li>
-                                    @if (Route::has('register'))
-                                        <li class="nav-item"><a class="nav-link" href="{{ route('register') }}">Registrar</a></li>
-                                    @endif
-                                @endauth
-                            @endif
+                            
                     </ul>
                 </div>
             </div>
