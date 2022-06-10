@@ -10,7 +10,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Trabajadore') }}
+                                {{ __('Trabajador') }}
                             </span>
 
                              <div class="float-right">                             
@@ -77,7 +77,7 @@
                                             <td>{{ $trabajadore->fecha_salida}}</td>
                                             <td>{{ $trabajadore->sueldo}}</td>
                                             <td>{{ $trabajadore->cargo}}</td>  
-                                            <td>{{ $trabajadore->id_empresas}}</td>                                            
+                                            <td>{{ $trabajadore->empresas->nombre}}</td>                                               
                                             <td>
                                                 <a href="{{ url('/trabajadores/'.$trabajadore->id.'/edit') }}" class="btn btn-warning ">
                                                 <span class="material-icons">edit</span> 

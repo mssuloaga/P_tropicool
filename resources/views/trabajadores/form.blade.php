@@ -73,10 +73,13 @@
     <input type="text" class="form-control" name="cargo" value="{{ isset($trabajadore->cargo)?$trabajadore->cargo:old('cargo')}}" id="cargo" >
 </div>
 
+
+
 <div class="form-group">
-    <label for="id_empresas"> id_empresas</label>
-    <input type="text" class="form-control" name="id_empresas" value="{{ isset($trabajadore->id_empresas)?$trabajadore->id_empresas:old('id_empresas')}}" id="id_empresas" >
-</div>
+            {{ Form::label('id_empresas') }}
+            {{ Form::select('id_empresas',$empresa, $trabajadore->id_empresas, ['class' => 'form-control' . ($errors->has('id_empresas') ? ' is-invalid' : ''), 'placeholder' => 'Id Trabajador']) }}
+            {!! $errors->first('id_empresas', '<div class="invalid-feedback">:message</div>') !!}
+</div>  
 
 
 <br>

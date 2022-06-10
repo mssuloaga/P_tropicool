@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage' => 'dashboard', 'titlePage' => __('Trabajador')])
+@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => __('Trabajador')])
 @section('content')
 <div class="container">
     <form action="{{ url('/trabajadores/'.$trabajadore->id)}}" method="post" enctype="multipart/form-data">
