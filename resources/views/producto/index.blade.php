@@ -41,6 +41,7 @@
 										<th>Precio</th>
 										<th>Cantidad</th>
 										<th>Imagen</th>
+										<th>Id Categorias</th>
 
                                         <th></th>
                                     </tr>
@@ -55,6 +56,7 @@
 											<td>{{ $producto->precio }}</td>
 											<td>{{ $producto->cantidad }}</td>
 											<td>{{ $producto->imagen }}</td>
+											<td>{{ $producto->id_categorias }}</td>
 
                                             <td>
                                                 <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">

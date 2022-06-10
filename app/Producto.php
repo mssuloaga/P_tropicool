@@ -15,7 +15,10 @@ use Illuminate\Database\Eloquent\Model;
  * @property $imagen
  * @property $created_at
  * @property $updated_at
+ * @property $id_categorias
  *
+ * @property Categoria $categoria
+ * @property Stock[] $stocks
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -27,6 +30,7 @@ class Producto extends Model
 		'descripcion' => 'required',
 		'precio' => 'required',
 		'cantidad' => 'required',
+		'id_categorias' => 'required',
     ];
 
     protected $perPage = 20;
@@ -36,8 +40,24 @@ class Producto extends Model
      *
      * @var array
      */
-    protected $fillable = ['nombre','descripcion','precio','cantidad','imagen'];
+    protected $fillable = ['nombre','descripcion','precio','cantidad','imagen','id_categorias'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function categoria()
+    {
+        return $this->hasOne('App\Categoria', 'id', 'id_categorias');
+    }
+    
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function stocks()
+    {
+        return $this->hasMany('App\Stock', 'id_productos', 'id');
+    }
+    
 
 }

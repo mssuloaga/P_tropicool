@@ -26,6 +26,11 @@
             {{ Form::text('imagen', $producto->imagen, ['class' => 'form-control' . ($errors->has('imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
             {!! $errors->first('imagen', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::label('id_categorias') }}
+            {{ Form::text('id_categorias', $producto->id_categorias, ['class' => 'form-control' . ($errors->has('id_categorias') ? ' is-invalid' : ''), 'placeholder' => 'Id Categorias']) }}
+            {!! $errors->first('id_categorias', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
 
     </div>
     <div class="box-footer mt20">

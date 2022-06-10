@@ -51,6 +51,11 @@
             {{ Form::text('cargo', $trabajadore->cargo, ['class' => 'form-control' . ($errors->has('cargo') ? ' is-invalid' : ''), 'placeholder' => 'Cargo']) }}
             {!! $errors->first('cargo', '<div class="invalid-feedback">:message</div>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::label('id_empresas') }}
+            {{ Form::text('id_empresas', $trabajadore->id_empresas, ['class' => 'form-control' . ($errors->has('id_empresas') ? ' is-invalid' : ''), 'placeholder' => 'Id Empresas']) }}
+            {!! $errors->first('id_empresas', '<div class="invalid-feedback">:message</div>') !!}
+        </div>
 
     </div>
     <div class="box-footer mt20">

@@ -5,7 +5,7 @@
       Tip 2: you can also add an image using data-image tag
   -->
   <div class="logo">
-    <a href="https://creative-tim.com/" class="simple-text logo-normal">
+    <a href="/" class="simple-text logo-normal">
       {{ __('Tropicool') }}
     </a>
   </div>
@@ -58,16 +58,16 @@
       </li>
       @endcan
       @can('role_index')
-      <li class="nav-item{{ $activePage == 'roles' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('roles.index') }}">
+      <li class="nav-item{{ $activePage == 'categorias' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('categorias.index') }}">
           <i class="material-icons">dns</i>
             <p>{{ __('Categorías') }}</p>
         </a>
       </li>
       @endcan
       @can('role_index')
-      <li class="nav-item{{ $activePage == 'roles' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('roles.index') }}">
+      <li class="nav-item{{ $activePage == 'stocks' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('stocks.index') }}">
           <i class="material-icons">inventory</i>
             <p>{{ __('Stock') }}</p>
         </a>
