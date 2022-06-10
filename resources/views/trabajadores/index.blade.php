@@ -1,33 +1,36 @@
 @extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => __('Trabajadore')])
 @section('content')
-<br><br>
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="container-fluid">
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Trabajadores</h4>
+            <p class="card-category">Lista de trabajadores registrados</p>
+          </div>
+    <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            <span id="card_title">
-                                {{ __('Trabajador') }}
-                            </span>
-
-                             <div class="float-right">                             
-                                <a href="{{ url('trabajadores/pdf') }}" class="btn btn-primary btn-sm"  data-placement="left">
+                        <div class="col-12 text-right">                                         
+                            <a href="{{ url('trabajadores/pdf') }}" class="btn btn-sm btn-facebook"  data-placement="left">
                                 {{ __('PDF') }}
-                                </a>
-                                &nbsp;
+                            </a>
+                        
+                            &nbsp;                            
 
-                             
-
-                                <a href="{{ url('trabajadores/create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Agregar') }}
-                                </a>
-
-                              </div>
-                            </div>
-                        </div>                        
+                            <a href="{{ url('trabajadores/create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                {{ __('Agregar') }}
+                            </a>
+                        </div>
+                        
+                    </div>
+                    </div>                        
                         @if(Session::has('mensaje'))
                         <div class="alert alert-success alert-dismissible" role="alert">
                             {{Session::get('mensaje')}}
@@ -41,7 +44,7 @@
                             <div class="table-responsive">
                                 <table id="Tabla1" class="table table-striped table-hover">
                                     <thead class="thead">
-                                    <thead class="thead-light">
+                                    <thead class="text-primary">
                                         <tr>
                                             <th>#</th>
                                             <th>Avatar</th>
@@ -55,7 +58,7 @@
                                             <th>Sueldo</th>
                                             <th>Cargo</th>        
                                             <th>Empresa</th>                                       
-                                            <th>Acciones</th>
+                                            <th class="text-right"> Acciones </th>
                                         </tr>
                                     </thead>
 
@@ -77,22 +80,30 @@
                                             <td>{{ $trabajadore->fecha_salida}}</td>
                                             <td>{{ $trabajadore->sueldo}}</td>
                                             <td>{{ $trabajadore->cargo}}</td>  
-                                            <td>{{ $trabajadore->empresas->nombre}}</td>                                               
-                                            <td>
-                                                <a href="{{ url('/trabajadores/'.$trabajadore->id.'/edit') }}" class="btn btn-warning ">
-                                                <span class="material-icons">edit</span> 
-                                                </a>
+                                            <td>{{ $trabajadore->empresas->nombre}}</td>     
 
-                                  
+                                            <td class="td-actions text-right">
+                                            <a class="btn btn-sm btn-primary " href="{{ route('trabajadores.show',$trabajadore->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
+                                                <a class="btn btn-sm btn-success" href="{{ url('/trabajadores/'.$trabajadore->id.'/edit') }}" class="btn btn-info"><i class="material-icons">edit</i></a>
+
+                                               
+                                                   
                                                 
-                                                    <form action="{{ url('/trabajadores/'.$trabajadore->id) }}" class="d-inline" method="post">
+                                                    <form action="{{ url('/trabajadores/'.$trabajadore->id) }}" class="d-inline" method="post" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                                         @csrf
                                                         {{ method_field('DELETE')}}
                                                         
-                                                        <input type="submit" class="btn btn-danger material-icons "  onclick="return confirm('¿Quieres borrar?')"
-                                                        value="delete"  >
+                                                       
+                                                    <button class="btn btn-danger" type="submit" rel="tooltip">
+                                                    <i class="material-icons">delete</i>
+                                                    </button>
                                                     
-                                                    </form>                                      
+                                                    </form>      
+                                                    
+                                                    
+
+
+
                                             </td>                                        
                                         </tr>
                                         @endforeach
@@ -106,3 +117,4 @@
         </div>           
     </div>    
     @endsection
+

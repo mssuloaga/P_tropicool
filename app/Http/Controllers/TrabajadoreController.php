@@ -98,9 +98,9 @@ class TrabajadoreController extends Controller
      */
     public function show($id)
     {
-       // $trabajadore = Trabajadore::find($id);
+        $trabajadore = Trabajadore::find($id);
 
-       // return view('trabajadores.show', compact('trabajadore'));
+        return view('trabajadores.show', compact('trabajadore'));
     }
 
     /**

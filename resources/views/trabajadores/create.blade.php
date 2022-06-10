@@ -1,15 +1,26 @@
 
-@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => __('Trabajadore')])
+@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => __('Trabajador')])
 @section('content')
+    <section class="content container-fluid">
+        <div class="row">
+            <div class="col-md-12">
 
-<br><br>
-<div class="container">
+                @includeif('partials.errors')
 
-    <form action="{{ url('/trabajadores') }}" method="post" enctype="multipart/form-data" >
-        @csrf
-        @include('trabajadores.form', ['modo'=>'Crear']));
-    
-    </form>
-
-</div>
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Trabajador</h4>
+                      <p class="card-category">Ingresar datos</p>
+                  </div>
+                    <div class="card-body">
+                        <form action="{{ url('/trabajadores') }}" method="post" enctype="multipart/form-data" >
+                            @csrf
+                            @include('trabajadores.form', ['modo'=>'Crear']));
+        
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 @endsection
