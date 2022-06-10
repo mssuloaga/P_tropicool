@@ -1,10 +1,5 @@
-@extends('layouts.main', ['activePage' => 'roles', 'titlePage' => 'Roles'])
 
-
-@section('template_title')
-    Create Empresa
-@endsection
-
+@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => __('Trabajador')])
 @section('content')
     <section class="content container-fluid">
         <div class="row">
@@ -14,15 +9,14 @@
 
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Empresa</h4>
+                    <h4 class="card-title">Trabajador</h4>
                       <p class="card-category">Ingresar datos</p>
                   </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('empresas.store') }}"  role="form" enctype="multipart/form-data">
+                        <form action="{{ url('/trabajadores') }}" method="post" enctype="multipart/form-data" >
                             @csrf
-
-                            @include('empresa.form')
-
+                            @include('trabajadores.form', ['modo'=>'Crear']));
+        
                         </form>
                     </div>
                 </div>

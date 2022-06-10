@@ -70,4 +70,9 @@ class Trabajadore extends Model
     }
     
 
+    public function empresas()
+    {
+      return $this->hasOne('App\Empresa','id','id_empresas');
+    }
+
 }
