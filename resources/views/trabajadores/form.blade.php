@@ -1,7 +1,7 @@
 <br><br>
 
 
-<h2>{{ $modo }} trabajador</h2>
+<h2>{{ $modo }} trabajadores</h2>
 
 
 @if(count($errors)>0)

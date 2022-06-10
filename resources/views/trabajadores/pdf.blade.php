@@ -71,7 +71,7 @@
                                             <td>{{ $trabajadore->fecha_salida}}</td>
                                             <td>{{ $trabajadore->sueldo}}</td>
                                             <td>{{ $trabajadore->cargo}}</td> 
-                                            <td>{{ $trabajadore->id_empresas}}</td>   
+                                            <td>{{ $trabajadore->empresas->nombre}}</td>   
                                             
                                         @endforeach
                                     </tbody>
