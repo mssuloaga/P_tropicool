@@ -114,7 +114,7 @@ class TrabajadoreController extends Controller
         $trabajadore = Trabajadore::find($id);
 
         $empresa=Empresa::pluck('nombre','id');
-        return view('trabajadores.create', compact('trabajadore','empresa'));
+        return view('trabajadores.edit', compact('trabajadore','empresa'));
     }
 
     /**
