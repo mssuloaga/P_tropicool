@@ -6,6 +6,7 @@ use App\Trabajadore;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use PDF;
+use App\Empresa;
 
 /**
  * Class TrabajadoreController
@@ -48,7 +49,9 @@ class TrabajadoreController extends Controller
     public function create()
     {
         $trabajadore = new Trabajadore();
-        return view('trabajadores.create', compact('trabajadore'));
+        $empresa=Empresa::pluck('nombre','id');
+        return view('trabajadores.create', compact('trabajadore','empresa'));
+       
     }
 
     /**
@@ -110,7 +113,8 @@ class TrabajadoreController extends Controller
     {
         $trabajadore = Trabajadore::find($id);
 
-        return view('trabajadores.edit', compact('trabajadore'));
+        $empresa=Empresa::pluck('nombre','id');
+        return view('trabajadores.create', compact('trabajadore','empresa'));
     }
 
     /**
