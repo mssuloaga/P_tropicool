@@ -10,7 +10,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Trabajadore') }}
+                                {{ __('Trabajador') }}
                             </span>
 
                              <div class="float-right">                             
