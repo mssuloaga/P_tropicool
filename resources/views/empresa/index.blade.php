@@ -35,7 +35,6 @@
                                 <thead class="text-primary">
                                     <tr>
                                         <th>No</th>
-                                        
 										<th>Nombre</th>
 										<th>Logo</th>
 										<th>Dirección</th>

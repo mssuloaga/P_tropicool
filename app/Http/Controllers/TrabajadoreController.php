@@ -175,6 +175,6 @@ class TrabajadoreController extends Controller
         $trabajadore = Trabajadore::find($id)->delete();
 
         return redirect()->route('trabajadores.index')
-            ->with('success', 'Trabajadore deleted successfully');
+            ->with('success', 'Trabajador eliminado con éxito');
     }
 }

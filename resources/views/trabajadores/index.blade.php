@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => __('Trabajadore')])
+@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => __('Trabajadores')])
 @section('content')
 
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -11,41 +11,36 @@
             <h4 class="card-title">Trabajadores</h4>
             <p class="card-category">Lista de trabajadores registrados</p>
           </div>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div style="display: flex; justify-content: space-between; align-items: center;">
-                        <div class="col-12 text-right">                                         
-                            <a href="{{ url('trabajadores/pdf') }}" class="btn btn-sm btn-facebook"  data-placement="left">
-                                {{ __('PDF') }}
-                            </a>
-                        
-                            &nbsp;                            
-
-                            <a href="{{ url('trabajadores/create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                {{ __('Agregar') }}
-                            </a>
-                        </div>
-                        
-                    </div>
-                    </div>                        
-                        @if(Session::has('mensaje'))
-                        <div class="alert alert-success alert-dismissible" role="alert">
-                            {{Session::get('mensaje')}}
-                            <button type="button" class="close" data-dismiss="alert" aria-label="lose">
-                            <span aria-hidden="true">&times; </span>
-                            </button>
-                        </div>
-                        @endif    
-
-                        <div class="card-body">
-                            <div class="table-responsive">
-                                <table id="Tabla1" class="table table-striped table-hover">
-                                    <thead class="thead">
-                                    <thead class="text-primary">
-                                        <tr>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <div style="display: flex; justify-content: space-between; align-items: center;">
+                                    <div class="col-12 text-right">                                         
+                                        &nbsp;  
+                                        <a href="{{ url('trabajadores/pdf') }}" class="btn btn-sm btn-danger" >
+                                            {{ __('PDF') }}
+                                        </a>
+                                        <a href="{{ url('trabajadores/create') }}"  class="btn btn-sm btn-facebook">
+                                            {{ __('Añadir trabajador') }}
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>                        
+                            @if(Session::has('mensaje'))
+                            <div class="alert alert-success alert-dismissible" role="alert">
+                                {{Session::get('mensaje')}}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="lose">
+                                    <span aria-hidden="true">&times; </span>
+                                </button>
+                            </div>
+                            @endif    
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table  class="table">
+                                        <thead class="text-primary">
+                                            <tr>
                                             <th>#</th>
                                             <th>Avatar</th>
                                             <th>Rut</th>
@@ -59,12 +54,12 @@
                                             <th>Cargo</th>        
                                             <th>Empresa</th>                                       
                                             <th class="text-right"> Acciones </th>
-                                        </tr>
-                                    </thead>
+                                            </tr>
+                                        </thead>
 
-                                    <tbody>
-                                        @foreach($trabajadore as $trabajadore)
-                                        <tr>
+                                        <tbody>
+                                            @foreach($trabajadore as $trabajadore)
+                                            <tr>
                                             <td>{{ $trabajadore->id}}</td>
                                             
                                             <td>
@@ -83,38 +78,32 @@
                                             <td>{{ $trabajadore->empresas->nombre}}</td>     
 
                                             <td class="td-actions text-right">
-                                            <a class="btn btn-sm btn-primary " href="{{ route('trabajadores.show',$trabajadore->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
+                                                <a class="btn btn-sm btn-primary " href="{{ route('trabajadores.show',$trabajadore->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
                                                 <a class="btn btn-sm btn-success" href="{{ url('/trabajadores/'.$trabajadore->id.'/edit') }}" class="btn btn-info"><i class="material-icons">edit</i></a>
-
-                                               
-                                                   
                                                 
-                                                    <form action="{{ url('/trabajadores/'.$trabajadore->id) }}" class="d-inline" method="post" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
-                                                        @csrf
-                                                        {{ method_field('DELETE')}}
+                                                <form action="{{ url('/trabajadores/'.$trabajadore->id) }}" class="d-inline" method="post" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
+                                                    @csrf
+                                                    {{ method_field('DELETE')}}
                                                         
-                                                       
                                                     <button class="btn btn-danger" type="submit" rel="tooltip">
-                                                    <i class="material-icons">delete</i>
+                                                        <i class="material-icons">delete</i>
                                                     </button>
                                                     
-                                                    </form>      
-                                                    
-                                                    
-
-
-
+                                                </form>                                        
                                             </td>                                        
-                                        </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
-                            </div>                            
-                        
-                </div>
-              
-            </div>                  
-        </div>           
-    </div>    
-    @endsection
-
+                                            </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>                            
+                            </div>
+                        </div>
+                    </div>                  
+                </div>           
+            </div>    
+        </div>
+    </div>
+    </div>
+</div>
+</div>
+@endsection

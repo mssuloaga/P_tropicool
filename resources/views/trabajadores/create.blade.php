@@ -15,7 +15,7 @@
                     <div class="card-body">
                         <form action="{{ url('/trabajadores') }}" method="post" enctype="multipart/form-data" >
                             @csrf
-                            @include('trabajadores.form', ['modo'=>'Crear']));
+                            @include('trabajadores.form', ['modo'=>'Crear'])
         
                         </form>
                     </div>

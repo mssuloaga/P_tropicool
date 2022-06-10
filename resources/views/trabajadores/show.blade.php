@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage' => 'empresas', 'titlePage' => 'Detalles de los trabajadores'])
+@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => 'Detalles del trabajador'])
 
 @section('content')
     <section class="content container-fluid">
@@ -7,15 +7,13 @@
                 <div class="card ">
                     <div class="card-header card-header-primary">
                         <div class="card-title">Trabajador</div>
-                            <p class="card-category">Vista detallada del trabajador: {{ $trabajadore->nombre }}</p>
+                            <p class="card-category">Vista detallada de {{ $trabajadore->nombre }}</p>
                     </div>
 
-                    <div class="col-md-4">
+                    <div class="col-md-12">
                         <div class="card card-user">
                             <div class="card-body">
-                                <table class="table table-bordered table-striped">
-                               
-
+                                <table class="table table-bordered table-responsive table-striped ">
                                     <tbody>
                                         <tr>
                                             <th>Id</th>
@@ -75,25 +73,21 @@
                                         <tr>
                                             <th>Empresa</th>
                                             <td>{{ $trabajadore->empresas->nombre}}</td>  
-                                        </tr>
-                                            
-                                             
-                                            
-                                        
-                                    </tbody>
-                        
-                        </table>
-                    </div>
+                                        </tr>                                        
+                                    </tbody>                       
+                                </table>
+                            </div>
                     
-                    <div class="card-footer ">
-                        <div class="button-container">
-                            <a href="{{ url('trabajadores/') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
+                            <div class="card-footer ">
+                                <div class="button-container">
+                                    <a href="{{ url('trabajadores/') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
+
                 </div>
             </div>
-        </div>
         </div>
     </section>
 @endsection
