@@ -88,7 +88,7 @@ class TrabajadoreController extends Controller
         }
         Trabajadore::insert($datoTrabajador); //Inserta los datos a la bbdd
         //return response()->json($datoTrabajador);
-        return redirect('trabajadores')->with('mensaje','Trabajador agregado con exito');
+        return redirect('trabajadores')->with('mensaje','Trabajador agregado con éxito');
     }
     /**
      * Display the specified resource.

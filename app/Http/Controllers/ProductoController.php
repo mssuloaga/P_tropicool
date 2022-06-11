@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Producto;
+use App\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class ProductoController
@@ -32,7 +34,8 @@ class ProductoController extends Controller
     public function create()
     {
         $producto = new Producto();
-        return view('producto.create', compact('producto'));
+        $categorias=Categoria::all();
+        return view('producto.create', compact('producto','categorias'));
     }
 
     /**
@@ -73,8 +76,8 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
-
-        return view('producto.edit', compact('producto'));
+        $categorias=Categoria::all();
+        return view('producto.edit', compact('producto','categorias'));
     }
 
     /**
