@@ -51,7 +51,7 @@ class StockController extends Controller
         $stock = Stock::create($request->all());
 
         return redirect()->route('stocks.index')
-            ->with('success', 'Stock created successfully.');
+            ->with('success', 'Stock creado con éxito');
     }
 
     /**
@@ -94,7 +94,7 @@ class StockController extends Controller
         $stock->update($request->all());
 
         return redirect()->route('stocks.index')
-            ->with('success', 'Stock updated successfully');
+            ->with('success', 'Stock actualizado con éxito');
     }
 
     /**
@@ -107,6 +107,6 @@ class StockController extends Controller
         $stock = Stock::find($id)->delete();
 
         return redirect()->route('stocks.index')
-            ->with('success', 'Stock deleted successfully');
+            ->with('success', '');
     }
 }
