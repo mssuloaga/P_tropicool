@@ -1,8 +1,5 @@
-@extends('layouts.app')
+@extends('layouts.main', ['activePage' => 'categorias', 'titlePage' => 'Categorías'])
 
-@section('template_title')
-    Create Categoria
-@endsection
 
 @section('content')
     <section class="content container-fluid">
@@ -11,10 +8,11 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Create Categoria</span>
-                    </div>
+                <div class="card">
+                  <div class="card-header card-header-primary">
+                    <h4 class="card-title">Categorías</h4>
+                      <p class="card-category">Ingresar datos</p>
+                  </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('categorias.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
