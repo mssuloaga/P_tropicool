@@ -1,9 +1,5 @@
 @extends('layouts.main', ['activePage' => 'stocks', 'titlePage' => 'Stocks'])
 
-@section('template_title')
-    Create Stock
-@endsection
-
 @section('content')
     <section class="content container-fluid">
         <div class="row">
@@ -13,7 +9,7 @@
 
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Stock</h4>
+                    <h4 class="card-title">Stocks</h4>
                       <p class="card-category">Ingresar datos</p>
                   </div>
                     <div class="card-body">

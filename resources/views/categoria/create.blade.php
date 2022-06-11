@@ -1,6 +1,5 @@
 @extends('layouts.main', ['activePage' => 'categorias', 'titlePage' => 'Categorías'])
 
-
 @section('content')
     <section class="content container-fluid">
         <div class="row">

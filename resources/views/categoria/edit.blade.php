@@ -1,9 +1,5 @@
 @extends('layouts.main', ['activePage' => 'categorias', 'titlePage' => 'Editar categoría'])
 
-@section('template_title')
-    Update Categoria
-@endsection
-
 @section('content')
     <section class="content container-fluid">
         <div class="">
