@@ -39,8 +39,8 @@
 										<th>Logo</th>
 										<th>Dirección</th>
 										<th>Teléfono</th>
-										<th>Mision</th>
-										<th>Vision</th>
+										<th>Misión</th>
+										<th>Visión</th>
 										<th>Descripción</th>
 										<th>Instagram</th>
 										<th>Facebook</th>
