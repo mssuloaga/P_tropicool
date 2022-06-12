@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Evento;
 use Illuminate\Http\Request;
-use App\Empresa;
+use App\Trabajadore;
 use Illuminate\Support\Facades\Storage;
 
 /**
@@ -34,8 +34,8 @@ class EventoController extends Controller
     public function create()
     {
         $evento = new Evento();
-        $empresa=Empresa::pluck('nombre','id');
-        return view('evento.create', compact('evento','empresa'));
+        $trabajadores=Trabajadore::pluck('nombre','id');
+        return view('evento.create', compact('evento','trabajadores'));
     }
 
     /**
@@ -76,8 +76,8 @@ class EventoController extends Controller
     public function edit($id)
     {
         $evento = Evento::find($id);
-        $empresa=Empresa::pluck('nombre','id');
-        return view('evento.edit', compact('evento','empresa'));
+        $trabajadores=Trabajadore::pluck('nombre','id');
+        return view('evento.edit', compact('evento','trabajadores'));
     }
 
     /**

@@ -17,11 +17,15 @@
         </div>  
             
         <div class="row">
-        <label  class="col-sm-2 col-form-label"> ID Trabajador</label>
+        <label  class="col-sm-2 col-form-label">Trabajador</label>
             <div class="col-sm-7">
+            {{form::text('id_trabajador', $evento->id_trabajador, ['class' => 'form-control' . ($errors->has('id_trabajador') ? ' is-invalid' : ''), 'placeholder' => 'id_trabajador']) }}
+                    {!! $errors->first('id_trabajador', '<div class="invalid-feedback">:message</div>') !!}
 
             </div>
         </div>
+
+        
 
         <div class="row">
             <label class="col-sm-2 col-form-label">Fecha Inicio</label>
@@ -37,13 +41,6 @@
                     {{ Form::date('fecha_termino', $evento->fecha_termino, ['class' => 'form-control' . ($errors->has('fecha_termino') ? ' is-invalid' : ''), 'placeholder' => 'fecha término']) }}
                     {!! $errors->first('fecha_termino', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
-        </div>
-
-        <div class="row">
-            <label class="col-sm-2 col-form-label">ID Empresa</label>
-                <div class="col-sm-7">
-
-            </div>
         </div>
 
     
