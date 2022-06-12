@@ -41,7 +41,7 @@
 										<th>Fecha Inicio</th>
 										<th>Fecha Término</th>
 										<th>Precio</th>		
-                                        <th>Empresa</th>								
+                                      								
                                         <th class="text-right"> Acciones </th>
                                         <th></th>
                                     </tr>
@@ -57,7 +57,7 @@
 											<td>{{ $evento->fecha_inicio }}</td>
 											<td>{{ $evento->fecha_termino }}</td>
 											<td>{{ $evento->precio }}</td>
-                                            <td>{{ $evento->empresas->nombre}}</td>
+                                            
 
                                             <td class="td-actions text-right">
                                                 
