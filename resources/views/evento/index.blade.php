@@ -1,27 +1,27 @@
-@extends('layouts.main', ['activePage' => 'eventos', 'titlePage' => 'Eventos'])
+@extends('layouts.app')
+
+@section('template_title')
+    Evento
+@endsection
 
 @section('content')
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Eventos</h4>
-            <p class="card-category">Lista de eventos registrados</p>
-          </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                        
-                        <div class="col-12 text-right">
-                            <a href="{{ route('eventos.create') }}" class="btn btn-sm btn-facebook">Añadir evento</a>
+
+                            <span id="card_title">
+                                {{ __('Evento') }}
+                            </span>
+
+                             <div class="float-right">
+                                <a href="{{ route('eventos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Create New') }}
+                                </a>
+                              </div>
                         </div>
-                        
-                    </div>
                     </div>
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -31,18 +31,12 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table ">
-                                <thead class="text-primary">
+                            <table class="table table-striped table-hover">
+                                <thead class="thead">
                                     <tr>
-                                        <th>ID</th>
-										<th>Nombre</th>
-										<th>Dirección</th>
-										<th>Trabajador</th>
-										<th>Fecha Inicio</th>
-										<th>Fecha Término</th>
-										<th>Precio</th>		
-                                      								
-                                        <th class="text-right"> Acciones </th>
+                                        <th>No</th>
+                                        
+
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -51,25 +45,15 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $evento->nombre }}</td>
-											<td>{{ $evento->direccion }}</td>
-											<td>{{ $evento->trabajadore->nombre }}</td>
-											<td>{{ $evento->fecha_inicio }}</td>
-											<td>{{ $evento->fecha_termino }}</td>
-											<td>{{ $evento->precio }}</td>
-                                            
 
-                                            <td class="td-actions text-right">
-                                                
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('eventos.show',$evento->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('eventos.edit',$evento->id) }}" class="btn btn-info"><i class="material-icons">edit</i></a>
-                                                    <form action="{{ route('eventos.destroy',$evento->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
+                                            <td>
+                                                <form action="{{ route('eventos.destroy',$evento->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('eventos.show',$evento->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('eventos.edit',$evento->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit" rel="tooltip">
-                                                    <i class="material-icons">delete</i>
-                                                    </button>
-                                                    </form>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -82,9 +66,4 @@
             </div>
         </div>
     </div>
-    </div>
-      </div>
-    </div>
-  </div>
-</div>
 @endsection

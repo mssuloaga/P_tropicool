@@ -4,9 +4,6 @@ namespace App\Http\Controllers;
 
 use App\Evento;
 use Illuminate\Http\Request;
-use App\Trabajadore;
-use App\Empresa;
-use Illuminate\Support\Facades\Storage;
 
 /**
  * Class EventoController
@@ -35,8 +32,7 @@ class EventoController extends Controller
     public function create()
     {
         $evento = new Evento();
-        $trabajadores=Trabajadore::all();
-        return view('evento.create', compact('evento','trabajadores'));
+        return view('evento.create', compact('evento'));
     }
 
     /**
@@ -52,7 +48,7 @@ class EventoController extends Controller
         $evento = Evento::create($request->all());
 
         return redirect()->route('eventos.index')
-            ->with('success', 'Evento creado con éxito');
+            ->with('success', 'Evento created successfully.');
     }
 
     /**
@@ -77,8 +73,8 @@ class EventoController extends Controller
     public function edit($id)
     {
         $evento = Evento::find($id);
-        $trabajadores=Trabajadore::all();
-        return view('evento.edit', compact('evento','trabajadores'));
+
+        return view('evento.edit', compact('evento'));
     }
 
     /**
@@ -95,7 +91,7 @@ class EventoController extends Controller
         $evento->update($request->all());
 
         return redirect()->route('eventos.index')
-            ->with('success', 'Evento actualizado con éxito');
+            ->with('success', 'Evento updated successfully');
     }
 
     /**
@@ -108,6 +104,6 @@ class EventoController extends Controller
         $evento = Evento::find($id)->delete();
 
         return redirect()->route('eventos.index')
-            ->with('success', '');
+            ->with('success', 'Evento deleted successfully');
     }
 }
