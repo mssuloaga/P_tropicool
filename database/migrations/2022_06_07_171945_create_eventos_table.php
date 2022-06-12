@@ -14,13 +14,7 @@ class CreateEventosTable extends Migration
     public function up()
     {
         Schema::create('eventos', function (Blueprint $table) {
-            $table->engine="InnoDB";
-            $table->bigIncrements('id');
-            $table->string('nombre');
-            $table->string('direccion');
-            $table->date('fecha_inicio');
-            $table->date('fecha_termino');
-            $table->integer('precio');
+            $table->id();
             $table->timestamps();
         });
     }
