@@ -104,6 +104,6 @@ class EmpresaController extends Controller
         $empresa = Empresa::find($id)->delete();
 
         return redirect()->route('empresas.index')
-            ->with('success', 'Empresa eliminada con éxito');
+            ->with('success', '');
     }
 }

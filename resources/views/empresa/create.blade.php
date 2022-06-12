@@ -1,5 +1,4 @@
-@extends('layouts.main', ['activePage' => 'roles', 'titlePage' => 'Roles'])
-
+@extends('layouts.main', ['activePage' => 'empresas', 'titlePage' => 'Empresas'])
 
 @section('template_title')
     Create Empresa

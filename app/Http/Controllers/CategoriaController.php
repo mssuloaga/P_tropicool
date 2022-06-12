@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Empresa;
 use App\Categoria;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class CategoriaController
@@ -32,7 +33,8 @@ class CategoriaController extends Controller
     public function create()
     {
         $categoria = new Categoria();
-        return view('categoria.create', compact('categoria'));
+        $empresas=Empresa::all();
+        return view('categoria.create', compact('categoria','empresas'));
     }
 
     /**
@@ -48,7 +50,7 @@ class CategoriaController extends Controller
         $categoria = Categoria::create($request->all());
 
         return redirect()->route('categorias.index')
-            ->with('success', 'Categoria created successfully.');
+            ->with('success', 'Categoría creada con éxito');
     }
 
     /**
@@ -73,8 +75,8 @@ class CategoriaController extends Controller
     public function edit($id)
     {
         $categoria = Categoria::find($id);
-
-        return view('categoria.edit', compact('categoria'));
+        $empresas=Empresa::all();
+        return view('categoria.edit', compact('categoria','empresas'));
     }
 
     /**
@@ -91,7 +93,7 @@ class CategoriaController extends Controller
         $categoria->update($request->all());
 
         return redirect()->route('categorias.index')
-            ->with('success', 'Categoria updated successfully');
+            ->with('success', 'Categoría actualizada con éxito');
     }
 
     /**
@@ -104,6 +106,6 @@ class CategoriaController extends Controller
         $categoria = Categoria::find($id)->delete();
 
         return redirect()->route('categorias.index')
-            ->with('success', 'Categoria deleted successfully');
+            ->with('success', '');
     }
 }

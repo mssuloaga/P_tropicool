@@ -24,8 +24,7 @@ class CreateEventosTable extends Migration
             $table->date('fecha_termino');
             $table->integer('precio');
             $table->timestamps();
-            $table->bigInteger('id_empresas')->unsigned();
-            $table->foreign('id_empresas')->references('id')->on('empresas')->onDelete("cascade");
+            
         });
     }
 

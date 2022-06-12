@@ -1,5 +1,4 @@
-@extends('layouts.main', ['activePage' => 'categorias', 'titlePage' => 'Editar categoría'])
-
+@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => 'Editar trabajador'])
 @section('content')
     <section class="content container-fluid">
         <div class="">
@@ -9,15 +8,15 @@
 
                 <div class="card">
                     <div class="card-header card-header-primary">
-                        <h4 class="card-title">Categoría</h4>
+                        <h4 class="card-title">Trabajador</h4>
                         <p class="card-category">Editar datos</p>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('categorias.update', $categoria->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('trabajadores.update', $trabajadore->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('categoria.form')
+                            @include('trabajadore.form')
 
                         </form>
                     </div>

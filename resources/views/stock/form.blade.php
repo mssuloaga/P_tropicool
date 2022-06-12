@@ -1,19 +1,33 @@
-<div class="box box-info padding-1">
-    <div class="box-body">
+<div class="card-body">
         
-        <div class="form-group">
-            {{ Form::label('cantidad') }}
-            {{ Form::text('cantidad', $stock->cantidad, ['class' => 'form-control' . ($errors->has('cantidad') ? ' is-invalid' : ''), 'placeholder' => 'Cantidad']) }}
-            {!! $errors->first('cantidad', '<div class="invalid-feedback">:message</div>') !!}
+    <div class="row">
+        <label  class="col-sm-2 col-form-label">Cantidad</label>
+            <div class="col-sm-7">
+                {{ Form::text('cantidad', $stock->cantidad, ['class' => 'form-control' . ($errors->has('cantidad') ? ' is-invalid' : ''), 'placeholder' => 'Cantidad']) }}
+                {!! $errors->first('cantidad', '<div class="invalid-feedback">:message</div>') !!}
+            </div>
+    </div>
+    
+    <div class="row">
+            <label  class="col-sm-2 col-form-label">Producto</label>
+            <div class="col-sm-7">
+                    <select name="id_productos" id="input" class="form-control">
+                        <option value="">Seleccione producto</option>
+                        @foreach ($productos as $producto)
+                            <option value="{{ $producto['id'] }}">{{$producto['nombre']}}</option>
+                        @endforeach
+                    </select>
+            </div>
         </div>
-        <div class="form-group">
-            {{ Form::label('id_productos') }}
-            {{ Form::text('id_productos', $stock->id_productos, ['class' => 'form-control' . ($errors->has('id_productos') ? ' is-invalid' : ''), 'placeholder' => 'Id Productos']) }}
-            {!! $errors->first('id_productos', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+    <div>
 
-    </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
 </div>
+
+<div class="row text-center">
+        <div class="card-footer ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <div class="m-4">
+                <a href="{{ route('stocks.index') }}" class="btn btn-success mr-3"> Volver </a>                
+            </div>
+        </div>
+    </div>
