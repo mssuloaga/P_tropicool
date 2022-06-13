@@ -1,8 +1,5 @@
-@extends('layouts.main', ['activePage' => 'eventos', 'titlePage' => 'Evento'])
+@extends('layouts.main', ['activePage' => 'eventos', 'titlePage' => 'Eventos'])
 
-@section('template_title')
-    Create Evento
-@endsection
 
 @section('content')
     <section class="content container-fluid">
@@ -13,7 +10,7 @@
 
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Evento</h4>
+                    <h4 class="card-title">Eventos</h4>
                       <p class="card-category">Ingresar datos</p>
                   </div>
                     <div class="card-body">

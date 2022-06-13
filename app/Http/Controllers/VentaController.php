@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Evento;
+use App\Venta;
 use Illuminate\Http\Request;
 
 /**
- * Class EventoController
+ * Class VentaController
  * @package App\Http\Controllers
  */
-class EventoController extends Controller
+class VentaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class EventoController extends Controller
      */
     public function index()
     {
-        $eventos = Evento::paginate();
+        $ventas = Venta::paginate();
 
-        return view('evento.index', compact('eventos'))
-            ->with('i', (request()->input('page', 1) - 1) * $eventos->perPage());
+        return view('venta.index', compact('ventas'))
+            ->with('i', (request()->input('page', 1) - 1) * $ventas->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class EventoController extends Controller
      */
     public function create()
     {
-        $evento = new Evento();
-        return view('evento.create', compact('evento'));
+        $venta = new Venta();
+        return view('venta.create', compact('venta'));
     }
 
     /**
@@ -43,12 +43,12 @@ class EventoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Evento::$rules);
+        request()->validate(Venta::$rules);
 
-        $evento = Evento::create($request->all());
+        $venta = Venta::create($request->all());
 
-        return redirect()->route('eventos.index')
-            ->with('success', 'Evento creado con éxito');
+        return redirect()->route('ventas.index')
+            ->with('success', 'Venta created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class EventoController extends Controller
      */
     public function show($id)
     {
-        $evento = Evento::find($id);
+        $venta = Venta::find($id);
 
-        return view('evento.show', compact('evento'));
+        return view('venta.show', compact('venta'));
     }
 
     /**
@@ -72,26 +72,26 @@ class EventoController extends Controller
      */
     public function edit($id)
     {
-        $evento = Evento::find($id);
+        $venta = Venta::find($id);
 
-        return view('evento.edit', compact('evento'));
+        return view('venta.edit', compact('venta'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Evento $evento
+     * @param  Venta $venta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Evento $evento)
+    public function update(Request $request, Venta $venta)
     {
-        request()->validate(Evento::$rules);
+        request()->validate(Venta::$rules);
 
-        $evento->update($request->all());
+        $venta->update($request->all());
 
-        return redirect()->route('eventos.index')
-            ->with('success', 'Evento actualizado con éxito');
+        return redirect()->route('ventas.index')
+            ->with('success', 'Venta updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class EventoController extends Controller
      */
     public function destroy($id)
     {
-        $evento = Evento::find($id)->delete();
+        $venta = Venta::find($id)->delete();
 
-        return redirect()->route('eventos.index')
-            ->with('success', '');
+        return redirect()->route('ventas.index')
+            ->with('success', 'Venta deleted successfully');
     }
 }

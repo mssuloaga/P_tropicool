@@ -1,6 +1,6 @@
 @extends('layouts.main', ['activePage' => 'eventos', 'titlePage' => 'Eventos'])
-
 @section('content')
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="content">
   <div class="container-fluid">
     <div class="row">
@@ -37,13 +37,11 @@
                                         <th>ID</th>
 										<th>Nombre</th>
 										<th>Dirección</th>
-										<th>Trabajador</th>
-										<th>Fecha Inicio</th>
-										<th>Fecha Término</th>
-										<th>Precio</th>		
-                                        <th>Empresa</th>								
+                                        <th>Costo</th>
+                                        <th>Fecha Inicio</th>
+                                        <th>Fecha Término</th>
+										
                                         <th class="text-right"> Acciones </th>
-                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,11 +51,10 @@
                                             
 											<td>{{ $evento->nombre }}</td>
 											<td>{{ $evento->direccion }}</td>
-											<td>{{ $evento->trabajadore->nombre }}</td>
-											<td>{{ $evento->fecha_inicio }}</td>
-											<td>{{ $evento->fecha_termino }}</td>
-											<td>{{ $evento->precio }}</td>
-                                            <td>{{ $evento->empresas->nombre}}</td>
+                                            <td>{{ $evento->precio }}</td>
+                                            <td>{{ $evento->fecha_inicio }}</td>
+                                            <td>{{ $evento->fecha_termino }}</td>
+
 
                                             <td class="td-actions text-right">
                                                 

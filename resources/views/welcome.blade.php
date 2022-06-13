@@ -41,18 +41,21 @@
                         <li class="nav-item"><a class="nav-link" href="/">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">¿Quiénes somos?</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">Contacto</a></li>
-
-                        <div class="dropdown">
-                            <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            
-                            </button>
+                        @if (Route::has('login'))
+                            @auth
+                                <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Perfil</a></li>
+                            @else
+                            <div class="dropdown">
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                            <a class="dropdown-item" href="{{ route('login') }}">Acceder</a>
-                            <a class="dropdown-item" href="{{ route('register') }}">Registrarse</a>
+                                <li class="nav-item"><a class="dropdown-item" href="{{ route('login') }}">Acceder</a></li>
+                                @if (Route::has('register'))
+                                    <li class="nav-item"><a class="dropdown-item" href="{{ route('register') }}">Registrarse</a></li>
+                                @endif
+                            @endauth
+                        @endif
                             </div>
-                        </div>
-                        
-                            
+                        </div>  
                     </ul>
                 </div>
             </div>

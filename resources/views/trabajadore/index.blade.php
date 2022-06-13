@@ -18,7 +18,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                         
                         <div class="col-12 text-right">
-                            <a href="{{ route('trabajadores.create') }}" class="btn btn-sm btn-facebook">Añadir categoría</a>
+                            <a href="{{ route('trabajadores.create') }}" class="btn btn-sm btn-facebook">Añadir trabajador</a>
                         </div>
                         
                     </div>
