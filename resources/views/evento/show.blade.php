@@ -20,6 +20,34 @@
 
                     <div class="card-body">
                         
+                        <div class="form-group">
+                            <strong>Nombre:</strong>
+                            {{ $evento->nombre }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Direccion:</strong>
+                            {{ $evento->direccion }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Id Trabajador:</strong>
+                            {{ $evento->id_trabajador }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Fecha Inicio:</strong>
+                            {{ $evento->fecha_inicio }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Fecha Termino:</strong>
+                            {{ $evento->fecha_termino }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Precio:</strong>
+                            {{ $evento->precio }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Id Empresas:</strong>
+                            {{ $evento->id_empresas }}
+                        </div>
 
                     </div>
                 </div>
