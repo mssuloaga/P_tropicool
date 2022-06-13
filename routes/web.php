@@ -18,9 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
-
-Route::get('productos/pdf', function () {
+Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
 
@@ -47,8 +45,4 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('calendarios', App\Http\Controllers\CalendarioController::class);
     Route::resource('stocks', App\Http\Controllers\StockController::class);
     Route::get('trabajadores/pdf', [App\Http\Controllers\TrabajadoreController::class, 'pdf'])->name('trabajadores.pdf');
-
-    Route::get('empresas/pdf', function () {
-        return view('welcome');
-    });
 });
