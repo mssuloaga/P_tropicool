@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage' => 'eventos', 'titlePage' => 'Evento'])
+@extends('layouts.app')
 
 @section('template_title')
     Create Evento
@@ -11,11 +11,10 @@
 
                 @includeif('partials.errors')
 
-                <div class="card">
-                  <div class="card-header card-header-primary">
-                    <h4 class="card-title">Evento</h4>
-                      <p class="card-category">Ingresar datos</p>
-                  </div>
+                <div class="card card-default">
+                    <div class="card-header">
+                        <span class="card-title">Create Evento</span>
+                    </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('eventos.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
