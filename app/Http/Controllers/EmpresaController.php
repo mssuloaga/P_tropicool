@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use \PDF;
+
 use App\Empresa;
 use Illuminate\Http\Request;
 
@@ -22,14 +22,6 @@ class EmpresaController extends Controller
 
         return view('empresa.index', compact('empresas'))
             ->with('i', (request()->input('page', 1) - 1) * $empresas->perPage());
-    }
-
-    public function downloadPdf()
-    {
-        $empresas = Empresa::all();
-        view()->share('empresa.exportpdf', $empresas);
-        $dompdf = PDF::loadView('empresa.exportpdf', compact('empresas'));
-        return $dompdf->download('empresa.pdf');
     }
 
     /**
@@ -56,7 +48,7 @@ class EmpresaController extends Controller
         $empresa = Empresa::create($request->all());
 
         return redirect()->route('empresas.index')
-            ->with('success', 'Empresa creada con éxito');
+            ->with('success', 'Empresa created successfully.');
     }
 
     /**
@@ -99,7 +91,7 @@ class EmpresaController extends Controller
         $empresa->update($request->all());
 
         return redirect()->route('empresas.index')
-            ->with('success', 'Empresa actualizada con éxito');
+            ->with('success', 'Empresa updated successfully');
     }
 
     /**
@@ -112,6 +104,6 @@ class EmpresaController extends Controller
         $empresa = Empresa::find($id)->delete();
 
         return redirect()->route('empresas.index')
-            ->with('success', '');
+            ->with('success', 'Empresa deleted successfully');
     }
 }

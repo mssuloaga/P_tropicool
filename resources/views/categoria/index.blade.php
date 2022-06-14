@@ -1,28 +1,27 @@
-@extends('layouts.main', ['activePage' => 'categorias', 'titlePage' => 'Categoría'])
+@extends('layouts.app')
+
+@section('template_title')
+    Categoria
+@endsection
+
 @section('content')
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-<div class="content">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card">
-          <div class="card-header card-header-primary">
-            <h4 class="card-title">Categoría</h4>
-            <p class="card-category">Lista de categorías registradas</p>
-          </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                        
-                        <div class="col-12 text-right">
-                            <a href="{{ route('categorias.create') }}" class="btn btn-sm btn-facebook">Añadir categoría</a>
-                            <a href="download_pdfcategorias" class="btn btn-sm btn-facebook">PDF</a>
+
+                            <span id="card_title">
+                                {{ __('Categoria') }}
+                            </span>
+
+                             <div class="float-right">
+                                <a href="{{ route('categorias.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Create New') }}
+                                </a>
+                              </div>
                         </div>
-                        
-                    </div>
                     </div>
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -32,14 +31,15 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table ">
-                                <thead class="text-primary">
+                            <table class="table table-striped table-hover">
+                                <thead class="thead">
                                     <tr>
-                                        <th>ID</th>
+                                        <th>No</th>
+                                        
 										<th>Nombre</th>
-										<th>Empresa</th>
-										
-                                        <th class="text-right"> Acciones </th>
+										<th>Id Empresas</th>
+
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -48,19 +48,16 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $categoria->nombre }}</td>
-											<td>{{ $categoria->empresa->nombre }}</td>
+											<td>{{ $categoria->id_empresas }}</td>
 
-                                            <td class="td-actions text-right">
-                                                
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}" class="btn btn-info"><i class="material-icons">edit</i></a>
-                                                    <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
+                                            <td>
+                                                <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit" rel="tooltip">
-                                                    <i class="material-icons">delete</i>
-                                                    </button>
-                                                    </form>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -73,9 +70,4 @@
             </div>
         </div>
     </div>
-    </div>
-      </div>
-    </div>
-  </div>
-</div>
 @endsection

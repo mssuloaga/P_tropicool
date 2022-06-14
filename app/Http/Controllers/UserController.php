@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use \PDF;
+
 use App\Http\Requests\UserCreateRequest;
 use App\Http\Requests\UserEditRequest;
 use App\Models\User;
@@ -16,14 +16,6 @@ class UserController extends Controller
         abort_if(Gate::denies('user_index'), 403);
         $users = User::paginate(5);
         return view('users.index', compact('users'));
-    }
-
-    public function downloadPdf()
-    {
-        $users = User::all();
-        view()->share('users.exportpdf', $users);
-        $dompdf = PDF::loadView('users.exportpdf', compact('users'));
-        return $dompdf->download('user.pdf');
     }
 
     public function create()
@@ -48,7 +40,7 @@ class UserController extends Controller
 
         $roles = $request->input('roles', []);
         $user->syncRoles($roles);
-        return redirect()->route('users.show', $user->id)->with('success', 'Usuario creado con éxito');
+        return redirect()->route('users.show', $user->id)->with('success', 'Usuario creado correctamente');
     }
 
     public function show(User $user)
@@ -88,7 +80,7 @@ class UserController extends Controller
 
         $roles = $request->input('roles', []);
         $user->syncRoles($roles);
-        return redirect()->route('users.show', $user->id)->with('success', 'Usuario actualizado con éxito');
+        return redirect()->route('users.show', $user->id)->with('success', 'Usuario actualizado correctamente');
     }
 
     public function destroy(User $user)
@@ -100,6 +92,6 @@ class UserController extends Controller
         }
 
         $user->delete();
-        return back()->with('succes', '');
+        return back()->with('succes', 'Usuario eliminado correctamente');
     }
 }

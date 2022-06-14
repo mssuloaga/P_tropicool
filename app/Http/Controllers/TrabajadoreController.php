@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use PDF;
+
 use App\Trabajadore;
-use App\Empresa;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 /**
  * Class TrabajadoreController
@@ -25,13 +23,7 @@ class TrabajadoreController extends Controller
         return view('trabajadore.index', compact('trabajadores'))
             ->with('i', (request()->input('page', 1) - 1) * $trabajadores->perPage());
     }
-    public function downloadPdf()
-    {
-        $trabajadores = Trabajadore::all();
-        view()->share('trabajadore.exportpdf', $trabajadores);
-        $dompdf = PDF::loadView('trabajadore.exportpdf', compact('trabajadores'));
-        return $dompdf->download('trabajadores.pdf');
-    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -40,8 +32,7 @@ class TrabajadoreController extends Controller
     public function create()
     {
         $trabajadore = new Trabajadore();
-        $empresas= Empresa::all();
-        return view('trabajadore.create', compact('trabajadore','empresas'));
+        return view('trabajadore.create', compact('trabajadore'));
     }
 
     /**
@@ -57,7 +48,7 @@ class TrabajadoreController extends Controller
         $trabajadore = Trabajadore::create($request->all());
 
         return redirect()->route('trabajadores.index')
-            ->with('success', 'Trabajador creado con éxito');
+            ->with('success', 'Trabajadore created successfully.');
     }
 
     /**
@@ -82,8 +73,8 @@ class TrabajadoreController extends Controller
     public function edit($id)
     {
         $trabajadore = Trabajadore::find($id);
-        $empresas= Empresa::all();
-        return view('trabajadore.edit', compact('trabajadore','empresas'));
+
+        return view('trabajadore.edit', compact('trabajadore'));
     }
 
     /**
@@ -100,7 +91,7 @@ class TrabajadoreController extends Controller
         $trabajadore->update($request->all());
 
         return redirect()->route('trabajadores.index')
-            ->with('success', 'Trabajador actualizado con éxito');
+            ->with('success', 'Trabajadore updated successfully');
     }
 
     /**
@@ -113,6 +104,6 @@ class TrabajadoreController extends Controller
         $trabajadore = Trabajadore::find($id)->delete();
 
         return redirect()->route('trabajadores.index')
-            ->with('success', '');
+            ->with('success', 'Trabajadore deleted successfully');
     }
 }

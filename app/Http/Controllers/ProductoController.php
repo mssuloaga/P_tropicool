@@ -1,11 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use \PDF;
+
 use App\Producto;
-use App\Categoria;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 
 /**
  * Class ProductoController
@@ -26,14 +24,6 @@ class ProductoController extends Controller
             ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
     }
 
-    public function downloadPdf()
-    {
-        $productos = Producto::all();
-        view()->share('producto.exportpdf', $productos);
-        $dompdf = PDF::loadView('producto.exportpdf', compact('productos'));
-        return $dompdf->download('producto.pdf');
-    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -42,8 +32,7 @@ class ProductoController extends Controller
     public function create()
     {
         $producto = new Producto();
-        $categorias=Categoria::all();
-        return view('producto.create', compact('producto','categorias'));
+        return view('producto.create', compact('producto'));
     }
 
     /**
@@ -59,7 +48,7 @@ class ProductoController extends Controller
         $producto = Producto::create($request->all());
 
         return redirect()->route('productos.index')
-            ->with('success', 'Producto creado con éxito');
+            ->with('success', 'Producto created successfully.');
     }
 
     /**
@@ -84,8 +73,8 @@ class ProductoController extends Controller
     public function edit($id)
     {
         $producto = Producto::find($id);
-        $categorias=Categoria::all();
-        return view('producto.edit', compact('producto','categorias'));
+
+        return view('producto.edit', compact('producto'));
     }
 
     /**
@@ -102,7 +91,7 @@ class ProductoController extends Controller
         $producto->update($request->all());
 
         return redirect()->route('productos.index')
-            ->with('success', 'Producto actualizado con éxito');
+            ->with('success', 'Producto updated successfully');
     }
 
     /**
@@ -115,6 +104,6 @@ class ProductoController extends Controller
         $producto = Producto::find($id)->delete();
 
         return redirect()->route('productos.index')
-            ->with('success', '');
+            ->with('success', 'Producto deleted successfully');
     }
 }
