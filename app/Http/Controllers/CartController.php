@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Producto;
+use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
