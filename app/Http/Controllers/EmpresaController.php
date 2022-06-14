@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \PDF;
 use App\Empresa;
 use Illuminate\Http\Request;
 
@@ -22,6 +22,14 @@ class EmpresaController extends Controller
 
         return view('empresa.index', compact('empresas'))
             ->with('i', (request()->input('page', 1) - 1) * $empresas->perPage());
+    }
+
+    public function downloadPdf()
+    {
+        $empresas = Empresa::all();
+        view()->share('empresa.exportpdf', $empresas);
+        $dompdf = PDF::loadView('empresa.exportpdf', compact('empresas'));
+        return $dompdf->download('empresa.pdf');
     }
 
     /**

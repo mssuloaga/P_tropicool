@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use \PDF;
 use App\Producto;
 use App\Categoria;
 use Illuminate\Http\Request;
@@ -24,6 +24,14 @@ class ProductoController extends Controller
 
         return view('producto.index', compact('productos'))
             ->with('i', (request()->input('page', 1) - 1) * $productos->perPage());
+    }
+
+    public function downloadPdf()
+    {
+        $productos = Producto::all();
+        view()->share('producto.exportpdf', $productos);
+        $dompdf = PDF::loadView('producto.exportpdf', compact('productos'));
+        return $dompdf->download('producto.pdf');
     }
 
     /**
