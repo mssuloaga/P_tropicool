@@ -1,5 +1,5 @@
+@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => 'Trabajadores'])
 
-@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => __('Trabajador')])
 @section('content')
     <section class="content container-fluid">
         <div class="row">
@@ -9,14 +9,15 @@
 
                 <div class="card">
                   <div class="card-header card-header-primary">
-                    <h4 class="card-title">Trabajador</h4>
+                    <h4 class="card-title">Trabajadores</h4>
                       <p class="card-category">Ingresar datos</p>
                   </div>
                     <div class="card-body">
-                        <form action="{{ url('/trabajadores') }}" method="post" enctype="multipart/form-data" >
+                        <form method="POST" action="{{ route('trabajadores.store') }}"  role="form" enctype="multipart/form-data">
                             @csrf
-                            @include('trabajadores.form', ['modo'=>'Crear']));
-        
+
+                            @include('trabajadore.form')
+
                         </form>
                     </div>
                 </div>

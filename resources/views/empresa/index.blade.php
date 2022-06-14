@@ -18,6 +18,8 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                         
                         <div class="col-12 text-right">
+                            <a href="{{ route('empresas.create') }}" class="btn btn-sm btn-facebook">PDF</a>
+
                             <a href="{{ route('empresas.create') }}" class="btn btn-sm btn-facebook">Añadir empresa</a>
                         </div>
                         
@@ -34,15 +36,14 @@
                             <table class="table ">
                                 <thead class="text-primary">
                                     <tr>
-                                        <th>No</th>
-                                        
+                                        <th>ID</th>
 										<th>Nombre</th>
 										<th>Logo</th>
 										<th>Dirección</th>
 										<th>Teléfono</th>
-										<th>Mision</th>
-										<th>Vision</th>
-										<th>Descripcion</th>
+										<th>Misión</th>
+										<th>Visión</th>
+										<th>Descripción</th>
 										<th>Instagram</th>
 										<th>Facebook</th>
                                         <th class="text-right"> Acciones </th>

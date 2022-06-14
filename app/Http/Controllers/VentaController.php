@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Empresa;
+use App\Venta;
 use Illuminate\Http\Request;
 
 /**
- * Class EmpresaController
+ * Class VentaController
  * @package App\Http\Controllers
  */
-class EmpresaController extends Controller
+class VentaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class EmpresaController extends Controller
      */
     public function index()
     {
-        $empresas = Empresa::paginate();
+        $ventas = Venta::paginate();
 
-        return view('empresa.index', compact('empresas'))
-            ->with('i', (request()->input('page', 1) - 1) * $empresas->perPage());
+        return view('venta.index', compact('ventas'))
+            ->with('i', (request()->input('page', 1) - 1) * $ventas->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class EmpresaController extends Controller
      */
     public function create()
     {
-        $empresa = new Empresa();
-        return view('empresa.create', compact('empresa'));
+        $venta = new Venta();
+        return view('venta.create', compact('venta'));
     }
 
     /**
@@ -43,12 +43,12 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Empresa::$rules);
+        request()->validate(Venta::$rules);
 
-        $empresa = Empresa::create($request->all());
+        $venta = Venta::create($request->all());
 
-        return redirect()->route('empresas.index')
-            ->with('success', 'Empresa creada con éxito');
+        return redirect()->route('ventas.index')
+            ->with('success', 'Venta created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class EmpresaController extends Controller
      */
     public function show($id)
     {
-        $empresa = Empresa::find($id);
+        $venta = Venta::find($id);
 
-        return view('empresa.show', compact('empresa'));
+        return view('venta.show', compact('venta'));
     }
 
     /**
@@ -72,26 +72,26 @@ class EmpresaController extends Controller
      */
     public function edit($id)
     {
-        $empresa = Empresa::find($id);
+        $venta = Venta::find($id);
 
-        return view('empresa.edit', compact('empresa'));
+        return view('venta.edit', compact('venta'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Empresa $empresa
+     * @param  Venta $venta
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $empresa)
+    public function update(Request $request, Venta $venta)
     {
-        request()->validate(Empresa::$rules);
+        request()->validate(Venta::$rules);
 
-        $empresa->update($request->all());
+        $venta->update($request->all());
 
-        return redirect()->route('empresas.index')
-            ->with('success', 'Empresa actualizada con éxito');
+        return redirect()->route('ventas.index')
+            ->with('success', 'Venta updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class EmpresaController extends Controller
      */
     public function destroy($id)
     {
-        $empresa = Empresa::find($id)->delete();
+        $venta = Venta::find($id)->delete();
 
-        return redirect()->route('empresas.index')
-            ->with('success', '');
+        return redirect()->route('ventas.index')
+            ->with('success', 'Venta deleted successfully');
     }
 }

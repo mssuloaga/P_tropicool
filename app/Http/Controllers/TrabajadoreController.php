@@ -3,10 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Trabajadore;
+use App\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use PDF;
-use App\Empresa;
 
 /**
  * Class TrabajadoreController
@@ -21,24 +20,10 @@ class TrabajadoreController extends Controller
      */
     public function index()
     {
-        $trabajadore = Trabajadore::paginate();
+        $trabajadores = Trabajadore::paginate();
 
-        return view('trabajadores.index', compact('trabajadore'))
-            ->with('i', (request()->input('page', 1) - 1) * $trabajadore->perPage());
-    }
-
-
-    public function pdf()
-    {
-        $trabajadore=Trabajadore::paginate();
-        $pdf = PDF::loadView('trabajadores.pdf', ['trabajadore'=>$trabajadore])
-            ->setPaper('a4', 'landscape')->setWarnings(false)->save('trabajadores.pdf')
-                ->setOptions(['dpi' => 150, 'defaultFont' => 'sans-serif']);   
-   
-       // return $pdf->stream();
-      return $pdf->download('__trabajadores.pdf');
-       // return view('trabajadores.pdf', compact('trabajador'));    
-        
+        return view('trabajadore.index', compact('trabajadores'))
+            ->with('i', (request()->input('page', 1) - 1) * $trabajadores->perPage());
     }
 
     /**
@@ -49,9 +34,8 @@ class TrabajadoreController extends Controller
     public function create()
     {
         $trabajadore = new Trabajadore();
-        $empresa=Empresa::pluck('nombre','id');
-        return view('trabajadores.create', compact('trabajadore','empresa'));
-       
+        $empresas= Empresa::all();
+        return view('trabajadore.create', compact('trabajadore','empresas'));
     }
 
     /**
@@ -62,34 +46,14 @@ class TrabajadoreController extends Controller
      */
     public function store(Request $request)
     {
-        $campos=[            
-            'imagen'=>'required|max:10000|mimes:jpeg,png,jpg',
-            'rut_usuario'=>'required|integer',
-            'nombre'=>'required|string|max:100',
-            'direccion'=>'required|string|max:100',
-            'telefono'=>'required|string|max:12',
-            'email'=>'required|string|max:100',
-            'fecha_ingreso'=>'required|date',
-            
-            'sueldo'=>'required|integer',
-            'cargo'=>'required|string|max:100',     
-            'id_empresas'=>'required|integer',       
-        ];
-        $mensaje=[
-            'required'=>'El :atibuto es requerido',
-            'imagen.required'=>'La imagen de requerida'
+        request()->validate(Trabajadore::$rules);
 
-        ];
-        $this->validate($request, $campos, $mensaje);
-        //$datoTrabajador = request()->all();
-        $datoTrabajador = request()->except('_token');  //Recolectas todos los campos, menos el token
-        if($request->hasFile('imagen')){
-            $datoTrabajador['imagen']=$request->file('imagen')->store('uploads','public');
-        }
-        Trabajadore::insert($datoTrabajador); //Inserta los datos a la bbdd
-        //return response()->json($datoTrabajador);
-        return redirect('trabajadores')->with('mensaje','Trabajador agregado con exito');
+        $trabajadore = Trabajadore::create($request->all());
+
+        return redirect()->route('trabajadores.index')
+            ->with('success', 'Trabajador creado con éxito');
     }
+
     /**
      * Display the specified resource.
      *
@@ -100,7 +64,7 @@ class TrabajadoreController extends Controller
     {
         $trabajadore = Trabajadore::find($id);
 
-        return view('trabajadores.show', compact('trabajadore'));
+        return view('trabajadore.show', compact('trabajadore'));
     }
 
     /**
@@ -112,9 +76,8 @@ class TrabajadoreController extends Controller
     public function edit($id)
     {
         $trabajadore = Trabajadore::find($id);
-
-        $empresa=Empresa::pluck('nombre','id');
-        return view('trabajadores.edit', compact('trabajadore','empresa'));
+        $empresas= Empresa::all();
+        return view('trabajadore.edit', compact('trabajadore','empresas'));
     }
 
     /**
@@ -124,47 +87,16 @@ class TrabajadoreController extends Controller
      * @param  Trabajadore $trabajadore
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Trabajadore $trabajadore)
     {
-        $campos=[            
-            'rut_usuario'=>'required|integer',
-            'nombre'=>'required|string|max:100',
-            'direccion'=>'required|string|max:100',
-            'telefono'=>'required|string|max:12',
-            'email'=>'required|string|max:100',
-            'fecha_ingreso'=>'required|date',
-            
-            'sueldo'=>'required|integer',
-            'cargo'=>'required|string|max:100', 
-            'id_empresas'=>'required|integer',
+        request()->validate(Trabajadore::$rules);
 
-        ];
-        $mensaje=[
-            'required'=>'El :atibuto es requerido'
-            
-        ];
-        //No es necesario adjuntar una nueva foto           
-        if($request->hasFile('imagen')){
-            $campos=['imagen'=>'required|max:10000|mimes:jpeg,png,jpg'];
-            $mensaje=[ 'imagen.required'=>'La imagen de requerida'];
-           }
+        $trabajadore->update($request->all());
 
-        $this->validate($request, $campos, $mensaje);
-
-        $datoTrabajador = request()->except(['_token','_method']);        
-
-        if($request->hasFile('imagen')){           
-            $trabajadore=Trabajadore::findOrFail($id);
-            Storage::delete('public/'.$trabajadore->imagen);
-            $datoTrabajador['imagen']=$request->file('imagen')->store('uploads','public');
-        } 
-
-        
-        Trabajadore::where('id','=',$id)->update($datoTrabajador);
-        $trabajadore=Trabajadore::findOrFail($id); 
-        //return view('trabajador.edit', compact('trabajador'))->with('mensaje','Trabajador modificado');
-        return redirect('trabajadores')->with('mensaje','Trabajador modificado');
+        return redirect()->route('trabajadores.index')
+            ->with('success', 'Trabajador actualizado con éxito');
     }
+
     /**
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
@@ -175,6 +107,6 @@ class TrabajadoreController extends Controller
         $trabajadore = Trabajadore::find($id)->delete();
 
         return redirect()->route('trabajadores.index')
-            ->with('success', 'Trabajadore deleted successfully');
+            ->with('success', '');
     }
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEventosTable extends Migration
+class CreateTrabajadoresTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,19 @@ class CreateEventosTable extends Migration
      */
     public function up()
     {
-        Schema::create('eventos', function (Blueprint $table) {
+        Schema::create('trabajadores', function (Blueprint $table) {
             $table->engine="InnoDB";
-            $table->bigIncrements('id');
+            $table->bigIncrements('id');          
+            $table->string('imagen');
+            $table->bigInteger('rut_usuario');
             $table->string('nombre');
             $table->string('direccion');
-            $table->bigInteger('id_trabajador')->unsigned();
-            $table->foreign('id_trabajador')->references('id')->on('trabajadores')->onDelete("cascade");
-            $table->date('fecha_inicio');
-            $table->date('fecha_termino');
-            $table->integer('precio');
+            $table->string('telefono');
+            $table->string('email');
+            $table->date('fecha_ingreso');
+            $table->date('fecha_salida')->nullable();        
+            $table->integer('sueldo');
+            $table->string('cargo');
             $table->timestamps();
             $table->bigInteger('id_empresas')->unsigned();
             $table->foreign('id_empresas')->references('id')->on('empresas')->onDelete("cascade");
@@ -36,6 +39,6 @@ class CreateEventosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('eventos');
+        Schema::dropIfExists('trabajadores');
     }
 }
