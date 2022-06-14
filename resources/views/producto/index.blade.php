@@ -18,8 +18,9 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                         
                         <div class="col-12 text-right">
+                            <a href=""><img class="logo d-inline-block align-top" width="40px" src="img/excel.png"/></a>
+                            <a href="download_pdfproductos"><img class="logo d-inline-block align-top" width="34px" src="img/pdf.png"/></a>
                             <a href="{{ route('productos.create') }}" class="btn btn-sm btn-facebook">Añadir producto</a>
-                            <a href="download_pdfproductos" class="btn btn-sm btn-facebook">PDF</a>
                         </div>
                         
                     </div>
