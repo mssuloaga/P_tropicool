@@ -18,8 +18,8 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                         
                         <div class="col-12 text-right">
+                            <a href="download_pdfeventos"><img class="logo d-inline-block align-top" width="35px" src="img/pdf.png"/></a>
                             <a href="{{ route('eventos.create') }}" class="btn btn-sm btn-facebook">Añadir evento</a>
-                            <a href="download_pdfeventos" class="btn btn-sm btn-facebook">PDF</a>
                         </div>
                         
                     </div>

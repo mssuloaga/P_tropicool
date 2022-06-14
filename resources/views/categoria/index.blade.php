@@ -18,8 +18,8 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                         
                         <div class="col-12 text-right">
+                            <a href="download_pdfcategorias"><img class="logo d-inline-block align-top" width="35px" src="img/pdf.png"/></a>
                             <a href="{{ route('categorias.create') }}" class="btn btn-sm btn-facebook">Añadir categoría</a>
-                            <a href="download_pdfcategorias" class="btn btn-sm btn-facebook">PDF</a>
                         </div>
                         
                     </div>
