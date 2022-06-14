@@ -19,6 +19,7 @@
                         
                         <div class="col-12 text-right">
                             <a href="{{ route('categorias.create') }}" class="btn btn-sm btn-facebook">Añadir categoría</a>
+                            <a href="download_pdfcategorias" class="btn btn-sm btn-facebook">PDF</a>
                         </div>
                         
                     </div>

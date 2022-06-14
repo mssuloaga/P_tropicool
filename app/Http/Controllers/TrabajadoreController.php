@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use App\Trabajadore;
 use App\Empresa;
 use Illuminate\Http\Request;
@@ -25,7 +25,13 @@ class TrabajadoreController extends Controller
         return view('trabajadore.index', compact('trabajadores'))
             ->with('i', (request()->input('page', 1) - 1) * $trabajadores->perPage());
     }
-
+    public function downloadPdf()
+    {
+        $trabajadores = Trabajadore::all();
+        view()->share('trabajadore.exportpdf', $trabajadores);
+        $dompdf = PDF::loadView('trabajadore.exportpdf', compact('trabajadores'));
+        return $dompdf->download('trabajadores.pdf');
+    }
     /**
      * Show the form for creating a new resource.
      *

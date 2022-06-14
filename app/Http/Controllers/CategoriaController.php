@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use PDF;
 use App\Empresa;
 use App\Categoria;
 use Illuminate\Http\Request;
@@ -23,6 +24,14 @@ class CategoriaController extends Controller
 
         return view('categoria.index', compact('categorias'))
             ->with('i', (request()->input('page', 1) - 1) * $categorias->perPage());
+    }
+
+    public function downloadPdf()
+    {
+        $categorias = Categoria::all();
+        view()->share('categoria.exportpdf', $categorias);
+        $dompdf = PDF::loadView('categoria.exportpdf', compact('categorias'));
+        return $dompdf->download('categoria.pdf');
     }
 
     /**

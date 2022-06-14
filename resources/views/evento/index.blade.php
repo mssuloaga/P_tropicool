@@ -19,6 +19,7 @@
                         
                         <div class="col-12 text-right">
                             <a href="{{ route('eventos.create') }}" class="btn btn-sm btn-facebook">Añadir evento</a>
+                            <a href="download_pdfeventos" class="btn btn-sm btn-facebook">PDF</a>
                         </div>
                         
                     </div>

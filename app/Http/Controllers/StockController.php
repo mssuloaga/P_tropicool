@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use App\Stock;
 use App\Producto;
 use Illuminate\Http\Request;
@@ -24,6 +24,13 @@ class StockController extends Controller
 
         return view('stock.index', compact('stocks'))
             ->with('i', (request()->input('page', 1) - 1) * $stocks->perPage());
+    }
+    public function downloadPdf()
+    {
+        $Stocks = Stock::all();
+        view()->share('stock.exportpdf', $Stocks);
+        $dompdf = PDF::loadView('stock.exportpdf', compact('Stocks'));
+        return $dompdf->download('Stocks.pdf');
     }
 
     /**
