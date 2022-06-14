@@ -1,9 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use App\Stock;
+use App\Producto;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 /**
  * Class StockController
@@ -23,6 +25,13 @@ class StockController extends Controller
         return view('stock.index', compact('stocks'))
             ->with('i', (request()->input('page', 1) - 1) * $stocks->perPage());
     }
+    public function downloadPdf()
+    {
+        $Stocks = Stock::all();
+        view()->share('stock.exportpdf', $Stocks);
+        $dompdf = PDF::loadView('stock.exportpdf', compact('Stocks'));
+        return $dompdf->download('Stocks.pdf');
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -32,7 +41,8 @@ class StockController extends Controller
     public function create()
     {
         $stock = new Stock();
-        return view('stock.create', compact('stock'));
+        $productos=Producto::all();
+        return view('stock.create', compact('stock','productos'));
     }
 
     /**
@@ -48,7 +58,7 @@ class StockController extends Controller
         $stock = Stock::create($request->all());
 
         return redirect()->route('stocks.index')
-            ->with('success', 'Stock created successfully.');
+            ->with('success', 'Stock creado con éxito');
     }
 
     /**
@@ -73,8 +83,8 @@ class StockController extends Controller
     public function edit($id)
     {
         $stock = Stock::find($id);
-
-        return view('stock.edit', compact('stock'));
+        $productos=Producto::all();
+        return view('stock.edit', compact('stock','productos'));
     }
 
     /**
@@ -91,7 +101,7 @@ class StockController extends Controller
         $stock->update($request->all());
 
         return redirect()->route('stocks.index')
-            ->with('success', 'Stock updated successfully');
+            ->with('success', 'Stock actualizado con éxito');
     }
 
     /**
@@ -104,6 +114,6 @@ class StockController extends Controller
         $stock = Stock::find($id)->delete();
 
         return redirect()->route('stocks.index')
-            ->with('success', 'Stock deleted successfully');
+            ->with('success', '');
     }
 }

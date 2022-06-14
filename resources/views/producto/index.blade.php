@@ -1,27 +1,28 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Producto
-@endsection
-
+@extends('layouts.main', ['activePage' => 'productos', 'titlePage' => 'Productos'])
 @section('content')
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Productos</h4>
+            <p class="card-category">Lista de productos registradas</p>
+          </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
-                            <span id="card_title">
-                                {{ __('Producto') }}
-                            </span>
-
-                             <div class="float-right">
-                                <a href="{{ route('productos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
-                                </a>
-                              </div>
+                        
+                        <div class="col-12 text-right">
+                            <a href="{{ route('productos.create') }}" class="btn btn-sm btn-facebook">Añadir producto</a>
+                            <a href="download_pdfproductos" class="btn btn-sm btn-facebook">PDF</a>
                         </div>
+                        
+                    </div>
                     </div>
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -31,19 +32,19 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
+                            <table class="table ">
+                                <thead class="text-primary">
                                     <tr>
-                                        <th>No</th>
-                                        
+                                        <th>ID</th>
 										<th>Nombre</th>
-										<th>Descripcion</th>
-										<th>Precio</th>
-										<th>Cantidad</th>
-										<th>Imagen</th>
-										<th>Id Categorias</th>
-
-                                        <th></th>
+										<th>Descripción</th>
+                                        <th>Precio</th>
+                                        <th>Cantidad</th>
+                                        <th>Imagen</th>
+                                        <th>Categoría</th>
+                                       
+										
+                                        <th class="text-right"> Acciones </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -52,20 +53,23 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $producto->nombre }}</td>
-											<td>{{ $producto->descripcion }}</td>
-											<td>{{ $producto->precio }}</td>
-											<td>{{ $producto->cantidad }}</td>
-											<td>{{ $producto->imagen }}</td>
-											<td>{{ $producto->id_categorias }}</td>
+											<td>{{ $producto->descripcion}}</td>
+                                            <td>{{ $producto->precio}}</td>
+                                            <td>{{ $producto->cantidad}}</td>
+                                            <td>{{ $producto->imagen}}</td>
+                                            <td>{{ $producto->categoria->nombre}}</td>
 
-                                            <td>
-                                                <form action="{{ route('productos.destroy',$producto->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                            <td class="td-actions text-right">
+                                                
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}" class="btn btn-info"><i class="material-icons">edit</i></a>
+                                                    <form action="{{ route('productos.destroy',$producto->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
+                                                    <button class="btn btn-danger" type="submit" rel="tooltip">
+                                                    <i class="material-icons">delete</i>
+                                                    </button>
+                                                    </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -78,4 +82,9 @@
             </div>
         </div>
     </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection

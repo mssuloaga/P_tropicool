@@ -1,70 +1,74 @@
-@extends('layouts.app')
-
-@section('template_title')
-    {{ $trabajadore->name ?? 'Show Trabajadore' }}
-@endsection
+@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => 'Detalles del trabajador'])
 
 @section('content')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Trabajadore</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('trabajadores.index') }}"> Back</a>
-                        </div>
+                <div class="card ">
+                    <div class="card-header card-header-primary">
+                        <div class="card-title">Trabajador</div>
+                            <p class="card-category">Vista detallada del trabajador {{ $trabajadore->nombre }}</p>
                     </div>
 
-                    <div class="card-body">
-                        
-                        <div class="form-group">
-                            <strong>Imagen:</strong>
-                            {{ $trabajadore->imagen }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Rut Usuario:</strong>
-                            {{ $trabajadore->rut_usuario }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Nombre:</strong>
-                            {{ $trabajadore->nombre }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Direccion:</strong>
-                            {{ $trabajadore->direccion }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Telefono:</strong>
-                            {{ $trabajadore->telefono }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Email:</strong>
-                            {{ $trabajadore->email }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Fecha Ingreso:</strong>
-                            {{ $trabajadore->fecha_ingreso }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Fecha Salida:</strong>
-                            {{ $trabajadore->fecha_salida }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Sueldo:</strong>
-                            {{ $trabajadore->sueldo }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Cargo:</strong>
-                            {{ $trabajadore->cargo }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Id Empresas:</strong>
-                            {{ $trabajadore->id_empresas }}
-                        </div>
+                    <div class="col-lg-6 col-md-4">
+                        <div class="card card-user">
+                            <div class="card-body">
+                                <table class="table table-bordered table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <td>{{ $trabajadore->imagen}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Rut</th>
+                                            <td>{{ $trabajadore->rut_usuario }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Nombre</th>
+                                            <td>{{ $trabajadore->nombre }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Dirección</th>
+                                            <td>{{ $trabajadore->direccion }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Teléfono</th>
+                                            <td>{{ $trabajadore->telefono }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Correo</th>
+                                            <td>{{ $trabajadore->email }}</td>
+                                        </tr><tr>
+                                            <th>Fecha Ingreso</th>
+                                            <td>{{ $trabajadore->fecha_ingreso }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Fecha Salida</th>
+                                            <td>{{ $trabajadore->fecha_salida }}</td>
+                                        </tr><tr>
+                                            <th>Sueldo</th>
+                                            <td>{{ $trabajadore->sueldo }}</td>
+                                        </tr>
+                                      <tr>
+                                            <th>Cargo</th>
+                                            <td>{{ $trabajadore->cargo }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Empresa</th>
+                                            <td>{{ $trabajadore->empresa->nombre }}</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                    
+                            <div class="card-footer ">
+                                <div class="button-container">
+                                    <a href="{{ route('trabajadores.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
+                                </div>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </div>
