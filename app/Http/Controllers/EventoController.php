@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use PDF;
 use App\Evento;
 use Illuminate\Http\Request;
 
@@ -22,6 +22,13 @@ class EventoController extends Controller
 
         return view('evento.index', compact('eventos'))
             ->with('i', (request()->input('page', 1) - 1) * $eventos->perPage());
+    }
+    public function downloadPdf()
+    {
+        $eventos = Evento::all();
+        view()->share('evento.exportpdf', $eventos);
+        $dompdf = PDF::loadView('evento.exportpdf', compact('eventos'));
+        return $dompdf->download('eventos.pdf');
     }
 
     /**
