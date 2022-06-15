@@ -1,39 +1,62 @@
-<div class="box box-info padding-1">
-    <div class="box-body">
+
+<div class="card-body">
         
-        <div class="form-group">
-            {{ Form::label('nombre') }}
+    <div class="row">
+            <label  class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-7">
             {{ Form::text('nombre', $producto->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('descripcion') }}
+                </div>
+    </div>
+
+        <div class="row">
+            <label  class="col-sm-2 col-form-label">Descripción</label>
+                <div class="col-sm-7">
             {{ Form::text('descripcion', $producto->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('precio') }}
+        </div></div>
+
+        <div class="row">
+            <label  class="col-sm-2 col-form-label">Precio</label>
+                <div class="col-sm-7">
             {{ Form::text('precio', $producto->precio, ['class' => 'form-control' . ($errors->has('precio') ? ' is-invalid' : ''), 'placeholder' => 'Precio']) }}
             {!! $errors->first('precio', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('cantidad') }}
+        </div></div>
+
+        <div class="row">
+            <label  class="col-sm-2 col-form-label">Cantidad</label>
+                <div class="col-sm-7">
             {{ Form::text('cantidad', $producto->cantidad, ['class' => 'form-control' . ($errors->has('cantidad') ? ' is-invalid' : ''), 'placeholder' => 'Cantidad']) }}
             {!! $errors->first('cantidad', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('imagen') }}
-            {{ Form::text('imagen', $producto->imagen, ['class' => 'form-control' . ($errors->has('imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
-            {!! $errors->first('imagen', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
-        <div class="form-group">
-            {{ Form::label('id_categorias') }}
-            {{ Form::text('id_categorias', $producto->id_categorias, ['class' => 'form-control' . ($errors->has('id_categorias') ? ' is-invalid' : ''), 'placeholder' => 'Id Categorias']) }}
-            {!! $errors->first('id_categorias', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
+        </div></div>
 
-    </div>
-    <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
+        <div class="row">
+            <label  class="col-sm-2 col-form-label">Imagen</label>
+            <div class="col-sm-7">
+                @if(isset($producto->imagen))
+                @endif
+                    <input type="file" class="form-control" name="imagen" value=" " id="imagen">
+            </div></div>
+
+        <div class="row">
+            <label class="col-sm-2 col-form-label">Categoría</label>
+                <div class="col-sm-7">
+                    <select name="id_categorias" id="input" class="form-control">
+                        <option value="">Seleccione categoría</option>
+                        @foreach ($categorias as $categoria)
+                            <option value="{{ $categoria['id'] }}">{{$categoria['nombre']}}</option>
+                        @endforeach
+                    </select>
+            </div>
+        </div> 
 </div>
+
+
+<div class="row text-center">
+        <div class="card-footer ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <div class="m-4">
+                <a href="{{ route('categorias.index') }}" class="btn btn-success mr-3"> Volver </a>                
+            </div>
+        </div>
+    </div>

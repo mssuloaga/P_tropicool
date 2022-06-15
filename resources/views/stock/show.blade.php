@@ -1,34 +1,40 @@
-@extends('layouts.app')
-
-@section('template_title')
-    {{ $stock->name ?? 'Show Stock' }}
-@endsection
+@extends('layouts.main', ['activePage' => 'stocks', 'titlePage' => 'Detalles del stock'])
 
 @section('content')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <div class="float-left">
-                            <span class="card-title">Show Stock</span>
-                        </div>
-                        <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('stocks.index') }}"> Back</a>
-                        </div>
+                <div class="card ">
+                    <div class="card-header card-header-primary">
+                        <div class="card-title">Stock</div>
+                            <p class="card-category">Vista detallada del stock {{ $stock->nombre }}</p>
                     </div>
 
-                    <div class="card-body">
-                        
-                        <div class="form-group">
-                            <strong>Cantidad:</strong>
-                            {{ $stock->cantidad }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Id Productos:</strong>
-                            {{ $stock->id_productos }}
-                        </div>
+                    <div class="col-lg-6 col-md-4">
+                        <div class="card card-user">
+                            <div class="card-body">
+                                <table class="table table-bordered table-striped">
+                                    <tbody>
+                                        <tr>
+                                            <th>Cantida</th>
+                                            <td>{{ $stock->cantidad }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Empresa</th>
+                                            <td>{{ $stock->producto->nombre }}</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                    
+                            <div class="card-footer ">
+                                <div class="button-container">
+                                    <a href="{{ route('stocks.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
+                                </div>
+                            </div>
 
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TrabajadoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +20,11 @@ Route::get('/', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil');
+Route::get('trabajadores/pdf', function () {
+    return view('welcome');
+});
 
-// Route::get('/', 'CartController@shop')->name('shop');
-// Route::get('/cart', 'CartController@cart')->name('cart.index');
-// Route::post('/add', 'CartController@add')->name('cart.store');
-// Route::post('/update', 'CartController@update')->name('cart.update');
-// Route::post('/remove', 'CartController@remove')->name('cart.remove');
-// Route::post('/clear', 'CartController@clear')->name('cart.clear');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
@@ -49,4 +48,11 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('productos', App\Http\Controllers\ProductoController::class);
     Route::resource('calendarios', App\Http\Controllers\CalendarioController::class);
     Route::resource('stocks', App\Http\Controllers\StockController::class);
+    Route::get('/download_pdfempresas', [App\Http\Controllers\EmpresaController::class, 'downloadPdf']);
+    Route::get('/download_pdfusers', [App\Http\Controllers\UserController::class, 'downloadPdf']);
+    Route::get('/download_pdfproductos', [App\Http\Controllers\ProductoController::class, 'downloadPdf']);
+    Route::get('/download_pdfcategorias', [App\Http\Controllers\CategoriaController::class, 'downloadPdf']);
+    Route::get('/download_pdftrabajadores', [App\Http\Controllers\TrabajadoreController::class, 'downloadPdf']);
+    Route::get('/download_pdfeventos', [App\Http\Controllers\EventoController::class, 'downloadPdf']);
+    Route::get('/download_pdfstocks', [App\Http\Controllers\StockController::class, 'downloadPdf']);
 });

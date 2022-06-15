@@ -1,10 +1,15 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Categoria
-@endsection
-
+@extends('layouts.main', ['activePage' => 'categorias', 'titlePage' => 'Categoría'])
 @section('content')
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<div class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header card-header-primary">
+            <h4 class="card-title">Categoría</h4>
+            <p class="card-category">Lista de categorías registradas</p>
+          </div>
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -17,6 +22,8 @@
                             <a href="download_pdfcategorias"><img class="logo d-inline-block align-top" width="34px" src="img/pdf.png"/></a>
                             <a href="{{ route('categorias.create') }}" class="btn btn-sm btn-facebook">Añadir categoría</a>
                         </div>
+                        
+                    </div>
                     </div>
                     @if ($message = Session::get('success'))
                         <div class="alert alert-success">
@@ -26,15 +33,14 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
-                                <thead class="thead">
+                            <table class="table ">
+                                <thead class="text-primary">
                                     <tr>
-                                        <th>No</th>
-                                        
+                                        <th>ID</th>
 										<th>Nombre</th>
-										<th>Id Empresas</th>
-
-                                        <th></th>
+										<th>Empresa</th>
+										
+                                        <th class="text-right"> Acciones </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,16 +49,19 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $categoria->nombre }}</td>
-											<td>{{ $categoria->id_empresas }}</td>
+											<td>{{ $categoria->empresa->nombre }}</td>
 
-                                            <td>
-                                                <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                            <td class="td-actions text-right">
+                                                
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}" class="btn btn-info"><i class="material-icons">edit</i></a>
+                                                    <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
-                                                </form>
+                                                    <button class="btn btn-danger" type="submit" rel="tooltip">
+                                                    <i class="material-icons">delete</i>
+                                                    </button>
+                                                    </form>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -65,4 +74,9 @@
             </div>
         </div>
     </div>
+    </div>
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
