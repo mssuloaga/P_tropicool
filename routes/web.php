@@ -18,6 +18,7 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil');
 
 // Route::get('/', 'CartController@shop')->name('shop');
 // Route::get('/cart', 'CartController@cart')->name('cart.index');
@@ -36,6 +37,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
 
     Route::resource('posts', App\Http\Controllers\PostController::class);
+    Route::resource('perfil', App\Http\Controllers\PerfilController::class);
+
 
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
     Route::resource('roles', App\Http\Controllers\RoleController::class);
