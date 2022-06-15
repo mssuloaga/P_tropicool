@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TrabajadoreController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,14 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('trabajadores/pdf', function () {
+    return view('welcome');
+});
 
-// Route::get('/', 'CartController@shop')->name('shop');
-// Route::get('/cart', 'CartController@cart')->name('cart.index');
-// Route::post('/add', 'CartController@add')->name('cart.store');
-// Route::post('/update', 'CartController@update')->name('cart.update');
-// Route::post('/remove', 'CartController@remove')->name('cart.remove');
-// Route::post('/clear', 'CartController@clear')->name('cart.clear');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');

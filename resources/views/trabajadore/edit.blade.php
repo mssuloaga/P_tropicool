@@ -1,9 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Update Trabajadore
-@endsection
-
+@extends('layouts.main', ['activePage' => 'trabajadores', 'titlePage' => 'Editar trabajador'])
 @section('content')
     <section class="content container-fluid">
         <div class="">
@@ -11,9 +6,10 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Trabajadore</span>
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Trabajador</h4>
+                        <p class="card-category">Editar datos</p>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('trabajadores.update', $trabajadore->id) }}"  role="form" enctype="multipart/form-data">

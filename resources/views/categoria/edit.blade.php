@@ -1,8 +1,4 @@
-@extends('layouts.app')
-
-@section('template_title')
-    Update Categoria
-@endsection
+@extends('layouts.main', ['activePage' => 'categorias', 'titlePage' => 'Editar categoría'])
 
 @section('content')
     <section class="content container-fluid">
@@ -11,9 +7,10 @@
 
                 @includeif('partials.errors')
 
-                <div class="card card-default">
-                    <div class="card-header">
-                        <span class="card-title">Update Categoria</span>
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title">Categoría</h4>
+                        <p class="card-category">Editar datos</p>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('categorias.update', $categoria->id) }}"  role="form" enctype="multipart/form-data">
