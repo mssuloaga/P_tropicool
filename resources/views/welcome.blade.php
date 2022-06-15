@@ -17,6 +17,7 @@
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles_homepage.css" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -43,10 +44,13 @@
                         <li class="nav-item"><a class="nav-link" href="/">Contacto</a></li>
                         @if (Route::has('login'))
                             @auth
-                                <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">Perfil</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">¡Hola, {{ Auth::user()->name }}!</a></li>
                             @else
                             <div class="dropdown">
-                                <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="material-icons text-light">perm_identity</i>
+                                </button>
+                                
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <li class="nav-item"><a class="dropdown-item" href="{{ route('login') }}">Acceder</a></li>
                                 @if (Route::has('register'))
