@@ -52,6 +52,3 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/download_pdfeventos', [App\Http\Controllers\EventoController::class, 'downloadPdf']);
     Route::get('/download_pdfstocks', [App\Http\Controllers\StockController::class, 'downloadPdf']);
 });
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
