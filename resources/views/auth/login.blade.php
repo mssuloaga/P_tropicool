@@ -13,17 +13,7 @@
                 <div class="card card-login card-hidden mb-3">
                     <div class="card-header card-header-primary text-center">
                         <h4 class="card-title"><strong>{{ __('Acceder') }}</strong></h4>
-                        <div class="social-line">
-                            <a href="#" class="btn btn-just-icon btn-link btn-white">
-                                <i class="fa fa-facebook-square"></i>
-                            </a>
-                            <a href="#" class="btn btn-just-icon btn-link btn-white">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                            <a href="#" class="btn btn-just-icon btn-link btn-white">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </div>
+                        <img class="logo d-inline-block align-top" width="50px" src="logo/IMG_7359_sin_fondo(2).ico"/>
                     </div>
                     <div class="card-body">
                         <p class="card-description text-center">{{ __('') }}</p>
