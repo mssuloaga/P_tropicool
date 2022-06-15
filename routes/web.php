@@ -46,14 +46,4 @@ Route::group(['middleware' => 'auth'], function() {
     Route::resource('productos', App\Http\Controllers\ProductoController::class);
     Route::resource('calendarios', App\Http\Controllers\CalendarioController::class);
     Route::resource('stocks', App\Http\Controllers\StockController::class);
-    Route::get('/download_pdfempresas', [App\Http\Controllers\EmpresaController::class, 'downloadPdf']);
-    Route::get('/download_pdfusers', [App\Http\Controllers\UserController::class, 'downloadPdf']);
-    Route::get('/download_pdfproductos', [App\Http\Controllers\ProductoController::class, 'downloadPdf']);
-    Route::get('/download_pdfcategorias', [App\Http\Controllers\CategoriaController::class, 'downloadPdf']);
-    Route::get('/download_pdftrabajadores', [App\Http\Controllers\TrabajadoreController::class, 'downloadPdf']);
-    Route::get('/download_pdfeventos', [App\Http\Controllers\EventoController::class, 'downloadPdf']);
-    Route::get('/download_pdfstocks', [App\Http\Controllers\StockController::class, 'downloadPdf']);
 });
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
