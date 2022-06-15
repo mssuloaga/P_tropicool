@@ -1,5 +1,8 @@
-@extends('layouts.main', ['activePage' => 'eventos', 'titlePage' => 'Editar evento'])
+@extends('layouts.app')
 
+@section('template_title')
+    Update Evento
+@endsection
 
 @section('content')
     <section class="content container-fluid">
@@ -8,10 +11,9 @@
 
                 @includeif('partials.errors')
 
-                <div class="card">
-                    <div class="card-header card-header-primary">
-                        <h4 class="card-title">Evento</h4>
-                        <p class="card-category">Editar datos</p>
+                <div class="card card-default">
+                    <div class="card-header">
+                        <span class="card-title">Update Evento</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('eventos.update', $evento->id) }}"  role="form" enctype="multipart/form-data">

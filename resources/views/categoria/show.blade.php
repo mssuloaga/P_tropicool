@@ -1,40 +1,34 @@
-@extends('layouts.main', ['activePage' => 'categorias', 'titlePage' => 'Detalles de la categoría'])
+@extends('layouts.app')
+
+@section('template_title')
+    {{ $categoria->name ?? 'Show Categoria' }}
+@endsection
 
 @section('content')
     <section class="content container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="card ">
-                    <div class="card-header card-header-primary">
-                        <div class="card-title">Categoría</div>
-                            <p class="card-category">Vista detallada de la categoría {{ $categoria->nombre }}</p>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="float-left">
+                            <span class="card-title">Show Categoria</span>
+                        </div>
+                        <div class="float-right">
+                            <a class="btn btn-primary" href="{{ route('categorias.index') }}"> Back</a>
+                        </div>
                     </div>
 
-                    <div class="col-lg-6 col-md-4">
-                        <div class="card card-user">
-                            <div class="card-body">
-                                <table class="table table-bordered table-striped">
-                                    <tbody>
-                                        <tr>
-                                            <th>Nombre</th>
-                                            <td>{{ $categoria->nombre }}</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Empresa</th>
-                                            <td>{{ $categoria->empresa->nombre }}</td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
-                            </div>
-                    
-                            <div class="card-footer ">
-                                <div class="button-container">
-                                    <a href="{{ route('categorias.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
-                                </div>
-                            </div>
-
+                    <div class="card-body">
+                        
+                        <div class="form-group">
+                            <strong>Nombre:</strong>
+                            {{ $categoria->nombre }}
                         </div>
+                        <div class="form-group">
+                            <strong>Id Empresas:</strong>
+                            {{ $categoria->id_empresas }}
+                        </div>
+
                     </div>
                 </div>
             </div>

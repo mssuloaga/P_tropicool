@@ -9,8 +9,8 @@
             <div class="card-title">Usuarios</div>
             <p class="card-category">Vista detallada del usuario {{ $user->name }}</p>
           </div>
-          <!-- body-->
-          <!-- <div class="card-body">
+          <!--body-->
+          <div class="card-body">
             @if (session('success'))
             <div class="alert alert-success" role="success">
               {{ session('success') }}
@@ -34,6 +34,7 @@
                       </div>
                     </p>
                     <div class="card-description">
+                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam officia corporis molestiae aliquid provident placeat.
                     </div>
                   </div>
                   <div class="card-footer">
@@ -42,7 +43,7 @@
                     </div>
                   </div>
                 </div>
-              </div>end card user -->
+              </div><!--end card user-->
 
               <div class="col-md-4">
                 <div class="card card-user">
@@ -61,13 +62,14 @@
                       </div>
                     </p>
                     <div class="card-description">
-                      Usuario creado por registros de Tropicool
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam officia corporis molestiae aliquid provident
+                      placeat.
                     </div>
                   </div>
                   <div class="card-footer">
                     <div class="button-container">
                       <a href="{{ route('users.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>
-                      <!-- <button class="btn btn-sm btn-primary">Editar</button> -->
+                      <button class="btn btn-sm btn-primary">Editar</button>
                     </div>
                   </div>
                 </div>
