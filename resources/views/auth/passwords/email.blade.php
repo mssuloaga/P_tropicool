@@ -7,10 +7,8 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header ">{{ __('¿Olvidó su contraseña?') }}</div>
-                
-                <div class="card-header">{{ __('Por favor, ingrese su dirección de correo electrónico. Le enviaremos un link para cambiar su contraseña.
 
-') }}</div>
+                <div class="card-header">{{ __('Por favor, ingrese su dirección de correo electrónico. Le enviaremos un link para cambiar su contraseña.') }}</div>
 
                 <div class="card-body">
                     @if (session('status'))
