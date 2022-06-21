@@ -11,8 +11,8 @@
         <div class="row">
             <label  class="col-sm-2 col-form-label">Rut</label>
                 <div class="col-sm-7">
-            {{ Form::text('rut_usuario', $trabajadore->rut_usuario, ['class' => 'form-control' . ($errors->has('rut_usuario') ? ' is-invalid' : ''), 'placeholder' => 'Rut Usuario']) }}
-            {!! $errors->first('rut_usuario', '<div class="invalid-feedback">:message</div>') !!}
+            {{ Form::text('rut_trabajador', $trabajadore->rut_trabajador, ['class' => 'form-control' . ($errors->has('rut_trabajador') ? ' is-invalid' : ''), 'placeholder' => 'Rut trabajador']) }}
+            {!! $errors->first('rut_trabajador', '<div class="invalid-feedback">:message</div>') !!}
         </div>
     </div>
         <div class="row">
@@ -50,12 +50,6 @@
             {!! $errors->first('fecha_ingreso', '<div class="invalid-feedback">:message</div>') !!}
         </div>
     </div>
-        <div class="row">
-            <label  class="col-sm-2 col-form-label">Fecha Salida</label>
-                <div class="col-sm-7">
-            {{ Form::date('fecha_salida', $trabajadore->fecha_salida, ['class' => 'form-control' . ($errors->has('fecha_salida') ? ' is-invalid' : ''), 'placeholder' => 'Fecha Salida']) }}
-            {!! $errors->first('fecha_salida', '<div class="invalid-feedback">:message</div>') !!}
-        </div>
     </div>
         <div class="row">
             <label  class="col-sm-2 col-form-label">Sueldo</label>
