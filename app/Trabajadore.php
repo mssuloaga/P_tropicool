@@ -9,12 +9,13 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property $id
  * @property $imagen
- * @property $rut_trabajador
+ * @property $rut_usuario
  * @property $nombre
  * @property $direccion
  * @property $telefono
  * @property $email
  * @property $fecha_ingreso
+ * @property $fecha_salida
  * @property $sueldo
  * @property $cargo
  * @property $created_at
@@ -31,7 +32,7 @@ class Trabajadore extends Model
     
     static $rules = [
 		'imagen' => 'required',
-		'rut_trabajador' => 'required',
+		'rut_usuario' => 'required',
 		'nombre' => 'required',
 		'direccion' => 'required',
 		'telefono' => 'required',
@@ -49,7 +50,7 @@ class Trabajadore extends Model
      *
      * @var array
      */
-    protected $fillable = ['imagen','rut_trabajador','nombre','direccion','telefono','email','fecha_ingreso','sueldo','cargo','id_empresas'];
+    protected $fillable = ['imagen','rut_usuario','nombre','direccion','telefono','email','fecha_ingreso','fecha_salida','sueldo','cargo','id_empresas'];
 
 
     /**

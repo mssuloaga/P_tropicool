@@ -17,12 +17,13 @@ class CreateTrabajadoresTable extends Migration
             $table->engine="InnoDB";
             $table->bigIncrements('id');          
             $table->string('imagen');
-            $table->bigInteger('rut_trabajador');
+            $table->bigInteger('rut_usuario');
             $table->string('nombre');
             $table->string('direccion');
             $table->string('telefono');
             $table->string('email');
-            $table->date('fecha_ingreso');       
+            $table->date('fecha_ingreso');
+            $table->date('fecha_salida')->nullable();        
             $table->integer('sueldo');
             $table->string('cargo');
             $table->timestamps();

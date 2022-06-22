@@ -22,16 +22,5 @@ class UserSeeder extends Seeder
         ]);
 
         $user->assignRole('Admin');
-
-        $user = User::create([
-            'name' => 'ElMATI',
-            'email' => 'mati@mati.com',
-            'username' => 'mati',
-            'password' => bcrypt('asas123'),
-        ]);
-
-        $user->assignRole('User');
     }
-
-    
 }

@@ -21,7 +21,7 @@
                                         </tr>
                                         <tr>
                                             <th>Rut</th>
-                                            <td>{{ $trabajadore->rut_trabajador }}</td>
+                                            <td>{{ $trabajadore->rut_usuario }}</td>
                                         </tr>
                                         <tr>
                                             <th>Nombre</th>
@@ -43,6 +43,9 @@
                                             <td>{{ $trabajadore->fecha_ingreso }}</td>
                                         </tr>
                                         <tr>
+                                            <th>Fecha Salida</th>
+                                            <td>{{ $trabajadore->fecha_salida }}</td>
+                                        </tr><tr>
                                             <th>Sueldo</th>
                                             <td>{{ $trabajadore->sueldo }}</td>
                                         </tr>

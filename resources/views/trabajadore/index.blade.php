@@ -44,6 +44,7 @@
 										<th>Teléfono</th>
 										<th>Correo</th>
 										<th>Fecha Ingreso</th>
+										<th>Fecha Salida</th>
 										<th>Sueldo</th>
 										<th>Cargo</th>
 										<th>Empresa</th>
@@ -57,12 +58,13 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $trabajadore->imagen }}</td>
-											<td>{{ $trabajadore->rut_trabajador }}</td>
+											<td>{{ $trabajadore->rut_usuario }}</td>
 											<td>{{ $trabajadore->nombre }}</td>
 											<td>{{ $trabajadore->direccion }}</td>
 											<td>{{ $trabajadore->telefono }}</td>
 											<td>{{ $trabajadore->email }}</td>
 											<td>{{ $trabajadore->fecha_ingreso }}</td>
+											<td>{{ $trabajadore->fecha_salida }}</td>
 											<td>{{ $trabajadore->sueldo }}</td>
 											<td>{{ $trabajadore->cargo }}</td>
 											<td>{{ $trabajadore->empresa->nombre }}</td>
