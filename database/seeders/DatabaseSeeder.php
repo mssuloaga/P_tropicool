@@ -19,6 +19,14 @@ class DatabaseSeeder extends Seeder
             RoleSeeder::class,
             RoleHasPermissionSeeder::class,
             UserSeeder::class,
+            EmpresaSeeder::class,
+            EventoSeeder::class,
+            CategoriaSeeder::class,
+            ProductoSeeder::class,
+            StockSeeder::class,
+            TrabajadoreSeeder::class,
+            
         ]);
+
     }
 }
