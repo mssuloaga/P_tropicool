@@ -1,4 +1,9 @@
 @extends('layouts.main', ['activePage' => 'categorias', 'titlePage' => 'Categoría'])
+
+@section('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
+@endsection
+
 @section('content')
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="content">
@@ -33,7 +38,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table ">
+                            <table class="table table-striped shadow-lg mt-4" style="width:100%" id="categorias">
                                 <thead class="text-primary">
                                     <tr>
                                         <th>ID</th>
@@ -67,6 +72,17 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            @section('js')
+                                <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+                                <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+                                <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+                                <script>
+                                $(document).ready(function () {
+                                $('#categorias').DataTable();
+                                });
+                                </script>
+                            @endsection
                         </div>
                     </div>
                 </div>
