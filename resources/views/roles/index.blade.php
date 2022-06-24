@@ -81,7 +81,20 @@
 
                 <script>
                   $(document).ready(function () {
-                  $('#roles').DataTable();
+                  $('#roles').DataTable({
+                              "language": {
+                              "lengthMenu": "Mostrar _MENU_ registros por pagina",
+                              "zeroRecords": "No hay coincidencias - Verifique",
+                              "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+                              "infoEmpty": "No records available",
+                              "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                              "search": "Buscar:",
+                              "paginate":{
+                                "next": "Siguiente",
+                                "previous": "Anterior",
+                              }
+                                          }
+                                                  });
                   });
                  </script>
               @endsection

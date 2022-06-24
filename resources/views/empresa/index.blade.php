@@ -38,7 +38,7 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped shadow-lg mt-4" style="width:100%" id="empresas">
+                            <table class="table table-striped shadow-lg mt-4" style="width:100%" id="empr">
                                 <thead class="text-primary">
                                     <tr>
                                         <th>ID</th>
@@ -93,7 +93,20 @@
 
                                 <script>
                                 $(document).ready(function () {
-                                $('#empresas').DataTable();
+                                $('#empr').DataTable({
+                              "language": {
+                              "lengthMenu": "Mostrar _MENU_ registros por pagina",
+                              "zeroRecords": "No hay coincidencias - Verifique",
+                              "info": "Mostrando la pagina _PAGE_ de _PAGES_",
+                              "infoEmpty": "No records available",
+                              "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                              "search": "Buscar:",
+                              "paginate":{
+                                "next": "Siguiente",
+                                "previous": "Anterior",
+                              }
+                                          }
+                                                  });
                                 });
                                 </script>
                             @endsection

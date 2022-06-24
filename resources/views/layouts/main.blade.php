@@ -34,12 +34,14 @@
   @guest()
     @include('layouts.page_templates.guest')
   @endguest
+  
   <!--   Core JS Files   -->
   <script src="{{ asset('js/core/jquery.min.js') }}"></script>
   <script src="{{ asset('js/core/popper.min.js') }}"></script>
   <script src="{{ asset('js/core/bootstrap-material-design.min.js') }}"></script>
+  @yield('js')
   {{-- <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script> --}}
   @stack('js')
-  @yield('js')
+  
 </body>
 </html>
