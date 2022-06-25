@@ -14,12 +14,14 @@ class PermissionController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
+        $permissions = Permission::paginate();
         abort_if(Gate::denies('permission_index'), 403);
 
-        $permissions = Permission::paginate(10);
+        
 
         return view('permissions.index', compact('permissions'));
+            
     }
 
     /**
