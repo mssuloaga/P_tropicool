@@ -53,7 +53,7 @@
 										<th>Cargo</th>
 										<th>Empresa</th>
 										
-                                        <th class="text-right"> Acciones </th>
+                                        <th class="text-right no-exportar"> Acciones </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -92,23 +92,73 @@
                                 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                                 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
                                 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-
+                                <script src="https://cdn.datatables.net/buttons/1.6.5/js/dataTables.buttons.min.js" type="text/javascript"></script>
+                                <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.flash.min.js" type="text/javascript"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js" type="text/javascript"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js" type="text/javascript"></script>
+                                <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" type="text/javascript"></script>
+                                <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js" type="text/javascript"></script>
+                                <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js" type="text/javascript"></script>
+      
                                 <script>
                                 $(document).ready(function () {
-                                $('#trabajadores').DataTable({
-                              "language": {
-                              "lengthMenu": "Mostrar _MENU_ registros por página",
-                              "zeroRecords": "No hay coincidencias - Verifique",
-                              "info": "Mostrando la página _PAGE_ de _PAGES_",
-                              "infoEmpty": "No records available",
-                              "infoFiltered": "(Filtrado de _MAX_ registros totales)",
-                              "search": "Buscar:",
-                              "paginate":{
-                                "next": "Siguiente",
-                                "previous": "Anterior",
-                              }
-                                          }
-                                                  });
+                                $('#trabajadores').DataTable(
+                                {
+                                    responsive:"true",
+                                    dom: 'Bftirpl',
+                                    buttons: 
+                                    [
+                                        {
+                                            extend: 'excelHtml5',
+                                            text: '<a href=""><img class="logo d-inline-block align-top" width="40px" src="img/excel.png"/></a>',
+                                            titleAttr:'Exportar Excel',
+                                            className: 'btn-success',
+                                            title: "Trabajadores",
+                                            exportOptions: 
+                                                {
+                                                columns: ":not(.no-exportar)"
+                                                }
+                                        },
+                                        {
+                                            extend: 'pdfHtml5',
+                                            text: '<a href=""><img class="logo d-inline-block align-top" width="40px" src="img/pdf.png"/></a>',
+                                            titleAttr:'Exportar Excel',
+                                            className: 'btn-xs btn-danger',
+                                            title: "Trabajadores",
+                                            exportOptions: 
+                                                {
+                                                columns: ":not(.no-exportar)"
+                                                }
+                                        },
+                                        {
+                                            extend: 'print',
+                                            text: '<a href=""><img class="logo d-inline-block align-top" width="40px" src="img/print.png"/></a>',
+                                            titleAttr:'Imprimir',
+                                            className: 'btn-primary',
+                                            title: "<center>Trabajadores</center>",
+                                            exportOptions: 
+                                                {
+                                                columns: ":not(.no-exportar)"
+                                                }
+                                        }
+                                    
+                                    ],    
+                                    
+                                    "language": 
+                                    {
+                                        "lengthMenu": "Mostrar _MENU_ registros por página",
+                                        "zeroRecords": "No hay coincidencias - Verifique",
+                                        "info": "Mostrando la página _PAGE_ de _PAGES_",
+                                        "infoEmpty": "No records available",
+                                        "infoFiltered": "(Filtrado de _MAX_ registros totales)",
+                                        "search": "Buscar:",
+                                        "paginate":
+                                            {
+                                            "next": "Siguiente",
+                                            "previous": "Anterior",
+                                            }     
+                                    },
+                                });
                                 });
                                 </script>
                             @endsection

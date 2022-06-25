@@ -28,7 +28,7 @@
                   <th> ID </th>
                   <th> Nombre </th>
                   <th> Fecha de creación </th>
-                  <th class="text-right"> Acciones </th>
+                  <th class="text-right "> Acciones </th>
                 </thead>
                 <tbody>
                   @forelse ($posts as $post)
