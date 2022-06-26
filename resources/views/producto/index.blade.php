@@ -46,7 +46,7 @@
 										<th>Descripción</th>
                                         <th>Precio</th>
                                         <th>Cantidad</th>
-                                        <th>Imagen</th>
+                                        <th class="no-exportar">Imagen</th>
                                         <th>Categoría</th>
                                        
 										
