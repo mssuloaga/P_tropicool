@@ -7,7 +7,7 @@
         <div class="card">
           <!--Header-->
           <div class="card-header card-header-primary">
-            <h4 class="card-title">Posts</h4>
+            <h4 class="card-title">Publicación</h4>
             <p class="card-category">Vista detallada de {{ $post->title }}</p>
           </div>
           <!--End header-->
@@ -39,11 +39,11 @@
                       {{ _('Do not be scared of the truth because we need to restart the human foundation in truth And I love you like Kanye loves Kanye I love Rick Owens’ bed design but the back is...') }}
                     </div>
                   </div>
-                  <div class="card-footer">
-                    <div class="button-container">
-                      <button type="submit" class="btn btn-sm btn-primary">Editar</button>
-                    </div>
-                  </div>
+                  <div class="card-footer ">
+                                <div class="button-container">
+                                    <a href="{{ route('posts.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
+                                </div>
+                            </div>
                 </div>
               </div>
               <!--end first-->

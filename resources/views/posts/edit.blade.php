@@ -10,14 +10,14 @@
           <div class="card">
             <!--Header-->
             <div class="card-header card-header-primary">
-              <h4 class="card-title">Editar post</h4>
-              <p class="card-category">Editar datos del post</p>
+              <h4 class="card-title">Publicación</h4>
+              <p class="card-category">Editar datos</p>
             </div>
             <!--End header-->
             <!--Body-->
             <div class="card-body">
               <div class="row">
-                <label for="title" class="col-sm-2 col-form-label">Title</label>
+                <label for="title" class="col-sm-2 col-form-label">Nombre Publicación</label>
                 <div class="col-sm-7">
                   <input type="text" class="form-control" name="title" placeholder="Ingrese el title"
                     value="{{ old('title', $post->title) }}" autocomplete="off" autofocus>
@@ -26,10 +26,12 @@
             </div>
             <!--End body-->
             <!--Footer-->
-            <div class="card-footer ml-auto mr-auto">
-              <button type="submit" class="btn btn-primary">Guardar</button>
-            </div>
-          </div>
+            <div class="row">
+        <div class="text-center p-4">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ route('posts.index') }}" class="btn btn-success ms-3"> Volver </a>                    
+        </div>                   
+    </div>
           <!--End footer-->
         </form>
       </div>

@@ -44,7 +44,7 @@
                 </div>
               </div>end card user -->
 
-              <div class="col-md-4">
+              <!-- <div class="col-md-4">
                 <div class="card card-user">
                   <div class="card-body">
                     <p class="card-text">
@@ -67,11 +67,11 @@
                   <div class="card-footer">
                     <div class="button-container">
                       <a href="{{ route('users.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>
-                      <!-- <button class="btn btn-sm btn-primary">Editar</button> -->
-                    </div>
+                      <button class="btn btn-sm btn-primary">Editar</button> -->
+                    <!-- </div>
                   </div>
                 </div>
-              </div><!--end card user 2-->
+              </div> --><!--end card user 2-->
 
               <!--Start third-->
               <div class="col-md-4">
@@ -116,7 +116,7 @@
                   <div class="card-footer">
                     <div class="button-container">
                       <a href="{{ route('users.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>
-                      <a href="#" class="btn btn-sm btn-twitter"> Editar </a>
+                      
                     </div>
                   </div>
                 </div>

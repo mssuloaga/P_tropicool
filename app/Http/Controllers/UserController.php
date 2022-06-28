@@ -48,7 +48,7 @@ class UserController extends Controller
 
         $roles = $request->input('roles', []);
         $user->syncRoles($roles);
-        return redirect()->route('users.show', $user->id)->with('success', 'Usuario creado con éxito');
+        return redirect()->route('users.index', $user->id)->with('success', 'Usuario creado con éxito');
     }
 
     public function show(User $user)

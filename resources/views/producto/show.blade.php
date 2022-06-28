@@ -32,12 +32,12 @@
                                             <td>{{ $producto->cantidad}}</td>
                                         </tr>
                                         <tr>
-                                            <th>Imagen</th>
-                                            <td>{{ $producto->imagen}}</td>
-                                        </tr>
-                                        <tr>
                                             <th>Categoría</th>
                                             <td>{{ $producto->categoria->nombre}}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <td><img src="{{ asset('uploads/productos/'.$producto->imagen) }}" width="80px" height="80px" alt="Image"></td>
                                         </tr>
                                     </tbody>
                                 </table>

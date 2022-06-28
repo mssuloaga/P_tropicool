@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage' => 'posts', 'titlePage' => 'Posts'])
+@extends('layouts.main', ['activePage' => 'posts', 'titlePage' => 'Publicación'])
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
@@ -11,14 +11,14 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title">Posts</h4>
-            <p class="card-category">Lista de posts registrados en la base de datos</p>
+            <h4 class="card-title">Publicación</h4>
+            <p class="card-category">Lista de publicaciones registradas</p>
           </div>
           <div class="card-body">
             <div class="row">
               <div class="col-12 text-right">
                 @can('post_create')
-                <a href="{{ route('posts.create') }}" class="btn btn-sm btn-facebook">Añadir post</a>
+                <a href="{{ route('posts.create') }}" class="btn btn-sm btn-facebook">Añadir publicación</a>
                 @endcan
               </div>
             </div>
@@ -27,7 +27,7 @@
                 <thead class="text-primary">
                   <th> ID </th>
                   <th> Nombre </th>
-                  <th> Fecha de creación </th>
+                  <th> Fecha de Creación </th>
                   <th class="text-right no-exportar"> Acciones </th>
                 </thead>
                 <tbody>
@@ -47,7 +47,7 @@
                     @endcan
                     @can('post_destroy')
                       <form action="{{ route('posts.destroy', $post->id) }}" method="post"
-                        onsubmit="return confirm('areYouSure')" style="display: inline-block;">
+                        onsubmit="return confirm('Seguro?')" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" rel="tooltip" class="btn btn-danger">
