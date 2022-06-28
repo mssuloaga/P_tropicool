@@ -5,7 +5,7 @@ use \PDF;
 use App\Producto;
 use App\Categoria;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 /**
  * Class ProductoController
@@ -54,12 +54,24 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Producto::$rules);
+        $producto = new Producto;
+        $producto->nombre = $request->input('nombre');
+        $producto->descripcion = $request->input('descripcion');
+        $producto->precio = $request->input('precio');
+        $producto->cantidad = $request->input('cantidad');
+        $producto->id_categorias = $request->input('id_categorias');
 
-        $producto = Producto::create($request->all());
-
+        if($request->hasfile('imagen'))
+        {
+            $file = $request->file('imagen');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/productos/', $filename);
+            $producto->imagen = $filename;
+        }
+        $producto->save();
         return redirect()->route('productos.index')
-            ->with('success', 'Producto creado con éxito');
+            ->with('success', 'Producto ingresado con éxito');
     }
 
     /**
@@ -86,6 +98,7 @@ class ProductoController extends Controller
         $producto = Producto::find($id);
         $categorias=Categoria::all();
         return view('producto.edit', compact('producto','categorias'));
+        
     }
 
     /**
@@ -97,10 +110,28 @@ class ProductoController extends Controller
      */
     public function update(Request $request, Producto $producto)
     {
-        request()->validate(Producto::$rules);
+       
+        $producto->nombre = $request->input('nombre');
+        $producto->descripcion = $request->input('descripcion');
+        $producto->precio = $request->input('precio');
+        $producto->cantidad = $request->input('cantidad');
+        $producto->id_categorias = $request->input('id_categorias');
 
-        $producto->update($request->all());
+        if($request->hasfile('imagen'))
+        {
+            $destination = 'uploads/productos/'.$producto->imagen;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
+            $file = $request->file('imagen');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/productos/', $filename);
+            $producto->imagen = $filename;
+        }
 
+        $producto->update();
         return redirect()->route('productos.index')
             ->with('success', 'Producto actualizado con éxito');
     }

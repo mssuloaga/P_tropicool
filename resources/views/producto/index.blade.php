@@ -62,7 +62,7 @@
 											<td>{{ $producto->descripcion}}</td>
                                             <td>{{ $producto->precio}}</td>
                                             <td>{{ $producto->cantidad}}</td>
-                                            <td>{{ $producto->imagen}}</td>
+                                            <td><img src="{{ asset('uploads/productos/'.$producto->imagen) }}" width="70px" height="70px" alt="Image"></td>
                                             <td>{{ $producto->categoria->nombre}}</td>
 
                                             <td class="td-actions text-right">
