@@ -70,16 +70,18 @@
                     {!! $errors->first('facebook', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
         </div>
+       
     </div>
     
-    <div class="row text-center">
-        <div class="card-footer ml-auto mr-auto">
+    
+    <div class="row">
+        <div class="text-center p-4">
             <button type="submit" class="btn btn-primary">Guardar</button>
-            <div class="m-4">
-                                    <a href="{{ route('empresas.index') }}" class="btn btn-success mr-3"> Volver </a>                
-                                </div>
-        </div>
+            <a href="{{ route('empresas.index') }}" class="btn btn-success ms-3"> Volver </a>                    
+        </div>                   
     </div>
+    
+    
                     
     
     

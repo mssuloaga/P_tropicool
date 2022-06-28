@@ -47,7 +47,7 @@
                     @endcan
                     @can('post_destroy')
                       <form action="{{ route('posts.destroy', $post->id) }}" method="post"
-                        onsubmit="return confirm('areYouSure')" style="display: inline-block;">
+                        onsubmit="return confirm('Seguro?')" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" rel="tooltip" class="btn btn-danger">

@@ -62,9 +62,12 @@
             <!--End body-->
 
             <!--Footer-->
-            <div class="card-footer ml-auto mr-auto">
-              <button type="submit" class="btn btn-primary">Guardar</button>
-            </div>
+            <div class="row">
+        <div class="text-center p-4">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <a href="{{ route('roles.index') }}" class="btn btn-success ms-3"> Volver </a>                    
+        </div>                   
+    </div>
             <!--End footer-->
           </div>
         </form>
