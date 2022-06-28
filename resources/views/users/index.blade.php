@@ -35,8 +35,8 @@
                           <th>ID</th>
                           <th>Nombre</th>
                           <th>Correo</th>
-                          <th>Username</th>
-                          <th>Full Name</th>
+                          <th>Nombre Usuario</th>
+                          <th>Nombre Completo</th>
                           <th>Roles</th>
                           <th class="text-right no-exportar">Acciones</th>
                         </thead>

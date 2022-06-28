@@ -30,7 +30,7 @@
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>Guard</th>
-                        <th>Created_at</th>
+                        <th>Fecha de Creación</th>
                         <th class="text-right no-exportar">Acciones</th>
                       </thead>
                       <tbody>

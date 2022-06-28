@@ -27,7 +27,7 @@
                 <thead class="text-primary">
                   <th> ID </th>
                   <th> Nombre </th>
-                  <th> Fecha de creación </th>
+                  <th> Fecha de Creación </th>
                   <th class="text-right no-exportar"> Acciones </th>
                 </thead>
                 <tbody>

@@ -28,7 +28,7 @@
                   <th> ID </th>
                   <th> Nombre </th>
                   <th> Guard </th>
-                  <th> Fecha de creación </th>
+                  <th> Fecha de Creación </th>
                   <th> Permisos </th>
                   <th class="text-right no-exportar"> Acciones </th>
                 </thead>
