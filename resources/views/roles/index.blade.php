@@ -12,7 +12,7 @@
         <div class="card">
           <div class="card-header card-header-primary">
             <h4 class="card-title">Roles</h4>
-            <p class="card-category">Lista de roles registrados en la base de datos</p>
+            <p class="card-category">Lista de roles registrados</p>
           </div>
           <div class="card-body">
             <div class="row">

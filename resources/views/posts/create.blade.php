@@ -10,16 +10,16 @@
           <div class="card ">
             <!--Header-->
             <div class="card-header card-header-primary">
-              <h4 class="card-title">Post</h4>
-              <p class="card-category">Ingresar datos del nuevo post</p>
+              <h4 class="card-title">Publicación</h4>
+              <p class="card-category">Ingresar datos de la nueva publicación</p>
             </div>
             <!--End header-->
             <!--Body-->
             <div class="card-body">
               <div class="row">
-                <label for="title" class="col-sm-2 col-form-label">Post title</label>
+                <label for="title" class="col-sm-2 col-form-label">Nombre Publicación</label>
                 <div class="col-sm-7">
-                  <input type="text" class="form-control" name="title" placeholder="Ingrese el post title"
+                  <input type="text" class="form-control" name="title" placeholder="Ingrese el nombre "
                     autocomplete="off" autofocus>
                 </div>
               </div>

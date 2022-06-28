@@ -14,7 +14,7 @@
                 <div class="card">
                   <div class="card-header card-header-primary">
                     <h4 class="card-title">Usuarios</h4>
-                    <p class="card-category">Usuarios registrados</p>
+                    <p class="card-category">Lista de usuarios registrados</p>
                   </div>
                   <div class="card-body">
                     @if (session('success'))
