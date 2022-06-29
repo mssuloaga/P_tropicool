@@ -81,7 +81,7 @@
                   $('#posts').DataTable(
                                 {
                                     responsive:"true",
-                                    dom: 'Bftirl',
+                                    dom: 'Bftirpl',
                                     buttons: 
                                     [
                                         {
@@ -141,11 +141,7 @@
               {{-- {{ $users->links() }} --}}
             </div>
           </div>
-          <!--Footer-->
-          <div class="card-footer mr-auto">
-            {{ $posts->links() }}
-          </div>
-          <!--End footer-->
+          
         </div>
       </div>
     </div>
