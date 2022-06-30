@@ -9,23 +9,24 @@
       {{ __('Página de Inicio') }}
     </a>
   </div>
-  @can('post_index')
-    <li class="nav-item dropdown">
-      <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        <i class="material-icons">person</i>
-        {{ Auth::user()->name }}
-        
-      </a>
-      <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
-        <a class="dropdown-item" href="/perfil">{{ __('Perfil') }}</a>
-        <a class="dropdown-item" href="#">{{ __('Ajustes') }}</a>
-        <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
-      </div>
-    </li>
-  @endcan 
+  
   <div class="sidebar-wrapper">
     <ul class="nav">
+    @can('post_index')
+      <li class="nav-item dropdown">
+        <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="material-icons">person</i>
+          {{ Auth::user()->name }}
+          
+        </a>
+        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
+          <a class="dropdown-item" href="/perfil">{{ __('Perfil') }}</a>
+          <a class="dropdown-item" href="#">{{ __('Ajustes') }}</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
+        </div>
+      </li>
+    @endcan 
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons">dashboard</i>
