@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <form action="{{ route('users.update', $user->id) }}" method="post" class="form-horizontal">
+        <form action="{{ route('users.update', $user->id) }}" method="post" class="form-horizontal" enctype="multipart/form-data">
           @csrf
           @method('PUT')
           <div class="card">
