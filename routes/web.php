@@ -55,4 +55,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/download_pdftrabajadores', [App\Http\Controllers\TrabajadoreController::class, 'downloadPdf']);
     Route::get('/download_pdfeventos', [App\Http\Controllers\EventoController::class, 'downloadPdf']);
     Route::get('/download_pdfstocks', [App\Http\Controllers\StockController::class, 'downloadPdf']);
+    Route::get('/calendario', [App\Http\Controllers\CalendarioController::class, 'index']);
 });
