@@ -12,7 +12,7 @@
         <div class="card">
           <div class="card-header card-header-primary">
             <h4 class="card-title">Roles</h4>
-            <p class="card-category">Lista de roles registrados en la base de datos</p>
+            <p class="card-category">Lista de roles registrados</p>
           </div>
           <div class="card-body">
             <div class="row">
@@ -28,7 +28,7 @@
                   <th> ID </th>
                   <th> Nombre </th>
                   <th> Guard </th>
-                  <th> Fecha de creación </th>
+                  <th> Fecha de Creación </th>
                   <th> Permisos </th>
                   <th class="text-right no-exportar"> Acciones </th>
                 </thead>
@@ -91,7 +91,7 @@
                   $('#roles').DataTable(
                                 {
                                     responsive:"true",
-                                    dom: 'Bftirl',
+                                    dom: 'Bftirpl',
                                     buttons: 
                                     [
                                         {
@@ -150,12 +150,7 @@
               @endsection
               {{-- {{ $users->links() }} --}}
             </div>
-          </div>
-          <!--Footer-->
-          <div class="card-footer mr-auto">
-            {{ $roles->links() }}
-          </div>
-          <!--End footer-->
+          
         </div>
       </div>
     </div>

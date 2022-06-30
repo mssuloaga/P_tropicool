@@ -43,11 +43,11 @@
                       @endforelse
                     </div>
                   </div>
-                  <div class="card-footer">
-                    <div class="button-container">
-                      <button type="submit" class="btn btn-sm btn-primary">Editar</button>
-                    </div>
-                  </div>
+                  <div class="card-footer ">
+                                <div class="button-container">
+                                    <a href="{{ route('roles.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
+                                </div>
+                            </div>
                 </div>
               </div>
               <!--end first-->

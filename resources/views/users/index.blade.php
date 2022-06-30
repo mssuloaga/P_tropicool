@@ -14,7 +14,7 @@
                 <div class="card">
                   <div class="card-header card-header-primary">
                     <h4 class="card-title">Usuarios</h4>
-                    <p class="card-category">Usuarios registrados</p>
+                    <p class="card-category">Lista de usuarios registrados</p>
                   </div>
                   <div class="card-body">
                     @if (session('success'))
@@ -35,8 +35,8 @@
                           <th>ID</th>
                           <th>Nombre</th>
                           <th>Correo</th>
-                          <th>Username</th>
-                          <th>Full Name</th>
+                          <th>Nombre Usuario</th>
+                          <th>Nombre Completo</th>
                           <th>Roles</th>
                           <th class="text-right no-exportar">Acciones</th>
                         </thead>
@@ -91,7 +91,7 @@
                             $(document).ready(function () {
                             $('#users').DataTable({
                                     responsive:"true",
-                                    dom: 'Bftirl',
+                                    dom: 'Bftirpl',
                                     buttons: [
                                     {
                                         extend: 'excelHtml5',
@@ -143,9 +143,7 @@
                       @endsection
                     </div>
                   </div>
-                  <div class="card-footer mr-auto">
-                    {{ $users->links() }}
-                  </div>
+                 
                 </div>
               </div>
             </div>

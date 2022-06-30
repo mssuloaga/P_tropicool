@@ -17,7 +17,7 @@ class PostController extends Controller
     {
         abort_if(Gate::denies('post_index'), 403);
 
-        $posts = Post::paginate(5);
+        $posts = Post::all();
         return view('posts.index', compact('posts'));
     }
 
@@ -94,7 +94,7 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        abort_if(Gate::denies('post_delete'), 403);
+        abort_if(Gate::denies('post_destroy'), 403);
 
         $post->delete();
 
