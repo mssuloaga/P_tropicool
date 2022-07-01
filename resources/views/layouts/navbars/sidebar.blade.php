@@ -14,7 +14,7 @@
     <ul class="nav">
     @can('post_index')
       <li class="nav-item dropdown text-center">
-      <img src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="90px" height="90px" alt="Imagen">
+      <img class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="100px" height="100px" alt="Imagen">
         <a class="nav-link dropdown-toggle" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ Auth::user()->name }}
         </a>
