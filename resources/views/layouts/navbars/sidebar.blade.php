@@ -119,6 +119,14 @@
         </a>
       </li>
       @endcan
+      @can('role_index')
+      <li class="nav-item{{ $activePage == 'pruebas' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ route('productos.import') }}">
+          <i class="material-icons">home_filled</i>
+            <p>{{ __('Prueba') }}</p>
+        </a>
+      </li>
+      @endcan
     </ul>
   </div>
 </div>

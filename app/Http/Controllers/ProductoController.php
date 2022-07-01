@@ -148,4 +148,13 @@ class ProductoController extends Controller
         return redirect()->route('productos.index')
             ->with('success', '');
     }
+
+    public function import(){
+        return view('productos.import');
+
+    }
+
+    public function importData(){
+
+    }
 }
