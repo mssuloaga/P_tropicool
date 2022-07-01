@@ -15,6 +15,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         $user = User::create([
+            'image' => 'cat.jpg',
             'name' => 'Admin',
             'email' => 'admin@admin.com',
             'username' => 'admin',
@@ -24,6 +25,7 @@ class UserSeeder extends Seeder
         $user->assignRole('Admin');
 
         $user = User::create([
+            'image' => 'cat2.jpg',
             'name' => 'ElMATI',
             'email' => 'mati@mati.com',
             'username' => 'mati',
