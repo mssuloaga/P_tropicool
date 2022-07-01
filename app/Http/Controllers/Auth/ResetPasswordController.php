@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use app\Http\Controllers\Auth\ResetPasword;
+use Illuminate\Foundation\Auth;
 
 class ResetPasswordController extends Controller
 {
