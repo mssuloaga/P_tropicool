@@ -13,11 +13,10 @@
   <div class="sidebar-wrapper">
     <ul class="nav">
     @can('post_index')
-      <li class="nav-item dropdown">
-        <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          <i class="material-icons">person</i>
+      <li class="nav-item dropdown text-center">
+      <img class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="100px" height="100px" alt="Imagen">
+        <a class="nav-link dropdown-toggle" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {{ Auth::user()->name }}
-          
         </a>
         <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
           <a class="dropdown-item" href="/perfil">{{ __('Perfil') }}</a>
