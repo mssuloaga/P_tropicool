@@ -24,7 +24,7 @@ Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
 
-Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@showResetForm')->name('password.reset');
+Route::get('/reset-password/{token}', 'app\Http\Controllers\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('/reset-password', function (Request $request) {
     $request->validate([
         'token' => 'required',
@@ -34,22 +34,22 @@ Route::post('/reset-password', function (Request $request) {
 
     $status = Password::reset(
         $request->only('email', 'password', 'password_confirmation', 'token'),
-        function ($user, $password) {
+        function ($user, $password) use ($request) {
             $user->forceFill([
                 'password' => Hash::make($password)
-            ])->setRememberToken(Str::random(60));
+            ])->save();
 
-            $user->save();
+            $user->setRememberToken(Str::random(60));
 
             event(new PasswordReset($user));
         }
     );
 
-    return $status === Password::PASSWORD_RESET
+    return $status == Password::PASSWORD_RESET
                 ? redirect()->route('login')->with('status', __($status))
-                : back()->withErrors(['email' => [__($status)]]);
-})->middleware('guest')->name('password.update');
-Route::post('/reset-password', 'app\Http\Controllers\ResetsPaswords.php@reset')->name('password.update');
+                : back()->withErrors(['email' => __($status)]);
+})->middleware(['guest'])->name('password.update');
+Route::post('/reset-password', 'app\Http\Controllers\ResetsPaswords@reset')->name('password.update');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 

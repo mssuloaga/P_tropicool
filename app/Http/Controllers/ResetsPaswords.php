@@ -1,6 +1,6 @@
 <?php
 
-namespace Illuminate\Foundation\Auth;
+namespace app\Http\Controllers\Auth;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
