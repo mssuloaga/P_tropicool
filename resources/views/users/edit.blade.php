@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <form action="{{ route('users.update', $user->id) }}" method="post" class="form-horizontal">
+        <form action="{{ route('users.update', $user->id) }}" method="post" class="form-horizontal" enctype="multipart/form-data">
           @csrf
           @method('PUT')
           <div class="card">
@@ -13,6 +13,15 @@
               <p class="card-category">Editar datos</p>
             </div>
             <div class="card-body">
+              <div class="row">
+                <label for="image" class="col-sm-2 col-form-label">Imagen</label>
+                <div class="col-sm-7">
+                  <input type="file" class="form-control" name="image" value="{{ old('image') }}" autofocus>
+                  @if ($errors->has('image'))
+                    <span class="error text-danger" for="input-name">{{ $errors->first('image') }}</span>
+                  @endif
+                </div>
+              </div>
               <div class="row">
                 <label for="name" class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-7">
