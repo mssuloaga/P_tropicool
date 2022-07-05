@@ -1,13 +1,13 @@
 <?php
 
-namespace app\Http\Controllers\Auth;
+namespace Http\Controllers\Auth;
 
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
-use Illuminate\Auth\Events\PasswordReset;
+use App\Http\Controllers\PasswordReset;
 
 trait ResetsPasswords
 {

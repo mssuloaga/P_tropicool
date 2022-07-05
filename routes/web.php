@@ -24,7 +24,7 @@ Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
 
-Route::get('/reset-password/{token}', 'app\Http\Controllers\ResetPasswordController@showResetForm')->name('password.reset');
+Route::get('/reset-password/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('/reset-password', function (Request $request) {
     $request->validate([
         'token' => 'required',
@@ -49,7 +49,7 @@ Route::post('/reset-password', function (Request $request) {
                 ? redirect()->route('login')->with('status', __($status))
                 : back()->withErrors(['email' => __($status)]);
 })->middleware(['guest'])->name('password.update');
-Route::post('/reset-password', 'app\Http\Controllers\ResetsPaswords@reset')->name('password.update');
+Route::post('/reset-password', 'App\Http\Controllers\ResetPasswordController@reset')->name('password.update');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
