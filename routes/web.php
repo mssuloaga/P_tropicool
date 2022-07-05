@@ -27,7 +27,7 @@ Route::get('trabajadores/pdf', function () {
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('/reset-password','App\Http\Controllers\ResetPasswordController@reset');
+Route::post('/reset-password','App\Http\Controllers\ResetPasswordController@reset')->name('password.update');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
