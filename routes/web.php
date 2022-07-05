@@ -24,7 +24,7 @@ Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
 
-Route::get('/reset-password/{token}', 'ResetPasswordController@showResetForm')->name('password.reset');
+Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('/reset-password', function (Request $request) {
     $request->validate([
         'token' => 'required',
