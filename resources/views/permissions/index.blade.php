@@ -85,7 +85,7 @@
                         $('#permisos').DataTable(
                                 {
                                     responsive:"true",
-                                    dom: 'Bftirpl',
+                                    dom: 'Bftirl',
                                     buttons: 
                                     [
                                         {
@@ -144,7 +144,9 @@
                     @endsection
                   </div>
                 </div>
-
+                <div class="card-footer mr-auto">
+                  {{ $permissions->links() }}
+                </div>
               </div>
             </div>
           </div>

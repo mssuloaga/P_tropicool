@@ -9,33 +9,12 @@
       {{ __('Página de Inicio') }}
     </a>
   </div>
-  
   <div class="sidebar-wrapper">
     <ul class="nav">
-    @can('post_index')
-      <li class="nav-item dropdown text-center">
-      <img class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="100px" height="100px" alt="Imagen">
-        <a class="nav-link dropdown-toggle" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{ Auth::user()->name }}
-        </a>
-        <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
-          <a class="dropdown-item" href="/perfil">{{ __('Perfil') }}</a>
-          <a class="dropdown-item" href="#">{{ __('Ajustes') }}</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
-        </div>
-      </li>
-    @endcan 
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons">dashboard</i>
             <p>{{ __('Panel de Control') }}</p>
-        </a>
-      </li>
-      <li class="nav-item{{ $activePage == 'calendario' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ url('/calendario') }}">
-          <i class="material-icons">event</i>
-            <p>{{ __('Calendario') }}</p>
         </a>
       </li>
       @can('post_index')

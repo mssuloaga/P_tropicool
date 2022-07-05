@@ -91,7 +91,7 @@
                   $('#roles').DataTable(
                                 {
                                     responsive:"true",
-                                    dom: 'Bftirpl',
+                                    dom: 'Bftirl',
                                     buttons: 
                                     [
                                         {
@@ -150,7 +150,12 @@
               @endsection
               {{-- {{ $users->links() }} --}}
             </div>
-          
+          </div>
+          <!--Footer-->
+          <div class="card-footer mr-auto">
+            {{ $roles->links() }}
+          </div>
+          <!--End footer-->
         </div>
       </div>
     </div>
