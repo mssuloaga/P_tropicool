@@ -18,7 +18,7 @@ class RoleController extends Controller
     {
         abort_if(Gate::denies('role_index'), 403);
 
-        $roles = Role::all();
+        $roles = Role::paginate();
 
         return view('roles.index', compact('roles'));
     }
