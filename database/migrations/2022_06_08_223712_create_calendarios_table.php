@@ -13,12 +13,16 @@ class CreateCalendariosTable extends Migration
      */
     public function up()
     {
-        Schema::create('calendarios', function (Blueprint $table) {
+        Schema::create('calendario', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->bigIncrements('id');
+            $table->string("title",255);
+            $table->text("descripcion");
+            $table->dateTime("start");
+            $table->dateTime("end");
             $table->timestamps();
-            $table->bigInteger('id_eventos')->unsigned();
-            $table->foreign('id_eventos')->references('id')->on('eventos')->onDelete("cascade");
+           // $table->bigInteger('id_eventos')->unsigned();
+          //  $table->foreign('id_eventos')->references('id')->on('eventos')->onDelete("cascade");
         });
     }
 
@@ -29,6 +33,6 @@ class CreateCalendariosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calendarios');
+        Schema::dropIfExists('calendario');
     }
 }
