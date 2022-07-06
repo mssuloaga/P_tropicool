@@ -17,7 +17,7 @@ class PostController extends Controller
     {
         abort_if(Gate::denies('post_index'), 403);
 
-        $posts = Post::all();
+        $posts = Post::paginate(5);
         return view('posts.index', compact('posts'));
     }
 

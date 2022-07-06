@@ -91,7 +91,7 @@
                             $(document).ready(function () {
                             $('#users').DataTable({
                                     responsive:"true",
-                                    dom: 'Bftirpl',
+                                    dom: 'Bftirl',
                                     buttons: [
                                     {
                                         extend: 'excelHtml5',
@@ -143,7 +143,9 @@
                       @endsection
                     </div>
                   </div>
-                 
+                  <div class="card-footer mr-auto">
+                    {{ $users->links() }}
+                  </div>
                 </div>
               </div>
             </div>
