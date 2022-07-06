@@ -9,6 +9,7 @@
       {{ __('Página de Inicio') }}
     </a>
   </div>
+  
   <div class="sidebar-wrapper">
     <ul class="nav">
     @can('post_index')
@@ -31,7 +32,12 @@
             <p>{{ __('Panel de Control') }}</p>
         </a>
       </li>
-          
+      <li class="nav-item{{ $activePage == 'calendario' ? ' active' : '' }}">
+        <a class="nav-link" href="{{ url('/calendario') }}">
+          <i class="material-icons">event</i>
+            <p>{{ __('Calendario') }}</p>
+        </a>
+      </li>
       @can('post_index')
       <li class="nav-item{{ $activePage == 'posts' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('posts.index') }}">

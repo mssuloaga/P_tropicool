@@ -20,7 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-// Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil');
+Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil');
+Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index'])->name('articulos');
 Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
