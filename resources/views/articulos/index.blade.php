@@ -112,41 +112,22 @@
             </div>
        </header>
 
-       <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img\cargando.jpg" class="card-img-top" alt="">
+       <div class="container" style="margin-top: 8rem;">
+        <div class="row">
+            @foreach($articulos as $a)
+                <div class="col-md-3">
+                    <div class="card" style="width: 16rem;">
                         <div class="card-body">
-                            <h5 class="card-title">Articulo 1</h5>
-                            <p class="card-text">Precio ($6.000)</p>
+                            <img src="img\cargando.jpg" class="card-img-top" alt="$a->nombre">
+                            <h5 class="card-title">{{ $a->nombre }}</h5>
+                            <p class="card-text">${{ $a->precio }}</p>
                             <a href="#" class="btn btn-primary">Añadir</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img\cargando.jpg" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Articulo 2</h5>
-                            <p class="card-text">Precio ($7.500)</p>
-                            <a href="#" class="btn btn-primary">Añadir</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem;">
-                        <img src="img\cargando.jpg" class="card-img-top" alt="">
-                        <div class="card-body">
-                            <h5 class="card-title">Articulo 3</h5>
-                            <p class="card-text">Precio ($5.500)</p>
-                            <a href="#" class="btn btn-primary">Añadir</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @endforeach
+        </div>
        </div>
-
        <footer class="footer bg-light">
             <div class="container">
                 <div class="row">
