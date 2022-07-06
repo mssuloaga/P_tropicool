@@ -15,7 +15,7 @@ class PermissionController extends Controller
      */
     public function index()
     {   
-        $permissions = Permission::all();
+        $permissions = Permission::paginate();
         abort_if(Gate::denies('permission_index'), 403);
 
         

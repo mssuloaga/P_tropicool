@@ -15,7 +15,10 @@ class PerfilController extends Controller
      */
     public function index()
     {
-        return view('perfil.index');
+        abort_if(Gate::denies('perfil_index'), 403);
+
+        $posts = Post::paginate(5);
+        return view('perfil.index', compact('perfil'));
     }
 
     public function editprofile(){

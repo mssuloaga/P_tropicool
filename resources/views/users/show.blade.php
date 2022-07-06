@@ -85,19 +85,19 @@
                           </td>
                         </tr>
                         <tr>
-                          <th>Nombre</th>
+                          <th>Name</th>
                           <td>{{ $user->name }}</td>
                         </tr>
                         <tr>
-                          <th>Correo</th>
+                          <th>Email</th>
                           <td><span class="badge badge-primary">{{ $user->email }}</span></td>
                         </tr>
                         <tr>
-                          <th>Nombre Usuario</th>
+                          <th>Username</th>
                           <td>{!! $user->username !!}</td>
                         </tr>
                         <tr>
-                          <th>Fecha Creación</th>
+                          <th>Created at</th>
                           <td><a href="#" target="_blank">{{  $user->created_at  }}</a></td>
                         </tr>
                         <tr>
@@ -106,13 +106,9 @@
                                 @forelse ($user->roles as $role)
                                     <span class="badge rounded-pill bg-dark text-white">{{ $role->name }}</span>
                                 @empty
-                                    <span class="badge badge-danger bg-danger">Sin roles</span>
+                                    <span class="badge badge-danger bg-danger">No roles</span>
                                 @endforelse
                             </td>
-                        </tr>
-                        <tr>
-                          <th>Imagen</th>
-                          <td><img src="{{ asset('uploads/usuarios/'.$user->image) }}" width="80px" height="80px" alt="Imagen"></td>
                         </tr>
                       </tbody>
                     </table>
