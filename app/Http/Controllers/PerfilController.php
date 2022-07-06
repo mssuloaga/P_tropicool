@@ -20,7 +20,10 @@ class PerfilController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of 8c47b8e (Merge branch 'Pruebas_3.0' into Nicolas)
         return view('perfil.index');
     }
 

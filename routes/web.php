@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrabajadoreController;
-use App\Http\Controllers\ProductoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,13 +24,42 @@ Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
 
+<<<<<<< HEAD
 
 Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil')->middleware('auth');
 Route::post('/change/password', [App\Http\Controllers\PerfilController::class, 'changePassword'])->name('changePassword');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+=======
+>>>>>>> parent of 8c47b8e (Merge branch 'Pruebas_3.0' into Nicolas)
 Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('/reset-password','App\Http\Controllers\ResetPasswordController@reset')->name('password.update');
+Route::post('/reset-password', function (Request $request) {
+    $request->validate([
+        'token' => 'required',
+        'email' => 'required|email',
+        'password' => 'required|min:8|confirmed',
+    ]);
+
+    $status = Password::reset(
+        $request->only('email', 'password', 'password_confirmation', 'token'),
+        function ($user, $password) {
+            $user->forceFill([
+                'password' => Hash::make($password)
+            ])->setRememberToken(Str::random(60));
+
+            $user->save();
+
+            event(new PasswordReset($user));
+        }
+    );
+
+    return $status === Password::PASSWORD_RESET
+                ? redirect()->route('login')->with('status', __($status))
+                : back()->withErrors(['email' => [__($status)]]);
+})->middleware('guest')->name('password.update');
+Route::post('/reset-password', '\Http\Controllers\Auth\ResetPasswordController@reset')->name('password.update');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function() {
     Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
@@ -62,4 +90,5 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/download_pdftrabajadores', [App\Http\Controllers\TrabajadoreController::class, 'downloadPdf']);
     Route::get('/download_pdfeventos', [App\Http\Controllers\EventoController::class, 'downloadPdf']);
     Route::get('/download_pdfstocks', [App\Http\Controllers\StockController::class, 'downloadPdf']);
+    Route::get('/calendario', [App\Http\Controllers\CalendarioController::class, 'index']);
 });
