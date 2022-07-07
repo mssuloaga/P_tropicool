@@ -45,7 +45,7 @@
             <a class="dropdown-item" href="#">{{ __('Another One') }}</a>
           </div>
         </li> -->
-        <li class="nav-item dropdown">
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="material-icons">person</i>
             {{ Auth::user()->name }}
@@ -57,7 +57,7 @@
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
           </div>
-        </li>
+        </li> -->
       </ul>
     </div>
   </div>

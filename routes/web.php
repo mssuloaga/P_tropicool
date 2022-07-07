@@ -26,6 +26,10 @@ Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
 
+
+Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil')->middleware('auth');
+Route::post('/change/password', [App\Http\Controllers\PerfilController::class, 'changePassword'])->name('changePassword');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('/reset-password','App\Http\Controllers\ResetPasswordController@reset')->name('password.update');
