@@ -20,6 +20,8 @@ class UserSeeder extends Seeder
             'email' => 'admin@admin.com',
             'username' => 'admin',
             'password' => bcrypt('password'),
+            'admin' => true,
+            
         ]);
 
         $user->assignRole('Admin');
@@ -30,6 +32,7 @@ class UserSeeder extends Seeder
             'email' => 'mati@mati.com',
             'username' => 'mati',
             'password' => bcrypt('asas123'),
+            'admin' => false,
         ]);
 
         $user->assignRole('User');
