@@ -40,6 +40,8 @@ Route::post('/change/password', [App\Http\Controllers\PerfilController::class, '
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('/reset-password','App\Http\Controllers\ResetPasswordController@reset')->name('password.update');
+Route::post('/importar-productos', [ProductoController::class, 'ProductsImport'])->name('producto.import');
+Route::view('/importar-producto', 'producto.producto_import')->name('producto_import');
 
 Route::group(['middleware' => 'auth','valid'], function() {
     Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
