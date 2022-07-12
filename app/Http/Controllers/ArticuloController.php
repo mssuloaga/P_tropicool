@@ -18,8 +18,6 @@ class ArticuloController extends Controller
     public function show($id){
         $articulos = Producto::find($id);
 
-        return view('articulos.show',[
-            'articulos'=>$articulos
-        ]);
+        return view('articulos.show', compact('articulos'));
     }
 }
