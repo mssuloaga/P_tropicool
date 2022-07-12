@@ -35,6 +35,7 @@
                                 <div class="col-md-12"><label for="password" class="labels">Confirmar contraseña nueva</label><input type="text" name="confirm_password" class="form-control" placeholder="" value=""></div>
                             </div>
                             <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button" type="button">Guardar Perfil</button></div>
+                            <div class="mt-2 text-center"><a href="{{ route('home') }}" class="btn btn-success">Volver</a></div>
                         </div>
                     </div>
                 </div>
