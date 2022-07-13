@@ -26,13 +26,13 @@
                                 <div class="col-md-12"><label for="email" class="labels">Correo</label><input name="email" type="text" class="form-control" placeholder="Correo" value="{{ Auth::user()->email }}"></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="password_actual" class="labels">Contraseña actual</label><input type="text" name="password_actual" class="form-control" placeholder="" value=""></div>
+                                <div class="col-md-12"><label for="password_actual" class="labels">Contraseña actual</label><input type="password" name="password_actual" class="form-control" placeholder="" value=""></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="new_password" class="labels">Contraseña nueva</label><input type="text" name="password" class="form-control" placeholder="" value=""></div>
+                                <div class="col-md-12"><label for="new_password" class="labels">Contraseña nueva</label><input type="password" name="password" class="form-control" placeholder="" value=""></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="password" class="labels">Confirmar contraseña nueva</label><input type="text" name="confirm_password" class="form-control" placeholder="" value=""></div>
+                                <div class="col-md-12"><label for="password" class="labels">Confirmar contraseña nueva</label><input type="password" name="confirm_password" class="form-control" placeholder="" value=""></div>
                             </div>
                             <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button" type="button">Guardar Perfil</button></div>
                             <div class="mt-2 text-center"><a href="{{ route('home') }}" class="btn btn-success">Volver</a></div>
