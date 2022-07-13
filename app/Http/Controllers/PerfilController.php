@@ -47,16 +47,16 @@ class PerfilController extends Controller
                                 ->where('id', $user->id)
                                 ->update(['password' => $user->password], ['name' => $user->name]);
 
-                        return view('perfil.index');
-                        // return redirect()->back()->with('updateClave', 'La clave cambiada correctamente.');
+                        // return view('perfil.index');
+                        return redirect()->back()->with('updateClave', 'La clave cambiada correctamente.');
                     }else{
-                        return view('perfil.index');
-                        // return redirect()->back()->with('clavemenor', 'La clave debe ser mayor a 8 dígitos.');
+                        // return view('perfil.index');
+                        return redirect()->back()->with('clavemenor', 'La clave debe ser mayor a 8 dígitos.');
                     }
 
                 }else{
-                    return view('perfil.index');    
-                    // return redirect()->back()->with('claveIncorrecta', 'Por favor verifique las claves no coinciden.');            
+                    // return view('perfil.index');    
+                    return redirect()->back()->with('claveIncorrecta', 'Por favor verifique las claves no coinciden.');            
                 }
             }else{
                 return view('perfil.index');    
