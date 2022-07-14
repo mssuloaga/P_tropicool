@@ -45,7 +45,12 @@ class PerfilController extends Controller
                         $user->password = Hash::make($request->password);
                         $sqlBD = DB::table('users')
                                 ->where('id', $user->id)
-                                ->update(['password' => $user->password], ['name' => $user->name]);
+                                ->update(['password' => $user->password], ['name' => $name]);
+                        
+                        $name = $request->name;
+                        $sqlBDUpdateName = DB::table('users')
+                        ->where('id', $user->id)
+                        ->update(['name' => $name]);
 
                         // return view('perfil.index');
                         return redirect()->back()->with('updateClave', 'La clave cambiada correctamente.');
@@ -64,11 +69,9 @@ class PerfilController extends Controller
 
         }else{
             $name = $request->name;
-            $username = $request->username;
-            $email = $request->email;
             $sqlBDUpdateName = DB::table('users')
                                 ->where('id', $user->id)
-                                ->update(['name' => $name], ['username' => $username], ['email' => $email]);
+                                ->update(['name' => $name]);
             // return view('perfil.index'); 
             return redirect()->back()->with('name', 'El nombre fue cambiado correctamente.');           
         }
