@@ -6,6 +6,7 @@ use App\Producto;
 use App\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use App\Models\Producto;
 
 /**
  * Class ProductoController
@@ -147,5 +148,26 @@ class ProductoController extends Controller
 
         return redirect()->route('productos.index')
             ->with('success', '');
+    }
+    public function ProductsImport(Request $request)
+    {   
+        
+        if ($request->hasFile('file')) {
+            $file = $request->file('file');
+            try {
+                $import = Excel::import(new ProductsImport, $file);;
+            } catch (\Throwable $th) {
+                dd($th);
+            }
+            
+            
+
+           //($import->errors());
+            return Response()->json(['response' => 'Excel cargado exitosamente!']);
+        }
+    }
+
+    public function charts(){
+        return view();
     }
 }
