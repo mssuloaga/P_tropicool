@@ -52,19 +52,16 @@ class PerfilController extends Controller
                         ->where('id', $user->id)
                         ->update(['name' => $name]);
 
-                        // return view('perfil.index');
-                        return redirect()->back()->with('updateClave', 'La clave cambiada correctamente.');
+                        return redirect()->back()->with('updateDatos', 'Los datos fueron cambiados correctamente.');
                     }else{
-                        // return view('perfil.index');
                         return redirect()->back()->with('clavemenor', 'La clave debe ser mayor a 8 dígitos.');
                     }
 
                 }else{
-                    // return view('perfil.index');    
                     return redirect()->back()->with('claveIncorrecta', 'Por favor verifique las claves no coinciden.');            
                 }
             }else{
-                return view('perfil.index');    
+                return redirect()->back()->with('NoCoinciden', 'Las claves no coinciden.');     
             }
 
         }else{
@@ -72,8 +69,7 @@ class PerfilController extends Controller
             $sqlBDUpdateName = DB::table('users')
                                 ->where('id', $user->id)
                                 ->update(['name' => $name]);
-            // return view('perfil.index'); 
-            return redirect()->back()->with('name', 'El nombre fue cambiado correctamente.');           
+            return redirect()->back()->with('name', 'El nombre fue cambiado correctamente.');
         }
 
     }
