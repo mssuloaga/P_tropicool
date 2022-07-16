@@ -1,6 +1,6 @@
 <div class="card-body">
         
-    <div class="row">
+    <div class="row" style="display: none;" >
             <label  class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-7">
             {{ Form::text('nombre', $stock->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
@@ -8,14 +8,14 @@
                 </div>
     </div>
 
-        <div class="row">
+        <div class="row" style="display: none;">
             <label  class="col-sm-2 col-form-label">Descripción</label>
                 <div class="col-sm-7">
             {{ Form::text('descripcion', $stock->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
         </div></div>
 
-        <div class="row">
+        <div class="row" style="display: none;">
             <label  class="col-sm-2 col-form-label">Precio</label>
                 <div class="col-sm-7">
             {{ Form::text('precio', $stock->precio, ['class' => 'form-control' . ($errors->has('precio') ? ' is-invalid' : ''), 'placeholder' => 'Precio']) }}
@@ -29,7 +29,7 @@
             {!! $errors->first('cantidad', '<div class="invalid-feedback">:message</div>') !!}
         </div></div>
 
-        <div class="row">
+        <div class="row" style="display: none;">
             <label  class="col-sm-2 col-form-label">Imagen</label>
             <div class="col-sm-7">
                 @if(isset($stock->imagen))
@@ -37,11 +37,10 @@
                     <input type="file" class="form-control" name="imagen" value=" " id="imagen">
             </div></div>
 
-        <div class="row">
+        <div class="row" style="display: none;">
             <label class="col-sm-2 col-form-label">Categoría</label>
                 <div class="col-sm-7">
                     <select name="id_categorias" id="input" class="form-control">
-                        <option value="">Seleccione categoría</option>
                         @foreach ($categorias as $categoria)
                             <option value="{{ $categoria['id'] }}">{{$categoria['nombre']}}</option>
                         @endforeach
