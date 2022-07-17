@@ -17,24 +17,60 @@
                                 <h4 class="text-right">Actualizar perfil</h4>
                             </div>
                             <div class="row mt-2">
-                                <div class="col-md-6"><label for="name" class="labels">Nombre</label><input type="text" class="form-control" placeholder="Nombre" value="{{ Auth::user()->name }}"></div>
+                                <div class="col-md-6"><label for="name" class="labels">Nombre</label><input name="name" type="text" class="form-control" placeholder="Nombre" value="{{ Auth::user()->name }}"></div>   
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="username" class="labels">Nombre de usuario</label><input type="text" class="form-control" placeholder="Nombre de usuario" value="{{ Auth::user()->username }}"></div>
+                                <div class="col-md-12"><label for="username" class="labels">Nombre de usuario</label><input name="username" type="text" class="form-control" placeholder="Nombre de usuario" value="{{ Auth::user()->username }}" readonly></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="email" class="labels">Correo</label><input type="text" class="form-control" placeholder="Correo" value="{{ Auth::user()->email }}"></div>
+                                <div class="col-md-12"><label for="email" class="labels">Correo</label><input name="email" type="text" class="form-control" placeholder="Correo" value="{{ Auth::user()->email }}" readonly></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="password_actual" class="labels">Contraseña actual</label><input type="text" name="password_actual" class="form-control" placeholder="" value=""></div>
+                                <div class="col-md-12"><label for="password_actual" class="labels">Contraseña actual</label><input type="password" name="password_actual" class="form-control" placeholder="" value=""></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="new_password" class="labels">Contraseña nueva</label><input type="text" name="password" class="form-control" placeholder="" value=""></div>
+                                <div class="col-md-12"><label for="new_password" class="labels">Contraseña nueva</label><input type="password" name="password" class="form-control" placeholder="" value=""> </div> 
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="password" class="labels">Confirmar contraseña nueva</label><input type="text" name="confirm_password" class="form-control" placeholder="" value=""></div>
+                                <div class="col-md-12"><label for="password" class="labels">Confirmar contraseña nueva</label><input type="password" name="confirm_password" class="form-control" placeholder="" value=""></div>
                             </div>
+                            @if (\Session::has('name'))
+                                <div class="alert alert-success">
+                                    <ul>
+                                        <li>{!! \Session::get('name') !!}</li>
+                                    </ul>
+                                </div>
+                            @endif
+                            @if (\Session::has('updateDatos'))
+                                <div class="alert alert-success">
+                                    <ul>
+                                        <li>{!! \Session::get('updateDatos') !!}</li>
+                                    </ul>
+                                </div>
+                            @endif
+                            @if (\Session::has('clavemenor'))
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        <li>{!! \Session::get('clavemenor') !!}</li>
+                                    </ul>
+                                </div>
+                            @endif
+                            @if (\Session::has('claveIncorrecta'))
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        <li>{!! \Session::get('claveIncorrecta') !!}</li>
+                                    </ul>
+                                </div>
+                            @endif
+                            @if (\Session::has('NoCoinciden'))
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        <li>{!! \Session::get('NoCoinciden') !!}</li>
+                                    </ul>
+                                </div>
+                            @endif
                             <div class="mt-5 text-center"><button type="submit" class="btn btn-primary profile-button" type="button">Guardar Perfil</button></div>
+                            <div class="mt-2 text-center"><a href="{{ route('home') }}" class="btn btn-success">Volver</a></div>
                         </div>
                     </div>
                 </div>

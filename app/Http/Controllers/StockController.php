@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use PDF;
 use App\Stock;
 use App\Producto;
+use App\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -20,7 +21,7 @@ class StockController extends Controller
      */
     public function index()
     {
-        $stocks = Stock::paginate();
+        $stocks = Producto::paginate();
 
         return view('stock.index', compact('stocks'))
             ->with('i', (request()->input('page', 1) - 1) * $stocks->perPage());
@@ -40,9 +41,8 @@ class StockController extends Controller
      */
     public function create()
     {
-        $stock = new Stock();
-        $productos=Producto::all();
-        return view('stock.create', compact('stock','productos'));
+        $stock = new Producto();
+        return view('stock.create', compact('stock'));
     }
 
     /**
@@ -69,7 +69,7 @@ class StockController extends Controller
      */
     public function show($id)
     {
-        $stock = Stock::find($id);
+        $stock = Producto::find($id);
 
         return view('stock.show', compact('stock'));
     }
@@ -82,9 +82,9 @@ class StockController extends Controller
      */
     public function edit($id)
     {
-        $stock = Stock::find($id);
-        $productos=Producto::all();
-        return view('stock.edit', compact('stock','productos'));
+        $stock = Producto::find($id);
+        $categorias=Categoria::all();
+        return view('stock.edit', compact('stock','categorias'));
     }
 
     /**
@@ -94,9 +94,9 @@ class StockController extends Controller
      * @param  Stock $stock
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Stock $stock)
+    public function update(Request $request, Producto $stock)
     {
-        request()->validate(Stock::$rules);
+        request()->validate(Producto::$rules);
 
         $stock->update($request->all());
 

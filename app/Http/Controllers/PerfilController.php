@@ -41,28 +41,36 @@ class PerfilController extends Controller
 
             if (Hash::check($request->password_actual, $userPassword)){
                 if($NewPass == $confirPass){
-                    if(strlen($NewPass) >= 6){
+                    if(strlen($NewPass) >= 8){
                         $user->password = Hash::make($request->password);
                         $sqlBD = DB::table('users')
                                 ->where('id', $user->id)
-                                ->update(['password' => $user->password], ['name' => $user->name]);
+                                ->update(['password' => $user->password], ['name' => $name]);
+                        
+                        $name = $request->name;
+                        $sqlBDUpdateName = DB::table('users')
+                        ->where('id', $user->id)
+                        ->update(['name' => $name]);
 
-                        return view('perfil.index');
+                        return redirect()->back()->with('updateDatos', 'Los datos fueron cambiados correctamente.');
                     }else{
-                        return view('perfil.index');
+                        return redirect()->back()->with('clavemenor', 'La clave debe ser mayor a 8 dígitos.');
                     }
 
                 }else{
-                    return view('perfil.index');                
+                    return redirect()->back()->with('claveIncorrecta', 'Por favor verifique las claves no coinciden.');            
                 }
-
             }else{
-                $name = $request->name;
-                $sqlBDUpdateName = DB::table('users')
-                                   ->where('id', $user->id)
-                                   ->update(['name'->$name]);
-                return view('perfil.index');            
+                return redirect()->back()->with('NoCoinciden', 'Las claves no coinciden.');     
             }
+
+        }else{
+            $name = $request->name;
+            $sqlBDUpdateName = DB::table('users')
+                                ->where('id', $user->id)
+                                ->update(['name' => $name]);
+            return redirect()->back()->with('name', 'El nombre fue cambiado correctamente.');
         }
+
     }
 }
