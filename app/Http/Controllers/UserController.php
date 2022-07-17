@@ -8,13 +8,14 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Role;
+use Illuminate\Support\Facades\File;
 
 class UserController extends Controller
 {
     public function index()
     {
         abort_if(Gate::denies('user_index'), 403);
-        $users = User::all();
+        $users = User::paginate();
         return view('users.index', compact('users'));
     }
 
@@ -41,14 +42,26 @@ class UserController extends Controller
         //     'email' => 'required|email|unique:users',
         //     'password' => 'required'
         // ]);
-        $user = User::create($request->only('name', 'username', 'email')
-            + [
-                'password' => bcrypt($request->input('password')),
-            ]);
-
+        $user = new User;
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->username = $request->input('username');
+        $user->password = bcrypt($request->input('password'));
         $roles = $request->input('roles', []);
         $user->syncRoles($roles);
-        return redirect()->route('users.index', $user->id)->with('success', 'Usuario creado con éxito');
+        if($request->hasfile('image'))
+            {
+                $file = $request->file('image');
+                $extention = $file->getClientOriginalExtension();
+                $filename = time().'.'.$extention;
+                $file->move('uploads/usuarios/', $filename);
+                $user->image = $filename;
+            }
+       
+        
+        $user->save();
+        return redirect()->route('users.index')
+            ->with('success', 'Usuario ingresado con éxito');  
     }
 
     public function show(User $user)
@@ -71,10 +84,12 @@ class UserController extends Controller
     public function update(UserEditRequest $request, User $user)
     {
         // $user=User::findOrFail($id);
-        $data = $request->only('name', 'username', 'email');
-        $password=$request->input('password');
-        if($password)
-            $data['password'] = bcrypt($password);
+        $user->name = $request->input('name');
+        $user->email = $request->input('email');
+        $user->username = $request->input('username');
+        $user->password = bcrypt($request->input('password'));
+        $roles = $request->input('roles', []);
+        $user->syncRoles($roles);
         // if(trim($request->password)=='')
         // {
         //     $data=$request->except('password');
@@ -84,11 +99,24 @@ class UserController extends Controller
         //     $data['password']=bcrypt($request->password);
         // }
 
-        $user->update($data);
+        if($request->hasfile('image'))
+        {
+            $destination = 'uploads/usuarios/'.$user->image;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
+            $file = $request->file('image');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/usuarios/', $filename);
+            $user->image = $filename;
+        }
 
-        $roles = $request->input('roles', []);
-        $user->syncRoles($roles);
-        return redirect()->route('users.show', $user->id)->with('success', 'Usuario actualizado con éxito');
+        $user->update();
+        return redirect()->route('users.index')
+        ->with('success', 'Usuario actualizado con éxito');   
+
     }
 
     public function destroy(User $user)

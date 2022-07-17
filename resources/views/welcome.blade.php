@@ -10,12 +10,6 @@
         <!-- Fonts -->
         <link rel="stylesheet" href="app.css"></link>
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/locales-all.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.0/main.min.js"></script>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
         <!-- Google fonts-->
@@ -30,7 +24,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
-        
+
     </head>
     <body class="bg-light">
 
@@ -44,7 +38,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                         <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/">Productos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/articulos">Productos</a></li>
                         <li class="nav-item"><a class="nav-link" href="/">¿Quiénes somos?</a></li>
                         <li class="nav-item"><a class="nav-link" href="/posts">Contacto</a></li>
                         @if (Route::has('login'))
@@ -55,7 +49,7 @@
                                 <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="material-icons text-light">perm_identity</i>
                                 </button>
-                                
+
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <li class="nav-item"><a class="dropdown-item" href="{{ route('login') }}">Acceder</a></li>
                                 @if (Route::has('register'))
@@ -64,15 +58,11 @@
                             @endauth
                         @endif
                             </div>
-                        </div>  
+                        </div>
                     </ul>
                 </div>
             </div>
         </nav>
-
-        <script src="{{ asset('js\agenda.js') }}" defer></script>
-
-        
 
        <header class="masthead">
         <div class="container position-relative">
@@ -279,7 +269,7 @@
             </div>
        </footer>
 
-       
+
 
        <!-- Bootstrap core JS-->
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>

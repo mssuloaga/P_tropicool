@@ -26,6 +26,7 @@
                         <div class="col-12 text-right">
                             
                             <a href="{{ route('productos.create') }}" class="btn btn-sm btn-facebook">Añadir producto</a>
+                            <a href="{{ route('producto_import') }}" class="btn btn-sm btn-facebook">Importar Productos</a>
                         </div>
                         
                     </div>

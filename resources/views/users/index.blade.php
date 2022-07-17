@@ -33,6 +33,7 @@
                       <table class="table table-striped shadow-lg mt-4" style="width:100%" id="users">
                         <thead class="text-primary">
                           <th>ID</th>
+                          <th>Imagen</th>
                           <th>Nombre</th>
                           <th>Correo</th>
                           <th>Nombre Usuario</th>
@@ -44,6 +45,7 @@
                           @foreach ($users as $user)
                             <tr>
                               <td>{{ $user->id }}</td>
+                              <td><img src="{{ asset('uploads/usuarios/'.$user->image) }}" width="70px" height="70px" alt="Imagen"></td>
                               <td>{{ $user->name }}</td>
                               <td>{{ $user->email }}</td>
                               <td>{{ $user->username }}</td>
@@ -91,7 +93,7 @@
                             $(document).ready(function () {
                             $('#users').DataTable({
                                     responsive:"true",
-                                    dom: 'Bftirpl',
+                                    dom: 'Bftirl',
                                     buttons: [
                                     {
                                         extend: 'excelHtml5',
@@ -143,7 +145,9 @@
                       @endsection
                     </div>
                   </div>
-                 
+                  <div class="card-footer mr-auto">
+                    {{ $users->links() }}
+                  </div>
                 </div>
               </div>
             </div>
