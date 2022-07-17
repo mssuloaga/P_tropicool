@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
-use Illuminate\Database\Eloquent\Model;
+use App\Notifications\UserResetPassword;
 
 class User extends Authenticatable
 {
@@ -18,14 +18,11 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $table = 'users';
     protected $fillable = [
-        'image',
         'name',
         'email',
         'username',
         'password',
-        'admin',
     ];
 
     /**
@@ -60,5 +57,9 @@ class User extends Authenticatable
     public function setNameAttribute($value)
     {
         $this->attributes['name'] = ucfirst($value);
+    }
+
+    public function sendPasswordResetNotification($token){
+        $this->notify(new UserResetPassword($token));
     }
 }

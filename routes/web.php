@@ -28,24 +28,9 @@ Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
 
-Route::get('prueba',function(){
-    return "holi";
-})->middleware('auth','valid');
-Route::get('no-autorizado',function(){
-    return "pa onde vai peazo e larva";
-});
-
-
-Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil')->middleware('auth');
-Route::post('/change/password', [App\Http\Controllers\PerfilController::class, 'changePassword'])->name('changePassword');
-
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@showResetForm')->name('password.reset');
-Route::post('/reset-password','App\Http\Controllers\ResetPasswordController@reset')->name('password.update');
-Route::post('/importar-productos', [ProductoController::class, 'ProductsImport'])->name('producto.import');
-Route::view('/importar-producto', 'producto.producto_import')->name('producto_import');
 
-Route::group(['middleware' => 'auth','valid'], function() {
+Route::group(['middleware' => 'auth'], function() {
     Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
     Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
     Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
@@ -74,4 +59,10 @@ Route::group(['middleware' => 'auth','valid'], function() {
     Route::get('/download_pdftrabajadores', [App\Http\Controllers\TrabajadoreController::class, 'downloadPdf']);
     Route::get('/download_pdfeventos', [App\Http\Controllers\EventoController::class, 'downloadPdf']);
     Route::get('/download_pdfstocks', [App\Http\Controllers\StockController::class, 'downloadPdf']);
+    Route::get('/calendario', [App\Http\Controllers\CalendarioController::class, 'index']);
+    Route::post('/calendario/agregar', [App\Http\Controllers\CalendarioController::class, 'store']);
+
 });
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
