@@ -52,7 +52,7 @@
 
                                             <td class="td-actions text-right">
                                                 
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('stocks.show',$stock->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
+                                                    
                                                     <a class="btn btn-sm btn-success" href="{{ route('stocks.edit',$stock->id) }}" class="btn btn-info"><i class="material-icons">edit</i></a>
                                                     <form action="{{ route('stocks.destroy',$stock->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                                     @csrf
