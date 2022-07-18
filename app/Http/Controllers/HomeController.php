@@ -26,12 +26,18 @@ class HomeController extends Controller
     {
         $productos =Producto::all();
         $data = [];
+        $data2 = [];
 
         foreach($productos as $producto){
             $data['label'][]= $producto->nombre;
             $data['data'][]= $producto->cantidad;
         }
+        foreach($productos as $producto){
+            $data2['label2'][]= $producto->nombre;
+            $data2['data2'][]= $producto->precio;
+        }
         $data['data']=json_encode($data);
-        return view('home',$data);
+        $data2['data2']=json_encode($data2);
+        return view('home',$data,$data2);
     }
 }
