@@ -22,10 +22,6 @@
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                         
-                        <div class="col-12 text-right">
-                            <a href="{{ route('stocks.create') }}" class="btn btn-sm btn-facebook">Añadir stock</a>
-                        </div>
-                        
                     </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -52,18 +48,16 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $stock->cantidad }}</td>
-											<td>{{ $stock->producto->nombre }}</td>
+											<td>{{ $stock->nombre }}</td>
 
                                             <td class="td-actions text-right">
                                                 
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('stocks.show',$stock->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
+                                                    
                                                     <a class="btn btn-sm btn-success" href="{{ route('stocks.edit',$stock->id) }}" class="btn btn-info"><i class="material-icons">edit</i></a>
                                                     <form action="{{ route('stocks.destroy',$stock->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit" rel="tooltip">
-                                                    <i class="material-icons">delete</i>
-                                                    </button>
+                                                    
                                                     </form>
                                             </td>
                                         </tr>
