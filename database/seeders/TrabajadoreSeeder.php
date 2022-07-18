@@ -16,7 +16,7 @@ class TrabajadoreSeeder extends Seeder
         \DB::table("trabajadores")->insert(
             array(
                   
-                  'imagen'     => "null",
+                  'imagen'     => "tra1.jpg",
                   'rut_trabajador'  => '1999922',
                   'nombre'  => 'Matias',
                   'direccion'  => 'charrua',
@@ -32,7 +32,7 @@ class TrabajadoreSeeder extends Seeder
         \DB::table("trabajadores")->insert(
             array(
                   
-                  'imagen'     => "null",
+                  'imagen'     => "tra2.jpg",
                   'rut_trabajador'  => '1988922',
                   'nombre'  => 'Aburto',
                   'direccion'  => 'Concepcion',
@@ -48,7 +48,7 @@ class TrabajadoreSeeder extends Seeder
         \DB::table("trabajadores")->insert(
             array(
                   
-                  'imagen'     => "null",
+                  'imagen'     => "tra3.jpg",
                   'rut_trabajador'  => '1999922',
                   'nombre'  => 'Maria',
                   'direccion'  => 'Chiguayante',
