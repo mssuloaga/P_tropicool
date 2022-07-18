@@ -42,7 +42,7 @@
             <label class="col-sm-2 col-form-label">Categoría</label>
                 <div class="col-sm-7">
                     <select name="id_categorias" id="input" class="form-control">
-                        
+                        <option value="">Seleccione categoría</option>
                         @foreach ($categorias as $categoria)
                             <option value="{{ $categoria['id'] }}">{{$categoria['nombre']}}</option>
                         @endforeach
