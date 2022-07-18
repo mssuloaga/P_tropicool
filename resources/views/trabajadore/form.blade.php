@@ -1,14 +1,14 @@
 
 <div class="card-body">
         
-        <div class="row">
-            <label  class="col-sm-2 col-form-label">Imagen</label>
+    <div class="row">
+        <label  class="col-sm-2 col-form-label">Imagen</label>
             <div class="col-sm-7">
                 @if(isset($trabajadore->imagen))
                 @endif
                     <input type="file" class="form-control" name="imagen" value=" " id="imagen">
             </div>
-        </div>
+    </div>
         <div class="row">
             <label  class="col-sm-2 col-form-label">Rut</label>
                 <div class="col-sm-7">
@@ -51,7 +51,6 @@
             {!! $errors->first('fecha_ingreso', '<div class="invalid-feedback">:message</div>') !!}
         </div>
     </div>
-    </div>
         <div class="row">
             <label  class="col-sm-2 col-form-label">Sueldo</label>
                 <div class="col-sm-7">
@@ -78,12 +77,12 @@
                     </select>
             </div>
         </div> 
+</div>
 
-    </div>
-    <div class="row">
+<div class="row">
         <div class="text-center p-4">
             <button type="submit" class="btn btn-primary">Guardar</button>
             <a href="{{ route('trabajadores.index') }}" class="btn btn-success ms-3"> Volver </a>                    
         </div>                   
-    </div>
+</div>
              
