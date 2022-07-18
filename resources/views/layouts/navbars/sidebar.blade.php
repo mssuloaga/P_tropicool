@@ -6,10 +6,10 @@
   -->
   <div class="logo">
     <a href="/" class="simple-text logo-normal">
-      {{ __('Página de Inicio') }}
+      <img src="\logo\IMG_7359_sin_fondo.ico" style="width: 25%;">
     </a>
   </div>
-  
+
   <div class="sidebar-wrapper">
     <ul class="nav">
     @can('post_index')
@@ -25,7 +25,7 @@
           <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
         </div>
       </li>
-    @endcan 
+    @endcan
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons">dashboard</i>
@@ -45,7 +45,7 @@
             <p>{{ __('Publicaciones') }}</p>
         </a>
       </li>
-      @endcan     
+      @endcan
       @can('user_index')
       <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('users.index') }}">
