@@ -11,7 +11,7 @@
                 <div class="card">
                     <div class="card-header card-header-primary">
                         <h4 class="card-title">Stock</h4>
-                        <p class="card-category">Editar Stock de {{ $stock->nombre }}</p>
+                        <p class="card-category">Editar datos</p>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('stocks.update', $stock->id) }}"  role="form" enctype="multipart/form-data">

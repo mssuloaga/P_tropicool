@@ -20,8 +20,8 @@
                                             <td>{{ $stock->cantidad }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Nombre</th>
-                                            
+                                            <th>Empresa</th>
+                                            <td>{{ $stock->producto->nombre }}</td>
                                         </tr>
                                         
                                     </tbody>

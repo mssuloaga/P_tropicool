@@ -1,12 +1,12 @@
 
-<div class="card-body">
+    <div class="card-body">
         
     <div class="row">
             <label  class="col-sm-2 col-form-label">Imagen</label>
                 <div class="col-sm-7">
             {{ Form::text('imagen', $trabajadore->imagen, ['class' => 'form-control' . ($errors->has('imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
             {!! $errors->first('imagen', '<div class="invalid-feedback">:message</div>') !!}
-            </div>
+        </div>
     </div>
         <div class="row">
             <label  class="col-sm-2 col-form-label">Rut</label>
@@ -70,7 +70,7 @@
             <label class="col-sm-2 col-form-label">Empresa</label>
                 <div class="col-sm-7">
                     <select name="id_empresas" id="input" class="form-control">
-                        
+                        <option value="">Seleccione empresa</option>
                         @foreach ($empresas as $empresa)
                             <option value="{{ $empresa['id'] }}">{{$empresa['nombre']}}</option>
                         @endforeach
