@@ -41,7 +41,7 @@
                                         <i class="material-icons">person</i>
                                     </span>
                                 </div>
-                                <input type="text" name="username" class="form-control" placeholder="{{ __('Nombre de Usuario o Contraseña...') }}"
+                                <input type="text" name="username" class="form-control" placeholder="{{ __('Nombre de Usuario o Correo...') }}"
                                     value="{{ old('username', null) }}" required autocomplete="username" autofocus>
                             </div>
                             @if ($errors->has('username'))
