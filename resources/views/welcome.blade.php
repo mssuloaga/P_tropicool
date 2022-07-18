@@ -30,7 +30,7 @@
 
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
             <div class="container">
-                <a class="navbar-brand" href="/" ><img class="logo d-inline-block align-top" src="logo/IMG_7359_sin_fondo(2).ico"/></a>
+                <a class="navbar-brand" href="/" ><img class="logo d-inline-block align-top" src="/logo/IMG_7359_sin_fondo(2).ico"/></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
                     <i class="fas fa-bars ms-1"></i>
@@ -65,7 +65,7 @@
         </nav>
 
        <header class="masthead">
-        <div class="container position-relative">
+            <div class="container position-relative">
                 <div class="row justify-content-center">
                     <div class="col-xl-6">
                         <div class="text-center text-white">
@@ -112,9 +112,9 @@
             </div>
        </header>
 
-       <div>
-            @yield('contenido')
-       </div>
+       <section>
+            @yield('content')
+       </section>
 
        <!-- Icons Grid-->
        <!-- <section class="features-icons bg-light text-center">
@@ -155,14 +155,14 @@
                     </div>
                 </div> -->
                 <div class="row g-0">
-                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('logo/1652892422-IMG_7359_sin_fondo.png')"></div>
+                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('/logo/1652892422-IMG_7359_sin_fondo.png')"></div>
                     <div class="col-lg-6 my-auto showcase-text">
                         <h2>PRODUCTOS</h2>
 <!--                         <p class="lead mb-0">Newly improved, and full of great utility classes, Bootstrap 5 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 5!</p>
  -->                    </div>
                 </div>
                 <div class="row g-0">
-                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('logo/1652892422-IMG_7359_sin_fondo.png')"></div>
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('/logo/1652892422-IMG_7359_sin_fondo.png')"></div>
                     <div class="col-lg-6 order-lg-1 my-auto showcase-text">
                         <h2>PRODUCTOS</h2>
 <!--                         <p class="lead mb-0">Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!</p>
