@@ -20,10 +20,6 @@
                                             <td>{{ $empresa->nombre }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Logo</th>
-                                            <td>{{ $empresa->logo }}</td>
-                                        </tr>
-                                        <tr>
                                             <th>Dirección</th>
                                             <td>{{ $empresa->direccion }}</td>
                                         </tr>
@@ -50,6 +46,10 @@
                                         <tr>
                                             <th>Facebook</th>
                                             <td>{{ $empresa->facebook }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Logo</th>
+                                            <td><img src="{{ asset('uploads/empresa/'.$empresa->logo) }}" width="80px" height="80px" alt="Logo"></td>
                                         </tr>
                                     </tbody>
                                 </table>

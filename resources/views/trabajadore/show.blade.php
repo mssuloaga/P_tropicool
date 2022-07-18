@@ -16,10 +16,6 @@
                                 <table class="table table-bordered table-striped">
                                     <tbody>
                                         <tr>
-                                            <th>Imagen</th>
-                                            <td>{{ $trabajadore->imagen}}</td>
-                                        </tr>
-                                        <tr>
                                             <th>Rut</th>
                                             <td>{{ $trabajadore->rut_trabajador }}</td>
                                         </tr>
@@ -53,6 +49,10 @@
                                         <tr>
                                             <th>Empresa</th>
                                             <td>{{ $trabajadore->empresa->nombre }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Fotografía</th>
+                                            <td><img src="{{ asset('uploads/trabajadores/'.$trabajadore->imagen) }}" width="80px" height="80px" alt="Foto"></td>
                                         </tr>
                                         
                                     </tbody>
