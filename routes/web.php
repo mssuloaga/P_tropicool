@@ -24,6 +24,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil');
 Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index'])->name('articulos');
 Route::get('/articulos/{id}', 'App\Http\Controllers\ArticuloController@show');
+Route::get('/nosotros', [App\Http\Controllers\NosotrosController::class, 'index'])->name('nosotros');
 Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
