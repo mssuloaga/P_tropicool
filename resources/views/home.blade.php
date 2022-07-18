@@ -5,14 +5,14 @@
     <div class="container-fluid">
         <div class="row">
             
-            <div class="col-lg-5 col-sm-12 p-4 rounded border overflow-hidden" >
+            <div class="col-lg-5 col-sm-12 p-4 shadow rounded border overflow-hidden" >
             <h2 class="p-2 font-weight-bold  ">Cantidad de productos</h2>
                 <div style="position: relative; height: 400px; width: 400px;">
                     <canvas id="myChart" height= "400" width= "400"></canvas>
                 </div>
             </div>
             <div class="col-1 p-2"></div>
-            <div class="col-lg-5 col-sm-12 p-4  rounded border overflow-hidden">
+            <div class="col-lg-5 col-sm-12 p-4 shadow rounded border overflow-hidden">
             <h2 class="p-2 font-weight-bold  ">Precio de los productos</h2>
                 <div style="position: relative; height: 400px; width: 400px;">
                     <canvas id="myBar" height= "400" width= "400"></canvas>
