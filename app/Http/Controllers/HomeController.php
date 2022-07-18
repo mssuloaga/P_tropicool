@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Producto;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,14 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $productos =Producto::all();
+        $data = [];
+
+        foreach($productos as $producto){
+            $data['label'][]= $producto->nombre;
+            $data['data'][]= $producto->cantidad;
+        }
+        $data['data']=json_encode($data);
+        return view('home',$data);
     }
 }
