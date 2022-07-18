@@ -11,7 +11,7 @@
             <label class="col-sm-2 col-form-label">Empresa</label>
                 <div class="col-sm-7">
                     <select name="id_empresas" id="input" class="form-control">
-                        <option value="">Seleccione empresa</option>
+                       
                         @foreach ($empresas as $empresa)
                             <option value="{{ $empresa['id'] }}">{{$empresa['nombre']}}</option>
                         @endforeach
