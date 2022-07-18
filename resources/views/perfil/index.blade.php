@@ -73,8 +73,8 @@
                             @endif
                             <div>
                                  <div class="text-center p-4">
-                                    <button type="submit" class="btn btn-primary">Guardar</button>
-                                    <a href="{{ route('home') }}" class="btn btn-success ms-3"> Volver </a>                    
+                                    <button type="submit" class="btn btn-success">Guardar</button>
+                                    <a href="{{ route('home') }}" class="btn btn-warning ms-3"> Volver </a>                    
                                 </div>                   
                         </div>                        
                     </div>
