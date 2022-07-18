@@ -10,7 +10,7 @@
         <div class="row">
             <label class="col-sm-2 col-form-label">Logo</label>
                 <div class="col-sm-7">
-                    {{ Form::text('logo', $empresa->logo, ['class' => 'form-control' . ($errors->has('logo') ? ' is-invalid' : ''), 'placeholder' => 'Logo']) }}
+                    {{ Form::file('logo', $empresa->logo, ['class' => 'form-control' . ($errors->has('logo') ? ' is-invalid' : ''), 'placeholder' => 'Logo']) }}
                     {!! $errors->first('logo', '<div class="invalid-feedback">:message</div>') !!}
                 </div>
         </div>  

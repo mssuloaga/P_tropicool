@@ -51,12 +51,28 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Empresa::$rules);
+        $empresa = new Empresa;
+        $empresa->nombre = $request->input('nombre');
+        $empresa->direccion = $request->input('direccion');
+        $empresa->telefono = $request->input('telefono');
+        $empresa->mision = $request->input('mision');
+        $empresa->vision = $request->input('vision');
+        $empresa->descripcion = $request->input('descripcion');
+        $empresa->instagram = $request->input('instagram');
+        $empresa->facebook = $request->input('facebook');
 
-        $empresa = Empresa::create($request->all());
 
+        if($request->hasfile('logo'))
+        {
+            $file = $request->file('logo');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/empresa/', $filename);
+            $empresa->logo = $filename;
+        }
+        $empresa->save();
         return redirect()->route('empresas.index')
-            ->with('success', 'Empresa creada con éxito');
+            ->with('success', 'Empresa ingresada con éxito');
     }
 
     /**
