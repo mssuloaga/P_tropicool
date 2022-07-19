@@ -6,7 +6,7 @@
   -->
   <div class="logo">
     <a href="/" class="simple-text logo-normal">
-      <img src="\logo\IMG_7359_sin_fondo.ico" style="width: 25%;">
+      <img src="\logo\IMG_7359_sin_fondo.ico" width="30px" height="30px"> Tropicool
     </a>
   </div>
 
