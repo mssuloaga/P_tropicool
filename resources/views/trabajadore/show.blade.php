@@ -16,10 +16,6 @@
                                 <table class="table table-bordered table-striped">
                                     <tbody>
                                         <tr>
-                                            <th>Imagen</th>
-                                            <td>{{ $trabajadore->imagen}}</td>
-                                        </tr>
-                                        <tr>
                                             <th>Rut</th>
                                             <td>{{ $trabajadore->rut_trabajador }}</td>
                                         </tr>
@@ -54,6 +50,10 @@
                                             <th>Empresa</th>
                                             <td>{{ $trabajadore->empresa->nombre }}</td>
                                         </tr>
+                                        <tr>
+                                            <th>Fotografía</th>
+                                            <td><img src="{{ asset('uploads/trabajadores/'.$trabajadore->imagen) }}" width="80px" height="80px" alt="Foto"></td>
+                                        </tr>
                                         
                                     </tbody>
                                 </table>
@@ -61,7 +61,7 @@
                     
                             <div class="card-footer ">
                                 <div class="button-container">
-                                    <a href="{{ route('trabajadores.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
+                                    <a href="{{ route('trabajadores.index') }}" class="btn btn-sm btn-warning mr-3"> Volver </a>                
                                 </div>
                             </div>
 

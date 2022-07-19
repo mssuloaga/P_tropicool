@@ -5,6 +5,7 @@ use PDF;
 use App\Trabajadore;
 use App\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 /**
@@ -52,12 +53,28 @@ class TrabajadoreController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Trabajadore::$rules);
+        $trabajadore = new Trabajadore;
+        $trabajadore->rut_trabajador = $request->input('rut_trabajador');
+        $trabajadore->nombre = $request->input('nombre');
+        $trabajadore->direccion = $request->input('direccion');
+        $trabajadore->telefono = $request->input('telefono');
+        $trabajadore->email = $request->input('email');
+        $trabajadore->fecha_ingreso = $request->input('fecha_ingreso');
+        $trabajadore->sueldo = $request->input('sueldo');
+        $trabajadore->cargo = $request->input('cargo');
+        $trabajadore->id_empresas = $request->input('id_empresas');
 
-        $trabajadore = Trabajadore::create($request->all());
-
+        if($request->hasfile('imagen'))
+        {
+            $file = $request->file('imagen');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/trabajadores/', $filename);
+            $trabajadore->imagen = $filename;
+        }
+        $trabajadore->save();
         return redirect()->route('trabajadores.index')
-            ->with('success', 'Trabajador creado con éxito');
+            ->with('success', 'Trabajador ingresado con éxito');
     }
 
     /**
@@ -95,12 +112,34 @@ class TrabajadoreController extends Controller
      */
     public function update(Request $request, Trabajadore $trabajadore)
     {
-        request()->validate(Trabajadore::$rules);
+       
+        $trabajadore->rut_trabajador = $request->input('rut_trabajador');
+        $trabajadore->nombre = $request->input('nombre');
+        $trabajadore->direccion = $request->input('direccion');
+        $trabajadore->telefono = $request->input('telefono');
+        $trabajadore->email = $request->input('email');
+        $trabajadore->fecha_ingreso = $request->input('fecha_ingreso');
+        $trabajadore->sueldo = $request->input('sueldo');
+        $trabajadore->cargo = $request->input('cargo');
+        $trabajadore->id_empresas = $request->input('id_empresas');
 
-        $trabajadore->update($request->all());
+        if($request->hasfile('imagen'))
+        {
+            $destination = 'uploads/trabajadores/'.$trabajadore->imagen;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
+            $file = $request->file('imagen');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/trabajadores/', $filename);
+            $trabajadore->imagen = $filename;
+        }
 
+        $trabajadore->update();
         return redirect()->route('trabajadores.index')
-            ->with('success', 'Trabajador actualizado con éxito');
+            ->with('success', 'trabajador actualizado con éxito');
     }
 
     /**

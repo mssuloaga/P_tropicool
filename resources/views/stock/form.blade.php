@@ -52,17 +52,17 @@
 
 <div class="row">
     <div class="text-center p-4">
-        <button type="submit" class="btn btn-primary">Guardar</button>
-        <a href="{{ route('stocks.index') }}" class="btn btn-success ms-3"> Volver </a>                    
+        <button type="submit" class="btn btn-success">Guardar</button>
+        <a href="{{ route('stocks.index') }}" class="btn btn-warning ms-3"> Volver </a>                    
     </div>                   
 </div>
 
 
 {{-- <div class="row text-center">
         <div class="card-footer ml-auto mr-auto">
-            <button type="submit" class="btn btn-primary">Guardar</button>
+            <button type="submit" class="btn btn-success">Guardar</button>
             <div class="m-4">
-                <a href="{{ route('stocks.index') }}" class="btn btn-success mr-3"> Volver </a>                
+                <a href="{{ route('stocks.index') }}" class="btn btn-warning mr-3"> Volver </a>                
             </div>
         </div>
     </div> --}}

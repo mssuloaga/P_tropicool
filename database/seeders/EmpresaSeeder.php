@@ -19,7 +19,7 @@ class EmpresaSeeder extends Seeder
                       array(
                             
                             'nombre'     => "Tropicool",
-                            'logo'  => 'null',
+                            'logo'  => 'logo.png',
                             'direccion'  => 'cabrero',
                             'telefono'  => '987654321',
                             'mision'  => 'MISION',
