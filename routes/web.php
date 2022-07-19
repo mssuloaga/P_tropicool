@@ -43,7 +43,7 @@ Route::post('/reset-password','App\Http\Controllers\ResetPasswordController@rese
 Route::post('/importar-productos', [ProductoController::class, 'ProductsImport'])->name('producto.import');
 Route::view('/importar-producto', 'producto.producto_import')->name('producto_import');
 
-Route::group(['middleware' => 'auth','valid'], function() {
+Route::group(['middleware' => ['auth','valid']], function() {
     Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
     Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
     Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
