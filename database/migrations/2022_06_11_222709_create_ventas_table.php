@@ -18,7 +18,7 @@ class CreateVentasTable extends Migration
             $table->bigIncrements('id');
             $table->dateTime('fecha_venta');
             $table->decimal('total');
-            $table->enum('estado',['Valido','Cancelado'])->default('Valido');
+            $table->enum('estado',['Procesando','Aceptada','Entregada'])->default('Procesando');
             $table->bigInteger('id_usuario')->unsigned();
             $table->foreign('id_usuario')->references('id')->on('users')->onDelete("cascade");
             $table->timestamps();
