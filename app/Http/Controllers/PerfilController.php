@@ -24,7 +24,6 @@ class PerfilController extends Controller
         return view('perfil.index');
     }
 
-
     public function changePassword(Request $request){
         
         $user = Auth::user();
@@ -38,6 +37,8 @@ class PerfilController extends Controller
             $NewPass = $request->password;
             $confirPass = $request->confirm_password;
             $name = $request->name;
+            $email = $request->email;
+            $username = $request->username;
 
             if (Hash::check($request->password_actual, $userPassword)){
                 if($NewPass == $confirPass){
@@ -51,6 +52,14 @@ class PerfilController extends Controller
                         $sqlBDUpdateName = DB::table('users')
                         ->where('id', $user->id)
                         ->update(['name' => $name]);
+
+                        $sqlBDUpdateEmail = DB::table('users')
+                        ->where('id', $user->id)
+                        ->update(['email' => $email]);
+
+                        $sqlBDUpdateUsername = DB::table('users')
+                        ->where('id', $user->id)
+                        ->update(['username' => $username]);
 
                         return redirect()->back()->with('updateDatos', 'Los datos fueron cambiados correctamente.');
                     }else{
@@ -66,11 +75,20 @@ class PerfilController extends Controller
 
         }else{
             $name = $request->name;
+            $email = $request->email;
+            $username = $request->username;
             $sqlBDUpdateName = DB::table('users')
                                 ->where('id', $user->id)
-                                ->update(['name' => $name]);
-            return redirect()->back()->with('name', 'El nombre fue cambiado correctamente.');
-        }
+                                ->update(['name' => $name], ['email' => $email], ['username' => $username]);
+            
+            $sqlBDUpdateEmail = DB::table('users')
+                                ->where('id', $user->id)
+                                ->update(['email' => $email]);
 
+            $sqlBDUpdateUsername = DB::table('users')
+                                ->where('id', $user->id)
+                                ->update(['username' => $username]);
+            return redirect()->back()->with('name', 'Los datos fueron cambiados correctamente.');
+        }
     }
 }

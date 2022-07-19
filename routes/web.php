@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrabajadoreController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ArticuloController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,8 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil');
 Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index'])->name('articulos');
+Route::get('/articulos/{articulosId}', 'App\Http\Controllers\ArticuloController@show')->name('articulos.show');
+Route::get('nosotros', [App\Http\Controllers\NosotrosController::class, 'index'])->name('nosotros');
 Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
