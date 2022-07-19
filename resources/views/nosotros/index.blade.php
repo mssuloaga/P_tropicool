@@ -2,7 +2,7 @@
 @section('content')
         <div class="container">
             @foreach ($nosotros as $nos)
-                <div class="container">
+                <div class="container" style="margin: 30px 0px 0px 0px">
                     <div class="row">
                         <div class="col">
                             <h1 style="text-align: center;">{{ $nos->nombre }}</h1>
@@ -14,7 +14,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container">
+                <div class="container" style="margin: 50px 0px 0px 0px">
                     <div class="row">
                         <div class="col">
                             <h2 style="text-align: center;">Misión</h2>
@@ -26,7 +26,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="container">
+                <div class="container" style="margin: 50px 0px 0px 0px">
                     <div class="row">
                         <div class="col">
                             <h2 style="text-align: center;">Visión</h2>
