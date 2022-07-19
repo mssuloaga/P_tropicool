@@ -58,3 +58,11 @@
 </div>
 
 
+{{-- <div class="row text-center">
+        <div class="card-footer ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary">Guardar</button>
+            <div class="m-4">
+                <a href="{{ route('stocks.index') }}" class="btn btn-success mr-3"> Volver </a>                
+            </div>
+        </div>
+    </div> --}}
