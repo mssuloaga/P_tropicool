@@ -15,8 +15,8 @@ class ArticuloController extends Controller
         ]);
     }
 
-    public function show($id){
-        $articulos = Producto::find($id);
+    public function show($articulosId){
+        $articulos = Producto::find($articulosId);
         return view('articulos.show', [
             'articulos' => $articulos
         ]);

@@ -1,22 +1,22 @@
 @extends('welcome')
 @section('content')
-    <div class="container" style="text-align: center;">
-        <h1>{{ $articulos->nombre }}</h1>
-        <div class="row">
-            <div class="col">
-                <img src="{{ asset('uploads/productos/'.$articulos->imagen) }}">
-            </div>
-            <div class="col">
-                <div class="row">
-                    <h2>${{ $articulos->precio }}</h2>
-                </div>
-                <div class="row">
-                    <label>{{ $articulos->descripcion }}</label>
-                </div>
-                <div class="row">
-                    <a href="" class="btn btn-primary">Añadir</a>
+    <section class="content container-fluid">
+        <div class="container align-center" style="text-align: center;">
+            <div class="card" style="width: 20rem;">
+                <img src="{{ asset('uploads/productos/'.$articulos->imagen) }}" class="card-img-top" alt="">
+                <div class="card-body">
+                    <h5 class="card-title">{{ $articulos->nombre }}</h5>
+                    <p class="card-text">{{ $articulos->descripcion }}</p>
+                    <div class="row">
+                        <div class="col">
+                            <p class="bi bi-currency-dollar">{{  $articulos->precio }}</p>
+                        </div>
+                        <div class="col">
+                            <a href="#" class="btn btn-success bi bi-bag-plus"> Añadir</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 @endsection
