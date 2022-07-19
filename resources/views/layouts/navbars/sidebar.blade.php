@@ -5,8 +5,8 @@
       Tip 2: you can also add an image using data-image tag
   -->
   <div class="logo">
-    <a href="/" class="simple-text logo-normal">
-      {{ __('Página de Inicio') }}
+    <a href="/" class="simple-text">
+    <img width="30px" height="30px"  src="uploads/empresa/logo.png"/> Tropicool
     </a>
   </div>
   
