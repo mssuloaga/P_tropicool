@@ -36,6 +36,10 @@ class CalendarioController extends Controller
     public function store(Request $request)
     {
         //
+        request()->validate(Calendario::$rules);
+        $calendario=Calendario::create($request->all);
+
+
     }
 
     /**
