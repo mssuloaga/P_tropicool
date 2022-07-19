@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use \PDF;
 use App\Empresa;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 /**
  * Class EmpresaController
@@ -51,12 +52,28 @@ class EmpresaController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Empresa::$rules);
+        $empresa = new Empresa;
+        $empresa->nombre = $request->input('nombre');
+        $empresa->direccion = $request->input('direccion');
+        $empresa->telefono = $request->input('telefono');
+        $empresa->mision = $request->input('mision');
+        $empresa->vision = $request->input('vision');
+        $empresa->descripcion = $request->input('descripcion');
+        $empresa->instagram = $request->input('instagram');
+        $empresa->facebook = $request->input('facebook');
 
-        $empresa = Empresa::create($request->all());
 
+        if($request->hasfile('logo'))
+        {
+            $file = $request->file('logo');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/empresa/', $filename);
+            $empresa->logo = $filename;
+        }
+        $empresa->save();
         return redirect()->route('empresas.index')
-            ->with('success', 'Empresa creada con éxito');
+            ->with('success', 'Empresa ingresada con éxito');
     }
 
     /**
@@ -94,10 +111,31 @@ class EmpresaController extends Controller
      */
     public function update(Request $request, Empresa $empresa)
     {
-        request()->validate(Empresa::$rules);
+       
+        $empresa->nombre = $request->input('nombre');
+        $empresa->direccion = $request->input('direccion');
+        $empresa->telefono = $request->input('telefono');
+        $empresa->mision = $request->input('mision');
+        $empresa->vision = $request->input('vision');
+        $empresa->descripcion = $request->input('descripcion');
+        $empresa->instagram = $request->input('instagram');
+        $empresa->facebook = $request->input('facebook');
 
-        $empresa->update($request->all());
+        if($request->hasfile('logo'))
+        {
+            $destination = 'uploads/empresa/'.$empresa->logo;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
+            $file = $request->file('logo');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/empresa/', $filename);
+            $empresa->logo = $filename;
+        }
 
+        $empresa->update();
         return redirect()->route('empresas.index')
             ->with('success', 'Empresa actualizada con éxito');
     }

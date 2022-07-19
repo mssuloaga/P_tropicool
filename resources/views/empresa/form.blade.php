@@ -8,12 +8,12 @@
         </div>
         
         <div class="row">
-            <label class="col-sm-2 col-form-label">Logo</label>
-                <div class="col-sm-7">
-                    {{ Form::text('logo', $empresa->logo, ['class' => 'form-control' . ($errors->has('logo') ? ' is-invalid' : ''), 'placeholder' => 'Logo']) }}
-                    {!! $errors->first('logo', '<div class="invalid-feedback">:message</div>') !!}
-                </div>
-        </div>  
+            <label  class="col-sm-2 col-form-label">Logo</label>
+            <div class="col-sm-7">
+                @if(isset($empresa->logo))
+                @endif
+                    <input type="file" class="form-control" name="logo" value=" " id="logo">
+            </div></div> 
             
         <div class="row">
             <label class="col-sm-2 col-form-label">Dirección</label>
@@ -76,8 +76,8 @@
     
     <div class="row">
         <div class="text-center p-4">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="{{ route('empresas.index') }}" class="btn btn-success ms-3"> Volver </a>                    
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a href="{{ route('empresas.index') }}" class="btn btn-warning ms-3"> Volver </a>                    
         </div>                   
     </div>
     

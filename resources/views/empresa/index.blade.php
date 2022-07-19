@@ -40,8 +40,8 @@
                                 <thead class="text-primary">
                                     <tr>
                                         <th>ID</th>
-										<th>Nombre</th>
 										<th>Logo</th>
+										<th>Nombre</th>
 										<th>Dirección</th>
 										<th>Teléfono</th>
 										<th>Misión</th>
@@ -58,8 +58,8 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $empresa->nombre }}</td>
-											<td>{{ $empresa->logo }}</td>
+                                            <td><img src="{{ asset('uploads/empresa/'.$empresa->logo) }}" width="70px" height="70px" alt="Logo"></td>
+											<td>{{ $empresa->nombre}}</td>
 											<td>{{ $empresa->direccion }}</td>
 											<td>{{ $empresa->telefono }}</td>
 											<td>{{ $empresa->mision }}</td>

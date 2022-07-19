@@ -14,11 +14,12 @@ class CreateCalendariosTable extends Migration
     public function up()
     {
         Schema::create('calendarios', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-            $table->bigIncrements('id');
+            $table->id();
+            $table->string("title",255);
+            $table->text("description"); 
+            $table->dateTime("start"); 
+            $table->dateTime("end"); 
             $table->timestamps();
-            $table->bigInteger('id_eventos')->unsigned();
-            $table->foreign('id_eventos')->references('id')->on('eventos')->onDelete("cascade");
         });
     }
 
