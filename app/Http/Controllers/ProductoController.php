@@ -171,6 +171,14 @@ class ProductoController extends Controller
                 File::delete($destination);
             }
 
+        $images=Image::where("id_producto",$productos->id)->get();
+        foreach($images as $image){
+            $destinatione = 'uploads/productos/'.$image->image;
+            if(File::exists($destinatione))
+            {
+                File::delete($destinatione);
+            }
+            }
         $productos->delete();
         
         return redirect()->route('productos.index')
