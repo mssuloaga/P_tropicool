@@ -15,7 +15,7 @@
             <div class="col-lg-5 col-sm-12 p-4 shadow rounded border overflow-hidden">
             <h2 class="p-2 font-weight-bold  ">Precio de los productos</h2>
                 <div style="position: relative; height: 400px; width: 400px;">
-                    <canvas id="myBar" height= "400" width= "400"></canvas>
+                    <canvas id="myChart2" height= "400" width= "400"></canvas>
                 </div>
             </div>
             
@@ -67,7 +67,7 @@
         $(document).ready(function(){
             var cData2 = JSON.parse(`<?php echo $data2; ?>`)
             //console.log(cData)
-            const ctx2 = document.getElementById('myBar').getContext('2d');
+            const ctx2 = document.getElementById('myChart2').getContext('2d');
 
             const myChart = new Chart(ctx2,{
                 type:'bar', //pie, line
