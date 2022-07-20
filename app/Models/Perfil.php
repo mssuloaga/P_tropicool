@@ -8,5 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Perfil extends Model
 {
     use HasFactory;
+    protected $table = 'perfil';
     public $fillable = ['password_actual', 'password', 'confirm_password'];
 }
