@@ -24,7 +24,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
-
+        <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
+		<link rel="stylesheet" href="css/style.css">
     </head>
     <body class="bg-light">
 
@@ -47,9 +50,9 @@
                                 @can('post_index')
                                 <li class="nav-item dropdown text-center">
                                 <!-- <img class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="50px" height="50px" alt="Imagen"> -->
-                                    <a class="nav-link dropdown-toggle" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <!-- <a class="nav-link dropdown-toggle" href="#pablo" id="navbarDropdownProfile" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     ¡Hola, {{ Auth::user()->name }}!
-                                    </a>
+                                    </a> -->
                                     <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
                                     <a class="dropdown-item" href="/perfil">{{ __('Perfil') }}</a>
                                     <a class="dropdown-item" href="#">{{ __('Ajustes') }}</a>
@@ -59,6 +62,45 @@
                                     </div>
                                 </li>
 
+                                <!-- <div class="container">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-6 d-flex justify-content-center"> -->
+                                            <div class="btn-group">
+                                                <a href="#" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-image: url(images/person_1.jpg);">
+                                                    <img class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="40px" height="40px" alt="Imagen">
+                                                </a>
+                                                <div class="dropdown-menu">
+                            
+                                                    <a class="dropdown-item d-flex align-items-center" href="/perfil">
+                                                        <div class="icon d-flex align-items-center justify-content-center mr-3">
+                                                            <span class="ion-ios-person-add"></span>
+                                                        </div>
+                                                        Perfil
+                                                    </a>
+                                                    <a class="dropdown-item d-flex align-items-center" href="#">
+                                                        <div class="icon d-flex align-items-center justify-content-center mr-3">
+                                                            <span class="ion-ios-settings"></span>
+                                                        </div>
+                                                        Ajustes
+                                                    </a>
+                                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('home') }}">
+                                                        <div class="icon d-flex align-items-center justify-content-center mr-3">
+                                                            <span class="ion-ios-cloud-download"></span>
+                                                        </div>
+                                                        Dashboard
+                                                    </a>
+                                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                        <div class="icon d-flex align-items-center justify-content-center mr-3">
+                                                            <span class="ion-ios-power"></span>
+                                                        </div>
+                                                        Salir
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        <!-- </div>
+                                    </div>
+                                </div> -->
+                                
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
@@ -135,6 +177,53 @@
             @yield('content')
        </section>
 
+       <section class="ftco-section">
+			<div class="container">
+				<div class="row justify-content-center">
+
+					<div class="col-md-6 d-flex justify-content-center">
+						<div class="btn-group">
+						  <a href="#" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-image: url(images/person_1.jpg);">
+						  </a>
+						  <div class="dropdown-menu">
+		
+						    <a class="dropdown-item d-flex align-items-center" href="#">
+						    	<div class="icon d-flex align-items-center justify-content-center mr-3">
+						    		<span class="ion-ios-heart"></span>
+						    	</div>
+						    	Favorites
+						    </a>
+						    <a class="dropdown-item d-flex align-items-center" href="#">
+						    	<div class="icon d-flex align-items-center justify-content-center mr-3">
+						    		<span class="ion-ios-person-add"></span>
+						    	</div>
+						    	Add People
+						    </a>
+						    <a class="dropdown-item d-flex align-items-center" href="#">
+						    	<div class="icon d-flex align-items-center justify-content-center mr-3">
+						    		<span class="ion-ios-settings"></span>
+						    	</div>
+						    	Settings
+						    </a>
+						    <a class="dropdown-item d-flex align-items-center" href="#">
+						    	<div class="icon d-flex align-items-center justify-content-center mr-3">
+						    		<span class="ion-ios-cloud-download"></span>
+						    	</div>
+						    	Downloads
+						    </a>
+						    <a class="dropdown-item d-flex align-items-center" href="#">
+						    	<div class="icon d-flex align-items-center justify-content-center mr-3">
+						    		<span class="ion-ios-power"></span>
+						    	</div>
+						    	Log Out
+						    </a>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
        <footer class="footer bg-light">
             <div class="container">
                 <div class="row">
@@ -160,6 +249,10 @@
        </footer>
 
 
+       <script src="js/jquery.min.js"></script>
+    <script src="js/popper.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/main.js"></script>
 
        <!-- Bootstrap core JS-->
        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
