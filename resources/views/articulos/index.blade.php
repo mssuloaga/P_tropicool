@@ -1,4 +1,4 @@
-@extends('welcome', ['activePage' => 'articulos', 'titlePage' => 'Productos'])
+@extends('welcome2', ['activePage' => 'articulos', 'titlePage' => 'Productos'])
 @section('content')
     <div class="container" style="margin-top: 8rem;">
         <div class="row" style="margin-top:1rem;">
