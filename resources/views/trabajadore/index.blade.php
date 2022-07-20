@@ -40,7 +40,7 @@
                                 <thead class="text-primary">
                                     <tr>
                                         <th>ID</th>
-										<th>Imagen</th>
+										<th>Fotografía</th>
 										<th>Rut</th>
 										<th>Nombre</th>
 										<th>Dirección</th>
@@ -59,7 +59,7 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $trabajadore->imagen }}</td>
+                                            <td><img src="{{ asset('uploads/trabajadores/'.$trabajadore->imagen) }}" width="70px" height="70px" alt="Image"></td>
 											<td>{{ $trabajadore->rut_trabajador }}</td>
 											<td>{{ $trabajadore->nombre }}</td>
 											<td>{{ $trabajadore->direccion }}</td>

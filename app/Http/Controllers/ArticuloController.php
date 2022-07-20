@@ -14,4 +14,11 @@ class ArticuloController extends Controller
             'articulos'=>$articulos
         ]);
     }
+
+    public function show($articulosId){
+        $articulos = Producto::find($articulosId);
+        return view('articulos.show', [
+            'articulos' => $articulos
+        ]);
+    }
 }

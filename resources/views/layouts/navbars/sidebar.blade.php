@@ -6,10 +6,10 @@
   -->
   <div class="logo">
     <a href="/" class="simple-text logo-normal">
-      {{ __('Página de Inicio') }}
+      <img src="\logo\IMG_7359_sin_fondo.ico" width="30px" height="30px"> Tropicool
     </a>
   </div>
-  
+
   <div class="sidebar-wrapper">
     <ul class="nav">
     @can('post_index')
@@ -20,12 +20,12 @@
         </a>
         <div class="dropdown-menu dropdown-menu-left" aria-labelledby="navbarDropdownProfile">
           <a class="dropdown-item" href="/perfil">{{ __('Perfil') }}</a>
-          <a class="dropdown-item" href="#">{{ __('Ajustes') }}</a>
+          <!-- <a class="dropdown-item" href="#">{{ __('Ajustes') }}</a> -->
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">{{ __('Salir') }}</a>
         </div>
       </li>
-    @endcan 
+    @endcan
       <li class="nav-item{{ $activePage == 'dashboard' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('home') }}">
           <i class="material-icons">dashboard</i>
@@ -45,7 +45,7 @@
             <p>{{ __('Publicaciones') }}</p>
         </a>
       </li>
-      @endcan     
+      @endcan
       @can('user_index')
       <li class="nav-item{{ $activePage == 'users' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('users.index') }}">

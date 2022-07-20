@@ -20,6 +20,7 @@
                             @include('producto.form')
 
                         </form>
+                        
                     </div>
                 </div>
             </div>

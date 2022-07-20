@@ -3,7 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Venta;
+use App\DetalleVenta;
 use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Input;
+use App\Http\Request\VentaFormRequest;
+use DB;
+
+use Carbon\Carbon;
+use Response;
+use Illuminate\Support\Collection;
+
+
 
 /**
  * Class VentaController
