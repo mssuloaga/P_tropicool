@@ -5,6 +5,8 @@
 @endsection
 
 @section('content')
+
+
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="content">
   <div class="container-fluid">
@@ -19,13 +21,15 @@
             <div class="row">
                 <div class="col-sm-12">
                     <div class="card">
-                    
+                        <div class="container">
                         <div id="agenda">
 
-                        </div>   
+                        </div>  
+                        </div>
                         
                         
-
+                        
+                      
 
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#evento">
@@ -43,8 +47,11 @@
                                             </button>
                                     </div>
                                     <div class="modal-body">
-                                        
-                                    <form action="">
+                         
+                                    <form action=""  id="formulario" method="POST">
+                                   
+                                   
+                                    {{ csrf_field() }}
 
                                     <div class="form-group">
                                       <label for="id">ID:</label>
@@ -75,9 +82,6 @@
                                       <small id="helpId" class="form-text text-muted">Help text</small>
                                     </div>
 
-                                    </form> 
-
-
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-success" id="btnGuardar" >Guardar</button>
@@ -86,12 +90,21 @@
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
                                         
                                     </div>
+
+                                    </form> 
+
+
+                                   
                                 </div>
                             </div>
                         </div>
                     
 
-                    <div class="card-body">                            
+                    <div class="card-body">   
+                      
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
+                                   <script src="axios.js"></script>
+                                   <script src="{{ asset('js/agenda.js') }}" defer></script>
                 </div>
                 </div>
                     

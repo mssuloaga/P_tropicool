@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Calendario;
 use Illuminate\Http\Request;
 
+
 class CalendarioController extends Controller
 {
     /**
@@ -37,7 +38,8 @@ class CalendarioController extends Controller
     {
         //
         request()->validate(Calendario::$rules);
-        $calendario=Calendario::create($request->all);
+        $calendario=Calendario::create($request->all());
+        
 
 
     }
