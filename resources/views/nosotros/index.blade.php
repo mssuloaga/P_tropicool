@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('welcome3')
 @section('content')
         <div class="container">
             @foreach ($nosotros as $nos)

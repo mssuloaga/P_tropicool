@@ -125,13 +125,13 @@
         </div>
     </nav>
 
-    <header class="masthead">
+    <header >
         <div class="container position-relative">
             <div class="row justify-content-center">
-                <div class="col-xl-6">
+                <div class="col-xl-6 p-4">
                     <div class="text-center text-white">
-                        <!-- Page heading-->
-                        <h1 class="mb-5">¡Bienvenido!</h1>
+                        <!-- Page heading--> <br>
+                        <h1 class="m-5 p-4">Artículos!</h1>
                         <!-- Signup form-->
                         <!-- * * * * * * * * * * * * * * *-->
                         <!-- * * SB Forms Contact Form * *-->
@@ -178,13 +178,7 @@
     </section>
     
     
-    
-    <section class="ftco-section text-center">
-        <h1 class="mb-5">Encuéntranos en:</h1>
-        <div >
-            <iframe width="400px" height="400px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d8752.095879288974!2d-72.40369666369737!3d-37.03354859513339!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96696b9f5c409261%3A0xe109573d1fe50655!2zQ2FicmVybywgQsOtbyBCw61v!5e0!3m2!1ses-419!2scl!4v1658337510624!5m2!1ses-419!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-    </section>
+
 
     <footer class="footer bg-light">
         <div class="container">
