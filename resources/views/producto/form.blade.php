@@ -31,12 +31,23 @@
         </div></div>
 
         <div class="row">
-            <label  class="col-sm-2 col-form-label">Imagen</label>
+            <label  class="col-sm-2 col-form-label">Imagen Presentacion</label>
             <div class="col-sm-7">
                 @if(isset($producto->imagen))
                 @endif
                     <input type="file" class="form-control" name="imagen" value=" " id="imagen">
             </div></div>
+
+            <div class="row">
+                <label class="col-sm-2 col-form-label">Imagenes galeria</label>
+                         
+                <div class="col-sm-7">
+                    <input type="file" id="input-file-now-custom-3" class="form-control m-2" name="images[]" multiple>
+            
+            </div></div>
+
+            
+                         
 
         <div class="row">
             <label class="col-sm-2 col-form-label">Categoría</label>
