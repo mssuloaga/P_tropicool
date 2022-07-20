@@ -151,6 +151,28 @@ class ProductoController extends Controller
             $file->move('uploads/productos/', $filename);
             $producto->imagen = $filename;
         }
+        
+        if($request->hasFile("images")){
+
+        $images=Image::where("id_producto",$producto->id)->get();
+        foreach($images as $image){
+            $destinatione = 'uploads/productos/'.$image->image;
+            if(File::exists($destinatione))
+            {
+                File::delete($destinatione);
+            }
+            }
+        
+            $files=$request->file("images");
+            foreach($files as $file){
+                $imageName=time().'.'.$file->getClientOriginalName();
+                $request['id_producto']=$producto->id;
+                $request['image']=$imageName;
+                $file->move('uploads/productos/',$imageName);
+                Image::create($request->all());
+
+            }
+        }
 
         $producto->update();
         return redirect()->route('productos.index')

@@ -31,7 +31,7 @@
         </div></div>
 
         <div class="row">
-            <label  class="col-sm-2 col-form-label">Imagen</label>
+            <label  class="col-sm-2 col-form-label">Imagen Presentacion</label>
             <div class="col-sm-7">
                 @if(isset($producto->imagen))
                 @endif
@@ -39,9 +39,9 @@
             </div></div>
 
             <div class="row">
-                <label class="col-sm-2 col-form-label">Images</label>
+                <label class="col-sm-2 col-form-label">Imagenes galeria</label>
                          
-                <div>
+                <div class="col-sm-7">
                     <input type="file" id="input-file-now-custom-3" class="form-control m-2" name="images[]" multiple>
             
             </div></div>
