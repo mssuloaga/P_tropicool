@@ -4,8 +4,8 @@
 <div class="content bg-light">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-10 col-sm-7"></div>
-            <div class="col-2  ">
+            <div class="col-lg-9 col-sm-6 col-md-7"></div>
+            <div class="col-lg-3 col-md-5 col-sm-6 ">
                 <div class="pb-2">
                     <a href="#" class="btn btn-primary shadow" id="des_pdf">Generar reporte PDF</a>
                 </div>
@@ -14,19 +14,20 @@
        
         <div class="row p-4"> 
             <div class="col-lg-1 "></div>
-            <div class="col-lg-10">
+            <div class="col-10 ">
                 <div id="reportPage" class="row align-items-center d-flex overflow-hidden">  
 
-                    <div class="col-lg-5 col-sm-12 p-4 shadow rounded border overflow-hidden" >
+                    <div class="col-lg-5 col-xs-12 col-md-12 p-4 shadow rounded border overflow-hidden" >
                         <h2 class="p-2 font-weight-bold  ">Cantidad de productos</h2>
-                        <div class="charts" style="position: relative; height: 400px; width: 400px;">
+                        <div class="charts overflow-hidden" style="height:100%; width:100%;">
                             <canvas id="myChart" height= "350" width= "350"></canvas>
                         </div>
                     </div>
-                    <div class="col-2 p-2"></div>
-                    <div class="col-lg-5 col-sm-12 p-4 shadow rounded border overflow-hidden">
+                    <div class="col-lg-2 p-2"></div>
+
+                    <div class="col-lg-5 col-xs-12 col-md-12 p-4 shadow rounded border overflow-hidden">
                         <h2 class="p-2 font-weight-bold  ">Precio de productos</h2>
-                        <div class="charts" style="position: relative; height: 400px; width: 400px;">
+                        <div class="charts overflow-hidden" style="height:100%; width:100%;">
                             <canvas id="myChart2" height= "350" width= "350"></canvas>
                         </div>
                     </div>
@@ -63,6 +64,7 @@
                     }]
                 },
                 options:{
+                    responsive:true,
                     scales:{
                         yAxes:[{
                             ticks:{
