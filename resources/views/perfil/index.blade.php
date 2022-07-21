@@ -8,10 +8,11 @@
       <div class="col-md-12">
         <div class="card">
             <form action="{{route('changePassword')}}" method="POST" class="needs-validation" novalidate>
-            @csrf                  
+            @csrf    
+              
                 <div class="row">
                     <div class="col-md-3 border-right">
-                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">{{ Auth::user()->name }}</span><span class="text-black-50">{{ Auth::user()->email }}</span><span> </span></div>
+                        <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" height="150px" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}"><span class="font-weight-bold">{{ Auth::user()->name }}</span><span class="text-black-50">{{ Auth::user()->email }}</span><span> </span></div>
                     </div>
                     <div class="col-md-5 border-right overflow-hidden">
                         <div class="p-3 py-5">
@@ -28,21 +29,14 @@
                                 <div class="col-md-12"><label for="email" class="labels">Correo</label><input name="email" type="text" class="form-control" placeholder="Correo" value="{{ Auth::user()->email }}" ></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="password_actual" class="labels">Contraseña actual</label><input type="password" name="password_actual" class="form-control" placeholder="" value=""></div>
+                                <div class="col-md-12"><label for="password_actual" class="labels">Contraseña actual</label><input type="password" name="password_actual" class="form-control" placeholder="Solo ingresar estos campos en caso de cambiar la contraseña" value=""></div>
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="new_password" class="labels">Contraseña nueva</label><input type="password" name="password" class="form-control" placeholder="" value=""> </div> 
+                                <div class="col-md-12"><label for="new_password" class="labels">Contraseña nueva</label><input type="password" name="password" class="form-control" placeholder="Solo ingresar estos campos en caso de cambiar la contraseña" value=""> </div> 
                             </div>
                             <div class="row mt-3">
-                                <div class="col-md-12"><label for="password" class="labels">Confirmar contraseña nueva</label><input type="password" name="confirm_password" class="form-control" placeholder="" value=""></div>
+                                <div class="col-md-12"><label for="password" class="labels">Confirmar contraseña nueva</label><input type="password" name="confirm_password" class="form-control" placeholder="Solo ingresar estos campos en caso de cambiar la contraseña" value=""></div>
                             </div>
-                            @if (\Session::has('name'))
-                                <div class="alert alert-success">
-                                    <ul>
-                                        <li>{!! \Session::get('name') !!}</li>
-                                    </ul>
-                                </div>
-                            @endif
                             @if (\Session::has('updateDatos'))
                                 <div class="alert alert-success">
                                     <ul>
@@ -61,13 +55,6 @@
                                 <div class="alert alert-danger">
                                     <ul>
                                         <li>{!! \Session::get('claveIncorrecta') !!}</li>
-                                    </ul>
-                                </div>
-                            @endif
-                            @if (\Session::has('NoCoinciden'))
-                                <div class="alert alert-danger">
-                                    <ul>
-                                        <li>{!! \Session::get('NoCoinciden') !!}</li>
                                     </ul>
                                 </div>
                             @endif

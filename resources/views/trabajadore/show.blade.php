@@ -55,6 +55,11 @@
                                             <td><img src="{{ asset('uploads/trabajadores/'.$trabajadore->imagen) }}" width="80px" height="80px" alt="Foto"></td>
                                         </tr>
                                         
+                                        <tr>
+                                            <th> Curriculum </th>
+                                            <td><a class="btn btn-sm btn-primary" target="_blank" href="{{ asset('uploads/trabajadores/'.$trabajadore->curriculum) }}" class="btn btn-info"><i class="material-icons">person</i></a></td>
+                                        </tr>
+
                                     </tbody>
                                 </table>
                             </div>

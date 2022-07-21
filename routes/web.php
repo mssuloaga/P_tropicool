@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrabajadoreController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ArticuloController;
+use App\Http\Controllers\BusquedaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,7 @@ Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->
 Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index'])->name('articulos');
 Route::get('/articulos/{articulosId}', 'App\Http\Controllers\ArticuloController@show')->name('articulos.show');
 Route::get('nosotros', [App\Http\Controllers\NosotrosController::class, 'index'])->name('nosotros');
+Route::get('/busqueda', 'App\Http\Controllers\ArticuloController@busqueda')->name('articulos.busqueda');
 Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
