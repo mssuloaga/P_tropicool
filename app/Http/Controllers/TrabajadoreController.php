@@ -72,6 +72,16 @@ class TrabajadoreController extends Controller
             $file->move('uploads/trabajadores/', $filename);
             $trabajadore->imagen = $filename;
         }
+
+        if($request->hasfile('curriculum'))
+        {
+            $file = $request->file('curriculum');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/trabajadores/', $filename);
+            $trabajadore->curriculum = $filename;
+        }
+
         $trabajadore->save();
         return redirect()->route('trabajadores.index')
             ->with('success', 'Trabajador ingresado con éxito');
@@ -137,6 +147,20 @@ class TrabajadoreController extends Controller
             $trabajadore->imagen = $filename;
         }
 
+        if($request->hasfile('curriculum'))
+        {
+            $destination = 'uploads/trabajadores/'.$trabajadore->curriculum;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
+            $file = $request->file('curriculum');
+            $extention = $file->getClientOriginalExtension();
+            $filename = time().'.'.$extention;
+            $file->move('uploads/trabajadores/', $filename);
+            $trabajadore->curriculum = $filename;
+        }
+
         $trabajadore->update();
         return redirect()->route('trabajadores.index')
             ->with('success', 'trabajador actualizado con éxito');
@@ -153,5 +177,12 @@ class TrabajadoreController extends Controller
 
         return redirect()->route('trabajadores.index')
             ->with('success', '');
+    }
+
+    public function obtenercurriculum($id){
+        
+        $curriculum=trabajadore::where('id',$id)->first();
+
+        
     }
 }

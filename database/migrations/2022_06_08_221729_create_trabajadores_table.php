@@ -17,6 +17,7 @@ class CreateTrabajadoresTable extends Migration
             $table->engine="InnoDB";
             $table->bigIncrements('id');          
             $table->string('imagen');
+            $table->string('curriculum')->nullable();
             $table->bigInteger('rut_trabajador');
             $table->string('nombre');
             $table->string('direccion');

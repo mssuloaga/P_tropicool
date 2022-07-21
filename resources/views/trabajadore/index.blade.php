@@ -50,6 +50,7 @@
 										<th>Sueldo</th>
 										<th>Cargo</th>
 										<th>Empresa</th>
+                                        <th>Curriculum</th>
 										
                                         <th class="text-right no-exportar"> Acciones </th>
                                     </tr>
@@ -69,7 +70,7 @@
 											<td>{{ $trabajadore->sueldo }}</td>
 											<td>{{ $trabajadore->cargo }}</td>
 											<td>{{ $trabajadore->empresa->nombre }}</td>
-
+                                            <td><a class="btn btn-sm btn-primary" target="_blank" href="{{ asset('uploads/trabajadores/'.$trabajadore->curriculum) }}" class="btn btn-info"><i class="material-icons">person</i></a></td>
                                             <td class="td-actions text-right">
                                                 
                                                     <a class="btn btn-sm btn-primary " href="{{ route('trabajadores.show',$trabajadore->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
