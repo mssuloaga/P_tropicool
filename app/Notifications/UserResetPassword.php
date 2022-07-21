@@ -47,7 +47,7 @@ class UserResetPassword extends Notification
                     ->line('Hemos recibido una solicitud para el resstablecimiento de tu contraseña.')
                     ->action('Restablecer Contraseña', url('reset-password/'.$this->token.'?email='.$notifiable->email))
                     ->line('Si no realizaste esta solicitud, no hagas ninguna acción!')
-                    ->salutation('Saludos, '. config('app.name'));
+                    ->salutation('Saludos, Soporte '. config('app.name'));
     }
 
     /**
