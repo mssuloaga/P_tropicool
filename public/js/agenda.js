@@ -1,12 +1,8 @@
 
 
+var evento = new bootstrap.Modal(document.getElementById('evento'));
 
 document.addEventListener('DOMContentLoaded', function() {
-
-    
-
-
-
     var calendarEl = document.getElementById('agenda');
     var calendar = new FullCalendar.Calendar(calendarEl, {
       initialView: 'dayGridMonth',
@@ -18,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
           right: 'dayGridMonth,timeGridWeek,listWeek'
         },
 
+        events: "http://127.0.0.1:8000/calendario/mostrar",
+
         dateClick: function(info) {
             $("#evento").modal("show");
         }
@@ -28,14 +26,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
    
 
+   
+
     let formulario = document.querySelector("form");
     document.getElementById("btnGuardar").addEventListener("click",function(){   
-      
+      var form = document.getElementById("evento"),
+      myData = new FormData(form);
      
         const datos= new FormData(formulario);
           
-        console.log(datos);
-        console.log(formulario.title.value);
+        console.log(myData);
+        console.log(form.title.value);
 
 
         

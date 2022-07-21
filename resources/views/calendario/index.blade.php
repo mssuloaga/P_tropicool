@@ -46,51 +46,45 @@
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                     </div>
+
                                     <div class="modal-body">
                          
-                                    <form action=""  id="formulario" method="POST">
-                                   
-                                   
-                                    {{ csrf_field() }}
-
-                                    <div class="form-group">
-                                      <label for="id">ID:</label>
-                                      <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="">
-                                      <small id="helpId" class="form-text text-muted">Help text</small>
-                                    </div>
+                                    <form  id="evento" action="">                             
+                                    
+                                      {{  csrf_field()  }}
+                                      
+                                          <div class="form-group">
+                                            <label for="id">ID:</label>
+                                            <input type="text" class="form-control" name="id" id="id" aria-describedby="helpId" placeholder="">
+                                            <small id="helpId" class="form-text text-muted">Help text</small>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="title">Titulo</label>
+                                            <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Escribe el título del evento">
+                                            <small id="helpId" class="form-text text-muted">Help text</small>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="descripcion">Descripción</label>
+                                            <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
+                                          </div>
+                                          <div class="form-group">
+                                            <label for="start">start</label>
+                                            <input type="text" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="">
+                                            <small id="helpId" class="form-text text-muted">Help text</small>
+                                          </div>
                                         <div class="form-group">
-                                          <label for="title">Titulo</label>
-                                          <input type="text" class="form-control" name="title" id="title" aria-describedby="helpId" placeholder="Escribe el título del evento">
+                                          <label for="end">end</label>
+                                          <input type="text" class="form-control" name="end" id="end" aria-describedby="helpId" placeholder="">
                                           <small id="helpId" class="form-text text-muted">Help text</small>
                                         </div>
-                                    
 
-                                    <div class="form-group">
-                                      <label for="descripcion">Descripción</label>
-                                      <textarea class="form-control" name="descripcion" id="descripcion" rows="3"></textarea>
-                                    </div>
-
-                                    <div class="form-group">
-                                      <label for="start">start</label>
-                                      <input type="text" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="">
-                                      <small id="helpId" class="form-text text-muted">Help text</small>
-                                    </div>
-
-                                    <div class="form-group">
-                                      <label for="start">end</label>
-                                      <input type="text" class="form-control" name="start" id="start" aria-describedby="helpId" placeholder="">
-                                      <small id="helpId" class="form-text text-muted">Help text</small>
-                                    </div>
-
-                                    </div>
-                                    <div class="modal-footer">
-                                    <button type="button" class="btn btn-success" id="btnGuardar" >Guardar</button>
-                                    <button type="button" class="btn btn-warnig" id="btnModificar">Modificar</button>
-                                    <button type="button" class="btn btn-danger"  id="btnEliminar">Eliminar</button>
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-                                        
-                                    </div>
-
+                                      </div>
+                                      <div class="modal-footer">
+                                        <button type="button" class="btn btn-success" id="btnGuardar" >Guardar</button>
+                                        <button type="button" class="btn btn-warnig" id="btnModificar">Modificar</button>
+                                        <button type="button" class="btn btn-danger"  id="btnEliminar">Eliminar</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>                                          
+                                      </div>
                                     </form> 
 
 

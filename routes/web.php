@@ -68,6 +68,8 @@ Route::group(['middleware' => ['auth','valid']], function() {
     Route::resource('empresas', App\Http\Controllers\EmpresaController::class);
     Route::resource('productos', App\Http\Controllers\ProductoController::class);
     Route::resource('calendarios', App\Http\Controllers\CalendarioController::class);
+    Route::post('/calendario/agregar', [App\Http\Controllers\CalendarioController::class, 'store']);
+    Route::post('/calendario/mostrar', [App\Http\Controllers\CalendarioController::class, 'show']);
     Route::resource('stocks', App\Http\Controllers\StockController::class);
     Route::get('/download_pdfempresas', [App\Http\Controllers\EmpresaController::class, 'downloadPdf']);
     Route::get('/download_pdfusers', [App\Http\Controllers\UserController::class, 'downloadPdf']);
