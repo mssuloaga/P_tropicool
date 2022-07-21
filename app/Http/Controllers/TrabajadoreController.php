@@ -154,11 +154,11 @@ class TrabajadoreController extends Controller
             {
                 File::delete($destination);
             }
-            $file = $request->file('imagen');
+            $file = $request->file('curriculum');
             $extention = $file->getClientOriginalExtension();
             $filename = time().'.'.$extention;
             $file->move('uploads/trabajadores/', $filename);
-            $trabajadore->imagen = $filename;
+            $trabajadore->curriculum = $filename;
         }
 
         $trabajadore->update();
