@@ -10,13 +10,13 @@
     </section>
     <section class="container container-fluid">
         @foreach ($categorias as $categoria)
-            <div class="row" style="margin-top:1rem;">
+            <div class="row mt-5">
                 <h1>{{ $aux = $categoria->nombre }}</h1>
                 @foreach ( $articulos as $articulo )
                     @if ($aux == $articulo->categoria->nombre)
                         <div class="col">
-                            <div class="col-md-4">
-                                <div class="card" style="width: 18rem; margin-top: 2rem;">
+                            <div class="col">
+                                <div class="card p-5 mt-3">
                                     <div class="card-body">
                                         <a href="{{ route('articulos.show', $articulo->id) }}"><img src="{{ asset('uploads/productos/'.$articulo->imagen) }}" class="card-img-top" title="{{ $articulo->descripcion }}" alt="{{ $articulo->descripcion }}"></a>
                                         <a href="{{ route('articulos.show', $articulo->id) }}"><h5 class="card-title">{{ $articulo->nombre }}</h5></a>

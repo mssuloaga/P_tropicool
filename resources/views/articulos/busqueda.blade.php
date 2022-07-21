@@ -10,22 +10,24 @@
         <div class="row" style="margin-top:1rem;">
             @foreach ( $producto as $articulo )
                 <div class="col">
-                    <div class="col-md-4">
-                        <div class="card" style="width: 18rem; margin-top: 2rem;">
-                            <div class="card-body">
-                                <a href="{{ route('articulos.show', $articulo->id) }}"><img src="{{ asset('uploads/productos/'.$articulo->imagen) }}" class="card-img-top" title="{{ $articulo->descripcion }}" alt="{{ $articulo->descripcion }}"></a>
-                                <a href="{{ route('articulos.show', $articulo->id) }}"><h5 class="card-title">{{ $articulo->nombre }}</h5></a>
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="card-text bi bi-currency-dollar">{{ $articulo->precio .' CLP'}}</p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="" class="btn btn-success bi bi-bag-plus"> Añadir</a>
+                        <div class="col">
+
+                            <div class="card p-5 mt-3">
+                                <div class="card-body">
+                                    <a href="{{ route('articulos.show', $articulo->id) }}"><img src="{{ asset('uploads/productos/'.$articulo->imagen) }}" class="card-img-top" title="{{ $articulo->descripcion }}" alt="{{ $articulo->descripcion }}"></a>
+                                    <a href="{{ route('articulos.show', $articulo->id) }}"><h5 class="card-title">{{ $articulo->nombre }}</h5></a>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="card-text bi bi-currency-dollar">{{ $articulo->precio .' CLP'}}</p>
+                                        </div>
+                                        <div class="col">
+                                            <a href="" class="btn btn-success bi bi-bag-plus"> Añadir</a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-                    </div>
                 </div>
             @endforeach
         </div>
