@@ -7,7 +7,7 @@
             <div class="col-lg-10 col-sm-7"></div>
             <div class="col-2  ">
                 <div class="pb-2">
-                    <a href="#" class="btn btn-primary" id="des_pdf">Generar reporte PDF</a>
+                    <a href="#" class="btn btn-primary shadow" id="des_pdf">Generar reporte PDF</a>
                 </div>
             </div>
         </div>
