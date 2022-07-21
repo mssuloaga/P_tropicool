@@ -77,6 +77,16 @@
                     </select>
             </div>
         </div> 
+
+        <div class="row">
+            <label  class="col-sm-2 col-form-label">Curriculum</label>
+                <div class="col-sm-7">
+                    @if(isset($trabajadore->curriculum))
+                    @endif
+                        <input type="file" class="form-control" name="curriculum" value=" " id="curriculum">
+                </div>
+        </div>
+
 </div>
 
 <div class="row">
