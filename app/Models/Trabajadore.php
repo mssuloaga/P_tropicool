@@ -20,5 +20,7 @@ class Trabajadore extends Model
         'sueldo',
         'cargo',
         'id_empresas',
+        'curriculum',
     ];
+
 }
