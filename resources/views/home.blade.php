@@ -72,9 +72,16 @@
                     }
                 }
             });
-        });
+        });       
+    </script>
+@endpush
 
-        $(document).ready(function(){
+@push('js')
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://parall.ax/parallax/js/jspdf.js"></script> <!--Para generar el pdf-->
+
+<script>
+     $(document).ready(function(){
             var cData2 = JSON.parse(`<?php echo $data2; ?>`)
             //console.log(cData)
             const ctx2 = document.getElementById('myChart2').getContext('2d');
@@ -102,8 +109,13 @@
                 }
             });
         });
+</script>
+@endpush
 
-        $('#des_pdf').click(function(event) {
+@push('js')
+<script>
+    
+    $('#des_pdf').click(function(event) {
   // obtiene le número de reportpages
   var reportPageHeight = $('#reportPage').innerHeight();
   var reportPageWidth = $('#reportPage').innerWidth();
@@ -117,35 +129,35 @@
   
   // posición 
   var pdfctx = $(pdfCanvas)[0].getContext('2d');
-  var pdfctxX = 0;
-  var pdfctxY = 0;
+  var pdfctxX = 100;
+  var pdfctxY = 100;
   var buffer = 100;
   
-  // for each chart.js chart
+  // para cada chart.js chart
   $("canvas").each(function(index) {
     // get the chart height/width
     var canvasHeight = $(this).innerHeight();
     var canvasWidth = $(this).innerWidth();
     
-    // draw the chart into the new canvas
+    // dibujo dentro del nuevo canva
     pdfctx.drawImage($(this)[0], pdfctxX, pdfctxY, canvasWidth, canvasHeight);
     pdfctxX += canvasWidth + buffer;
     
-    // our report page is in a grid pattern so replicate that in the new canvas
+    // página de reporte en el nuevo canvas
     if (index % 2 === 1) {
       pdfctxX = 0;
       pdfctxY += canvasHeight + buffer;
     }
   });
   
-  // create new pdf and add our new canvas as an image
+  // crear nuevo pdf y agregar nuevo canvas en la imagen
   var pdf = new jsPDF('l', 'pt', [reportPageWidth, reportPageHeight]);
+  pdf.text(40,40,"REPORTE");
   pdf.addImage($(pdfCanvas)[0], 'PNG', 0, 0);
   
-  // download the pdf
+  // descargar pdf
   pdf.save('Reporte.pdf');
 });
 
-
-    </script>
+</script>
 @endpush
