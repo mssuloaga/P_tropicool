@@ -8226,7 +8226,7 @@ h1, h2, h3, h4, h5,
     .btn-group .dropdown-menu .dropdown-item .icon {
       width: 60px;
       height: 60px;
-      background: #a3f7bf;
+      background-color: #ffeeba;
       -webkit-transition: 0.3s;
       -o-transition: 0.3s;
       transition: 0.3s; }
