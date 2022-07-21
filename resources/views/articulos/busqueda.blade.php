@@ -17,7 +17,7 @@
                                 <a href="{{ route('articulos.show', $articulo->id) }}"><h5 class="card-title">{{ $articulo->nombre }}</h5></a>
                                 <div class="row">
                                     <div class="col">
-                                        <p class="card-text bi bi-currency-dollar">{{ $articulo->precio }}</p>
+                                        <p class="card-text bi bi-currency-dollar">{{ $articulo->precio .' CLP'}}</p>
                                     </div>
                                     <div class="col">
                                         <a href="" class="btn btn-success bi bi-bag-plus"> Añadir</a>
