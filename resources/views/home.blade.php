@@ -129,8 +129,8 @@
   
   // posición 
   var pdfctx = $(pdfCanvas)[0].getContext('2d');
-  var pdfctxX = 0;
-  var pdfctxY = 0;
+  var pdfctxX = 100;
+  var pdfctxY = 100;
   var buffer = 100;
   
   // para cada chart.js chart
@@ -152,6 +152,7 @@
   
   // crear nuevo pdf y agregar nuevo canvas en la imagen
   var pdf = new jsPDF('l', 'pt', [reportPageWidth, reportPageHeight]);
+  pdf.text(40,40,"REPORTE");
   pdf.addImage($(pdfCanvas)[0], 'PNG', 0, 0);
   
   // descargar pdf
