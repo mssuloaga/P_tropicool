@@ -5,6 +5,7 @@ use \PDF;
 use App\Producto;
 use App\Categoria;
 use App\Models\Image;
+use Twilio\Rest\Client;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -58,7 +59,17 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        
+        $sid    = "AC2ee1ff3872ff34e27ec4f9e0bdca5046"; 
+        $token  = "cdb7fa375edecd0bf4a8af95d97912e7"; 
+        $twilio = new Client($sid, $token); 
+ 
+        $message = $twilio->messages 
+                  ->create("whatsapp:+56946120688", // to 
+                           array( 
+                               "from" => "whatsapp:+14155238886",       
+                               "body" => "Se a creado un nuevo producto : ".$request->nombre  
+                           ) 
+                  ); 
 
         if($request->hasfile('imagen'))
         {
