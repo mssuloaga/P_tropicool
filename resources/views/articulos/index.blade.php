@@ -1,25 +1,40 @@
 @extends('welcome2', ['activePage' => 'articulos', 'titlePage' => 'Productos'])
 @section('content')
-    <div class="container" style="margin-top: 8rem;">
-        <div class="row" style="margin-top:1rem;">
-            @foreach($articulos as $a)
-                <div class="col-md-4">
-                    <div class="card" style="width: 18rem; margin-top: 2rem;">
-                        <div class="card-body">
-                            <a href="{{ route('articulos.show', $a->id) }}"><img src="{{ asset('uploads/productos/'.$a->imagen) }}" class="card-img-top" title="{{ $a->descripcion }}" alt="{{ $a->descripcion }}"></a>
-                            <a href="{{ route('articulos.show', $a->id) }}"><h5 class="card-title">{{ $a->nombre }}</h5></a>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="card-text">${{ $a->precio }}</p>
-                                </div>
-                                <div class="col">
-                                    <a href="" class="btn btn-success bi bi-bag-plus"> Añadir</a>
+    <section class="container container-fluid">
+        <form class="form-inline" action="busqueda">
+
+            <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
+
+            <button class="btn btn-outline-success my-2 my-sm-0 bi bi-search" type="submit"> Buscar</button>
+        </form>
+    </section>
+    <section class="container container-fluid">
+        @foreach ($categorias as $categoria)
+            <div class="row" style="margin-top:1rem;">
+                <h1>{{ $aux = $categoria->nombre }}</h1>
+                @foreach ( $articulos as $articulo )
+                    @if ($aux == $articulo->categoria->nombre)
+                        <div class="col">
+                            <div class="col-md-4">
+                                <div class="card" style="width: 18rem; margin-top: 2rem;">
+                                    <div class="card-body">
+                                        <a href="{{ route('articulos.show', $articulo->id) }}"><img src="{{ asset('uploads/productos/'.$articulo->imagen) }}" class="card-img-top" title="{{ $articulo->descripcion }}" alt="{{ $articulo->descripcion }}"></a>
+                                        <a href="{{ route('articulos.show', $articulo->id) }}"><h5 class="card-title">{{ $articulo->nombre }}</h5></a>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="card-text bi bi-currency-dollar">{{ $articulo->precio }}</p>
+                                            </div>
+                                            <div class="col">
+                                                <a href="" class="btn btn-success bi bi-bag-plus"> Añadir</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
+                    @endif
+                @endforeach
+            </div>
+        @endforeach
+    </section>
 @endsection
