@@ -21,6 +21,7 @@ class TrabajadoreController extends Controller
      */
     public function index()
     {
+        
         $trabajadores = Trabajadore::paginate();
 
         return view('trabajadore.index', compact('trabajadores'))
