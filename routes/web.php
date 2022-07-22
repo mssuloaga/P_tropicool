@@ -60,8 +60,11 @@ Route::group(['middleware' => ['auth','valid']], function() {
 
     Route::resource('posts', App\Http\Controllers\PostController::class);
     Route::resource('perfil', App\Http\Controllers\PerfilController::class);
+    Route::get('full-calendar', [App\Http\Controllers\FullCalendarController::class, 'index']);
 
-
+    Route::post('full-calendar/action', [App\Http\Controllers\FullCalendarController::class, 'action']);
+    
+    Route::resource('events', App\Http\Controllers\EventController::class);
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
     Route::resource('roles', App\Http\Controllers\RoleController::class);
     Route::resource('categorias', App\Http\Controllers\CategoriaController::class);
@@ -69,7 +72,6 @@ Route::group(['middleware' => ['auth','valid']], function() {
     Route::resource('eventos', App\Http\Controllers\EventoController::class);
     Route::resource('empresas', App\Http\Controllers\EmpresaController::class);
     Route::resource('productos', App\Http\Controllers\ProductoController::class);
-    Route::resource('calendarios', App\Http\Controllers\CalendarioController::class);
     Route::resource('stocks', App\Http\Controllers\StockController::class);
     Route::get('/download_pdfempresas', [App\Http\Controllers\EmpresaController::class, 'downloadPdf']);
     Route::get('/download_pdfusers', [App\Http\Controllers\UserController::class, 'downloadPdf']);
