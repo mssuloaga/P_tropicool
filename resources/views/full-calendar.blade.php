@@ -1,28 +1,47 @@
+@extends('layouts.main', ['activePage' => 'full-calendar', 'titlePage' => 'Calendario'])
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>How to Use Fullcalendar in Laravel 8</title>
-    
+@section('content')
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">Calendario de eventos</h4>
+                            <p class="card-category">Registro de actividades</p>
+                        </div>
+        
+            
+                
+                        <div class="card">
+                    
+                            <div id="calendar"></div>   
+                        </div>
+                    
+
+                                            
+                    </div>
+                </div>            
+            </div>
+        </div>
+    </div>
+@endsection
+
+
+
+ 
+@section('js')
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-</head>
-<body>
-  
-<div class="container">
-    <br />
-    <h1 class="text-center">Calendario</h1>
-    <br />
 
-    <div id="calendar"></div>
-
-</div>
-   
 <script>
 
 $(document).ready(function () {
@@ -32,9 +51,11 @@ $(document).ready(function () {
             'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
         }
     });
+    
 
     var calendar = $('#calendar').fullCalendar({
         editable:true,
+        locale:"es",
         header:{
             left:'prev,next today',
             center:'title',
@@ -143,6 +164,4 @@ $(document).ready(function () {
 });
   
 </script>
-  
-</body>
-</html>
+@endsection
