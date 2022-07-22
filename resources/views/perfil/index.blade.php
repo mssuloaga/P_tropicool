@@ -37,6 +37,9 @@
                             <div class="row mt-3">
                                 <div class="col-md-12"><label for="password" class="labels">Confirmar contraseña nueva</label><input type="password" name="confirm_password" class="form-control" placeholder="Solo ingresar estos campos en caso de cambiar la contraseña" value=""></div>
                             </div>
+                            <div class="row mt-3">
+                                <div class="col-md-12"><label for="image" class="labels">Foto de perfil</label><input type="file" class="form-control" name="image" value="" autofocus></div>
+                            </div>
                             @if (\Session::has('updateDatos'))
                                 <div class="alert alert-success">
                                     <ul>
