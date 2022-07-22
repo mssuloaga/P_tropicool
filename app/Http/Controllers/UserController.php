@@ -36,12 +36,6 @@ class UserController extends Controller
 
     public function store(UserCreateRequest $request)
     {
-        // $request->validate([
-        //     'name' => 'required|min:3|max:5',
-        //     'username' => 'required',
-        //     'email' => 'required|email|unique:users',
-        //     'password' => 'required'
-        // ]);
         $user = new User;
         $user->name = $request->input('name');
         $user->email = $request->input('email');

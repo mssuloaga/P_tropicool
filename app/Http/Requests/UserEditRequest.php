@@ -35,5 +35,16 @@ class UserEditRequest extends FormRequest
             ],
             'password' => 'sometimes'
         ];
+
+        
+    }
+    public function messages()
+    {
+        return [
+            'name.required' => 'El nombre es requerido',
+            'username.required' => 'El nombre de usuario es requerido',
+            'email.required' => 'El email es requerido',
+            'password.required' => 'La contraseña es requerida'
+        ];
     }
 }
