@@ -69,7 +69,7 @@
                                             <a href="#" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-image: url(images/person_1.jpg);">
                                                 <img class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="40px" height="40px" alt="Imagen">
                                             </a>
-                                            <div class="dropdown-menu">
+                                            <div style="top: -150%;" class="dropdown-menu">
                         
                                                 <a class="dropdown-item d-flex align-items-center" href="/perfil">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
