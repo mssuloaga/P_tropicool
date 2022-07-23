@@ -11,9 +11,9 @@ class Calendario extends Model
 
     static $rules = [
         'title'=>'required',
-        'descripcion'=>'required',
+        'description'=>'required',
         'start'=>'required',
         'end'=>'required'
     ];
-    protected $fillable=['title','descripcion','start','end'];
+    protected $fillable=['title','description','start','end'];
 }
