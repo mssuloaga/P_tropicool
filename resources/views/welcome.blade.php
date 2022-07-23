@@ -108,8 +108,8 @@
                         @else
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                
-                            <i class="material-icons text-light">Iniciar sesion perm_identity</i>
+                                <i class="material-icons text-light">perm_identity</i>
+                            
                             </button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
@@ -196,23 +196,23 @@
             <script>
                 function initMap(){
                     var options = {
-                        zoom:8,
+                        zoom:14,
                         center:{lat:-37.033300, lng:-72.400000}
                     }
 
-                    var map = new google.maps.Map(document.getElementById('map'), options);
+                    var map = new 
+                    google.maps.Map(document.getElementById('map'), options);
 
                     var marker = new google.maps.Marker({
                         position:{lat:-37.033300, lng: -72.400000},
                         map:map
                     });
-
                     
                 }
-                <script
-                    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly"
-                    defer
-                ></script>
+            </script>
+            <script async
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCpsxsoB7yw1xBZjeaZzcy-kj_r_qKDMRs&callback=initMap">
+            </script>
         </div>
 
     </section>
