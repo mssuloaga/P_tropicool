@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage' => 'full-calendar', 'titlePage' => 'Calendario'])
+@extends('layouts.main', ['activePage' => 'calendario', 'titlePage' => 'Calendario'])
 
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -57,6 +57,7 @@
                 events:'/full-calendar',
                 selectable:true,
                 selectHelper: true,
+                eventColor: '#ffffa2',
                 select:function(start, end, allDay)
                 {
                     var title = prompt('Nombre del Evento:');
