@@ -103,14 +103,6 @@
       </li>
       @endcan
       @can('role_index')
-      <li class="nav-item{{ $activePage == 'eventos' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('eventos.index') }}">
-          <i class="material-icons">event</i>
-            <p>{{ __('Eventos') }}</p>
-        </a>
-      </li>
-      @endcan
-      @can('role_index')
       <li class="nav-item{{ $activePage == 'empresas' ? ' active' : '' }}">
         <a class="nav-link" href="{{ route('empresas.index') }}">
           <i class="material-icons">home_filled</i>
