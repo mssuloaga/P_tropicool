@@ -9,6 +9,11 @@ class Calendario extends Model
 {
     use HasFactory;
 
-  
-    protected $fillable=['title','descripcion','start','end'];
+    static $rules = [
+        'title'=>'required',
+        'description'=>'required',
+        'start'=>'required',
+        'end'=>'required'
+    ];
+    protected $fillable=['title','description','start','end'];
 }

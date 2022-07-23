@@ -1,58 +1,58 @@
 <?php
-   
+
 namespace App\Http\Controllers;
-   
-use App\Models\Event;
+
 use Illuminate\Http\Request;
-use Redirect,Response;
 
+use App\Models\Event;
 
-   
-class FullCalenderController extends Controller
+class FullCalendarController extends Controller
 {
- 
-    public function index()
+    public function index(Request $request)
     {
-        if(request()->ajax()) 
-        {
- 
-         $start = (!empty($_GET["start"])) ? ($_GET["start"]) : ('');
-         $end = (!empty($_GET["end"])) ? ($_GET["end"]) : ('');
- 
-         $data = Event::whereDate('start', '>=', $start)->whereDate('end',   '<=', $end)->get(['id','title','start', 'end']);
-         return Response::json($data);
-        }
-        return view('fullcalendar');
+    	if($request->ajax())
+    	{
+    		$data = Event::whereDate('start', '>=', $request->start)
+                       ->whereDate('end',   '<=', $request->end)
+                       ->get(['id', 'title', 'start', 'end']);
+            return response()->json($data);
+    	}
+    	return view('full-calendar');
     }
-    
-   
-    public function create(Request $request)
-    {  
-        $insertArr = [ 'title' => $request->title,
-                       'start' => $request->start,
-                       'end' => $request->end
-                    ];
-        $event = Event::insert($insertArr);   
-        return Response::json($event);
-    }
-     
- 
-    public function update(Request $request)
-    {   
-        $where = array('id' => $request->id);
-        $updateArr = ['title' => $request->title,'start' => $request->start, 'end' => $request->end];
-        $event  = Event::where($where)->update($updateArr);
- 
-        return Response::json($event);
-    } 
- 
- 
-    public function destroy(Request $request)
+
+    public function action(Request $request)
     {
-        $event = Event::where('id',$request->id)->delete();
-   
-        return Response::json($event);
-    }    
- 
- 
+    	if($request->ajax())
+    	{
+    		if($request->type == 'add')
+    		{
+    			$event = Event::create([
+    				'title'		=>	$request->title,
+    				'start'		=>	$request->start,
+    				'end'		=>	$request->end
+    			]);
+
+    			return response()->json($event);
+    		}
+
+    		if($request->type == 'update')
+    		{
+    			$event = Event::find($request->id)->update([
+    				'title'		=>	$request->title,
+    				'start'		=>	$request->start,
+    				'end'		=>	$request->end
+    			]);
+
+    			return response()->json($event);
+    		}
+
+    		if($request->type == 'delete')
+    		{
+    			$event = Event::find($request->id)->delete();
+
+    			return response()->json($event);
+    		}
+    	}
+    }
 }
+?>
