@@ -16,7 +16,7 @@
                             <p class="card-category">Registro de actividades</p>
                         </div>
                 
-                        <div class="card p-4" widht="400px">
+                        <div class="card p-4">
                     
                             <div id="calendar"></div>   
                         </div>
@@ -26,6 +26,17 @@
             </div>
         </div>
     </div>
+
+    <style>
+    .fc-event {
+        font-size: 17px !important;
+    }
+
+    .fc-day-grid-event .fc-content {
+        white-space: normal !important;
+        overflow: hidden !important;
+    }
+    </style>
 @endsection
 
  
@@ -161,4 +172,5 @@
         });
   
     </script>
+    
 @endsection
