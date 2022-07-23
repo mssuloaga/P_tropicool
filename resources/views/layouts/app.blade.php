@@ -61,8 +61,9 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
+                                                     document.getElementById('logout-form').submit();">                                                           
                                         {{ __('Salir') }}
+                                      
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -81,6 +82,9 @@
         <main class="py-4">
             @yield('content')
         </main>
+        
     </div>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="{{ asset('js/sweetAlert.js') }}" defer></script>
 </body>
 </html>
