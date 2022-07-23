@@ -1,4 +1,4 @@
-@extends('welcome')
+@extends('welcome2')
 @section('content')
     <section class="content container-fluid">
         <div class="container align-center" style="text-align: center;">
