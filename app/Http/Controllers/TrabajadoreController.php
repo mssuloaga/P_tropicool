@@ -177,7 +177,7 @@ class TrabajadoreController extends Controller
         $trabajadore = Trabajadore::find($id)->delete();
 
         return redirect()->route('trabajadores.index')
-            ->with('success', '');
+        ->with('eliminar', 'ok');
     }
 
     public function obtenercurriculum($id){
