@@ -1,12 +1,10 @@
 @extends('layouts.main', ['activePage' => 'full-calendar', 'titlePage' => 'Calendario'])
 
 @section('content')
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
-
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -17,7 +15,7 @@
                             <p class="card-category">Registro de actividades</p>
                         </div>
                 
-                        <div class="card">
+                        <div class="card p-4">
                     
                             <div id="calendar"></div>   
                         </div>
@@ -29,16 +27,14 @@
     </div>
 @endsection
 
-
-
  
 @section('js')
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
-
+    
     <script>
-
+        
         $(document).ready(function () {
 
             $.ajaxSetup({
@@ -46,11 +42,14 @@
                 'X-CSRF-TOKEN' : $('meta[name="csrf-token"]').attr('content')
             }
         });
-    
+        
 
             var calendar = $('#calendar').fullCalendar({
                 editable:true,
-               
+                monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+                monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
+                dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
+                dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
                 header:{
                     left:'prev,next today',
                     center:'title',
