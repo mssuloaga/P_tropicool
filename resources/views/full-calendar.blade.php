@@ -2,8 +2,10 @@
 
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/locale/es.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
+    
     <div class="content">
         <div class="container-fluid">
             <div class="row">
@@ -31,6 +33,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.js"></script>
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/locale/es.js'></script>
     
     <script>
         
@@ -45,10 +48,10 @@
 
             var calendar = $('#calendar').fullCalendar({
                 editable:true,
-                monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
+                /* monthNames: ['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'],
                 monthNamesShort: ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'],
                 dayNames: ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'],
-                dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'],
+                dayNamesShort: ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'], */
                 header:{
                     left:'prev,next today',
                     center:'title',
