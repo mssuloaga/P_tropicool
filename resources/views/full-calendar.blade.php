@@ -3,7 +3,6 @@
 @section('content')
     <meta name="csrf-token" content="{{ csrf_token() }}" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.css" />
     <div class="content">
         <div class="container-fluid">
@@ -15,7 +14,7 @@
                             <p class="card-category">Registro de actividades</p>
                         </div>
                 
-                        <div class="card p-4">
+                        <div class="card p-4" widht="400px">
                     
                             <div id="calendar"></div>   
                         </div>
