@@ -33,7 +33,7 @@
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'calendario' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ url('/calendarios') }}">
+        <a class="nav-link" href="{{ url('full-calendar') }}">
           <i class="material-icons">event</i>
             <p>{{ __('Calendario') }}</p>
         </a>
@@ -99,14 +99,6 @@
         <a class="nav-link" href="{{ route('trabajadores.index') }}">
           <i class="material-icons">assignment_ind</i>
             <p>{{ __('Trabajadores') }}</p>
-        </a>
-      </li>
-      @endcan
-      @can('role_index')
-      <li class="nav-item{{ $activePage == 'eventos' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ route('eventos.index') }}">
-          <i class="material-icons">event</i>
-            <p>{{ __('Eventos') }}</p>
         </a>
       </li>
       @endcan
