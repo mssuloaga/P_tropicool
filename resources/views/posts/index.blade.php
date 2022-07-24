@@ -46,8 +46,8 @@
                           class="material-icons">edit</i> </a>
                     @endcan
                     @can('post_destroy')
-                      <form action="{{ route('posts.destroy', $post->id) }}" method="post" class="formulario-eliminar"
-                        style="display: inline-block;">
+                      <form action="{{ route('posts.destroy', $post->id) }}" method="post"
+                        onsubmit="return confirm('Seguro?')" style="display: inline-block;">
                         @csrf
                         @method('DELETE')
                         <button type="submit" rel="tooltip" class="btn btn-danger">
@@ -65,38 +65,6 @@
                 </tbody>
               </table>
               @section('js')
-              <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                                @if(session('eliminar') == 'ok')
-                                    <script>
-                                        Swal.fire(
-                                            '¡Eliminado!',
-                                            'La publicacíon se elimino con éxito.',
-                                            'success'
-                                        )
-                                    </script>
-                                @endif
-                                <script>
-                                    $('.formulario-eliminar').submit(function(e){
-                                        e.preventDefault();
-                                        Swal.fire({
-                                        title: '¿Estás seguro?',
-                                        text: "Esta publicacíon se eliminara definitivamente",
-                                        icon: 'warning',
-                                        showCancelButton: true,
-                                        confirmButtonColor: '#3085d6',
-                                        cancelButtonColor: '#d33',
-                                        confirmButtonText: '¡Si, eliminar!',
-                                        cancelButtonText: 'Cancelar'
-
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {                                               
-                                                this.submit();                                           
-                                            }
-                                        })
-                                    });
-                                   
-
-                                </script>
                 <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
                 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
                 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
