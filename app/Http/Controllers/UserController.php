@@ -128,6 +128,6 @@ class UserController extends Controller
         }
 
         $user->delete();
-        return back()->with('succes', '');
+        return back() ->with('eliminar', 'ok');
     }
 }
