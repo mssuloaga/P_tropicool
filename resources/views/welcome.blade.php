@@ -192,11 +192,18 @@
     </section>
 
     <section class="ftco-section text-center">
-        <h1 class="mb-5">Encuéntranos en:</h1>
+        <h1 class="mb-5">Código QR:</h1>
         <div>
-            {!!QrCode::size(250)->generate('Producto::class');!!}
+            {!!QrCode::generate('http://143.110.229.105/');!!}
         </div>
     </section>
+
+        <div class="col-md-3 mt-2 mb-2">
+        <label for="nombre" id="nombre">asd </label>
+            {{$miQr = QrCode::
+                    size(200)
+                    ->generate('http://143.110.229.105/')}}
+        </div>
 
     <footer class="footer bg-light">
         <div class="container">

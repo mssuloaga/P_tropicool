@@ -65,6 +65,9 @@
                                             <td>{{ $producto->cantidad}}</td>
                                             <td><img src="{{ asset('uploads/productos/'.$producto->imagen) }}" width="70px" height="70px" alt="Image"></td>
                                             <td>{{ $producto->categoria->nombre}}</td>
+                                            <td>{{$miQr = QrCode::
+                                                        size(250)
+                                                        ->generate($producto->descripcion, $producto->descripcion)}}</td>
 
                                             <td class="td-actions text-right">
 
