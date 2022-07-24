@@ -27,6 +27,10 @@ Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index
 Route::get('/articulos/{articulosId}', 'App\Http\Controllers\ArticuloController@show')->name('articulos.show');
 Route::get('nosotros', [App\Http\Controllers\NosotrosController::class, 'index'])->name('nosotros');
 Route::get('/busqueda', 'App\Http\Controllers\ArticuloController@busqueda')->name('articulos.busqueda');
+Route::post('/cart-add', 'App\Http\Controllers\CartController@add')->name('cart.add');
+Route::get('/cart-checkout', 'App\Http\Controllers\CartController@cart')->name('cart.checkout');
+Route::post('/cart-clear', 'App\Http\Controllers\CartController@clear')->name('cart.clear');
+Route::post('/cart-removeitem', 'App\Http\Controllers\CartController@removeitem')->name('cart.removeitem');
 Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
@@ -63,7 +67,7 @@ Route::group(['middleware' => ['auth','valid']], function() {
     Route::get('full-calendar', [App\Http\Controllers\FullCalendarController::class, 'index']);
 
     Route::post('full-calendar/action', [App\Http\Controllers\FullCalendarController::class, 'action']);
-    
+
     Route::resource('events', App\Http\Controllers\EventController::class);
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
     Route::resource('roles', App\Http\Controllers\RoleController::class);

@@ -1,5 +1,12 @@
 @extends('welcome2', ['activePage' => 'articulos', 'titlePage' => 'Productos'])
 @section('content')
+    <section class="container">
+        <div class="col bg-light" style="text-align: right;">
+            @if (count(Cart::getContent()))
+                <a href="{{route('cart.checkout')}}"> VER CARRITO <span class="badge badge-danger">{{count(Cart::getContent())}}</span></a>
+            @endif
+        </div>
+    </section>
     <section class="container container-fluid">
         <form class="form-inline" action="{{ route('articulos.busqueda') }}">
             <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
@@ -10,22 +17,28 @@
         <div class="row" style="margin-top:1rem;">
             @foreach ( $producto as $articulo )
                 <div class="col">
-                    <div class="col-md-4">
-                        <div class="card" style="width: 18rem; margin-top: 2rem;">
-                            <div class="card-body">
-                                <a href="{{ route('articulos.show', $articulo->id) }}"><img src="{{ asset('uploads/productos/'.$articulo->imagen) }}" class="card-img-top" title="{{ $articulo->descripcion }}" alt="{{ $articulo->descripcion }}"></a>
-                                <a href="{{ route('articulos.show', $articulo->id) }}"><h5 class="card-title">{{ $articulo->nombre }}</h5></a>
-                                <div class="row">
-                                    <div class="col">
-                                        <p class="card-text bi bi-currency-dollar">{{ $articulo->precio }}</p>
-                                    </div>
-                                    <div class="col">
-                                        <a href="" class="btn btn-success bi bi-bag-plus"> Añadir</a>
+                        <div class="col">
+
+                            <div class="card p-5 mt-3">
+                                <div class="card-body">
+                                    <a href="{{ route('articulos.show', $articulo->id) }}"><img src="{{ asset('uploads/productos/'.$articulo->imagen) }}" class="card-img-top" title="{{ $articulo->descripcion }}" alt="{{ $articulo->descripcion }}"></a>
+                                    <a href="{{ route('articulos.show', $articulo->id) }}"><h5 class="card-title">{{ $articulo->nombre }}</h5></a>
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="card-text bi bi-currency-dollar">{{ $articulo->precio .' CLP'}}</p>
+                                        </div>
+                                        <div class="col">
+                                            <form action="{{route('cart.add')}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$articulo->id}}">
+                                                <input type="submit" name="btn"  class="btn btn-success bi bi-bag-plus" value="+ Agregar">
+                                            </form>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
-                    </div>
                 </div>
             @endforeach
         </div>
