@@ -26,14 +26,23 @@ class UserEditRequest extends FormRequest
         $user = $this->route('user');
         return [
             'name' => 'required',
-            // Logic for findOrFail
-            // 'username' => 'unique:users,username,'.$this->user.'|required',
 
             'username' => ['required', 'min:3', 'unique:users,username,' . $user->id],
             'email' => [
                 'required', 'unique:users,email,' . request()->route('user')->id
             ],
             'password' => 'sometimes'
+        ];
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'El nombre es requerido',
+            'username.unique'=> 'El usuario ya existe',
+            'username.required' => 'El usuario es requerido',
+            'email.required' => 'El email es requerido',
+            'password.required' => 'La contraseña es requerida'
         ];
     }
 }
