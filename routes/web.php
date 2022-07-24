@@ -27,6 +27,10 @@ Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index
 Route::get('/articulos/{articulosId}', 'App\Http\Controllers\ArticuloController@show')->name('articulos.show');
 Route::get('nosotros', [App\Http\Controllers\NosotrosController::class, 'index'])->name('nosotros');
 Route::get('/busqueda', 'App\Http\Controllers\ArticuloController@busqueda')->name('articulos.busqueda');
+Route::post('/cart-add',    'App\Http\Controllers\CartController@add')->name('cart.add');
+Route::get('/cart-checkout','App\Http\Controllers\CartController@cart')->name('cart.checkout');
+Route::post('/cart-clear',  'App\Http\Controllers\CartController@clear')->name('cart.clear');
+Route::post('/cart-removeitem',  'App\Http\Controllers\CartController@removeitem')->name('cart.removeitem');
 Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
@@ -60,22 +64,22 @@ Route::group(['middleware' => ['auth','valid']], function() {
 
     Route::resource('posts', App\Http\Controllers\PostController::class);
     Route::resource('perfil', App\Http\Controllers\PerfilController::class);
-    Route::get('full-calendar', [App\Http\Controllers\FullCalendarController::class, 'index']);
 
-    Route::post('full-calendar/action', [App\Http\Controllers\FullCalendarController::class, 'action']);
-    
-    Route::resource('events', App\Http\Controllers\EventController::class);
+
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
     Route::resource('roles', App\Http\Controllers\RoleController::class);
     Route::resource('categorias', App\Http\Controllers\CategoriaController::class);
     Route::resource('trabajadores', App\Http\Controllers\TrabajadoreController::class);
+    Route::resource('eventos', App\Http\Controllers\EventoController::class);
     Route::resource('empresas', App\Http\Controllers\EmpresaController::class);
     Route::resource('productos', App\Http\Controllers\ProductoController::class);
+    Route::resource('calendarios', App\Http\Controllers\CalendarioController::class);
     Route::resource('stocks', App\Http\Controllers\StockController::class);
     Route::get('/download_pdfempresas', [App\Http\Controllers\EmpresaController::class, 'downloadPdf']);
     Route::get('/download_pdfusers', [App\Http\Controllers\UserController::class, 'downloadPdf']);
     Route::get('/download_pdfproductos', [App\Http\Controllers\ProductoController::class, 'downloadPdf']);
     Route::get('/download_pdfcategorias', [App\Http\Controllers\CategoriaController::class, 'downloadPdf']);
     Route::get('/download_pdftrabajadores', [App\Http\Controllers\TrabajadoreController::class, 'downloadPdf']);
+    Route::get('/download_pdfeventos', [App\Http\Controllers\EventoController::class, 'downloadPdf']);
     Route::get('/download_pdfstocks', [App\Http\Controllers\StockController::class, 'downloadPdf']);
 });

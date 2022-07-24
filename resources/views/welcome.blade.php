@@ -89,7 +89,7 @@
                                                     </div>
                                                     Dashboard
                                                 </a>
-                                                <a class="dropdown-item d-flex align-items-center"  href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-power"></span>
                                                     </div>
@@ -101,9 +101,8 @@
                                 </div>
                             </div> -->
                             
-                            <form id="logout-form" name="logout-form" action="{{ route('logout') }}" type="submit" method="POST" class="d-none formularioSalir">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                 @csrf
-                               
                             </form>
                             @endcan
                         @else
@@ -238,11 +237,6 @@
         <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-
-        
-            @yield('js')
-            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-             <script src="{{ asset('js/sweetAlert.js') }}" defer></script>
 
     </body>
 </html>

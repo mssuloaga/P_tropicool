@@ -24,7 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        notify()->success('Welcome to Laravel Notify ⚡️');
         $productos =Producto::all();
         $data = [];
         $data2 = [];

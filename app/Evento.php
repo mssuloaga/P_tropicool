@@ -5,25 +5,20 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 /**
- * Class Event
+ * Class Evento
  *
  * @property $id
- * @property $title
- * @property $start
- * @property $end
  * @property $created_at
  * @property $updated_at
  *
+ * @property Calendario[] $calendarios
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class Event extends Model
+class Evento extends Model
 {
     
     static $rules = [
-		'title' => 'required',
-		'start' => 'required',
-		'end' => 'required',
     ];
 
     protected $perPage = 20;
@@ -33,8 +28,16 @@ class Event extends Model
      *
      * @var array
      */
-    protected $fillable = ['title','start','end'];
+    protected $fillable = ['nombre','direccion','precio','fecha_inicio','fecha_termino'];
 
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function calendarios()
+    {
+        return $this->hasMany('App\Calendario', 'id_eventos', 'id');
+    }
+    
 
 }

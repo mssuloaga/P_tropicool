@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
+use App\Models\Calendario;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Gate;
 
-class PostController extends Controller
+class CalendarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +14,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        abort_if(Gate::denies('post_index'), 403);
-
-        $posts = Post::paginate(5);
-        return view('posts.index', compact('posts'));
+        return view('calendario.index');
     }
 
     /**
@@ -28,9 +24,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        abort_if(Gate::denies('post_create'), 403);
-
-        return view('posts.create');
+        //
     }
 
     /**
@@ -41,63 +35,55 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        Post::create($request->all());
+        //
+        request()->validate(Calendario::$rules);
+        $calendario=Calendario::create($request->all);
 
-        return redirect()->route('posts.index');
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Calendario  $calendario
      * @return \Illuminate\Http\Response
      */
-    public function show(Post $post)
+    public function show(Calendario $calendario)
     {
-        abort_if(Gate::denies('post_show'), 403);
-
-        return view('posts.show', compact('post'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Calendario  $calendario
      * @return \Illuminate\Http\Response
      */
-    public function edit(Post $post)
+    public function edit(Calendario $calendario)
     {
-        abort_if(Gate::denies('post_edit'), 403);
-
-        return view('posts.edit', compact('post'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Calendario  $calendario
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Post $post)
+    public function update(Request $request, Calendario $calendario)
     {
-        $post->update($request->all());
-
-        return redirect()->route('posts.index');
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Calendario  $calendario
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Post $post)
+    public function destroy(Calendario $calendario)
     {
-        abort_if(Gate::denies('post_destroy'), 403);
-
-        $post->delete();
-
-        return redirect()->route('posts.index');
+        //
     }
 }

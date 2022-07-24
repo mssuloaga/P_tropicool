@@ -1,4 +1,4 @@
-@extends('layouts.main', ['activePage' => 'categorias', 'titlePage' => 'Categoría'])
+@extends('layouts.main', ['activePage' => 'eventos', 'titlePage' => 'Eventos'])
 
 @section('css')
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css">
@@ -12,8 +12,8 @@
       <div class="col-md-12">
         <div class="card">
           <div class="card-header card-header-primary">
-            <h4 class="card-title">Categoría</h4>
-            <p class="card-category">Lista de categorías registradas</p>
+            <h4 class="card-title">Eventos</h4>
+            <p class="card-category">Lista de eventos registrados</p>
           </div>
     <div class="container-fluid">
         <div class="row">
@@ -23,7 +23,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                         
                         <div class="col-12 text-right">
-                            <a href="{{ route('categorias.create') }}" class="btn btn-sm btn-facebook">Añadir categoría</a>
+                            <a href="{{ route('eventos.create') }}" class="btn btn-sm btn-facebook">Añadir evento</a>
                         </div>
                         
                     </div>
@@ -36,29 +36,36 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped shadow-lg mt-4" style="width:100%" id="categorias">
+                            <table class="table table-striped shadow-lg mt-4" style="width:100%" id="eventos">
                                 <thead class="text-primary">
                                     <tr>
                                         <th>ID</th>
 										<th>Nombre</th>
-										<th>Empresa</th>
+										<th>Dirección</th>
+                                        <th>Costo</th>
+                                        <th>Fecha Inicio</th>
+                                        <th>Fecha Término</th>
 										
                                         <th class="text-right no-exportar"> Acciones </th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($categorias as $categoria)
+                                    @foreach ($eventos as $evento)
                                         <tr>
                                             <td>{{ ++$i }}</td>
                                             
-											<td>{{ $categoria->nombre }}</td>
-											<td>{{ $categoria->empresa->nombre }}</td>
+											<td>{{ $evento->nombre }}</td>
+											<td>{{ $evento->direccion }}</td>
+                                            <td>{{ $evento->precio }}</td>
+                                            <td>{{ $evento->fecha_inicio }}</td>
+                                            <td>{{ $evento->fecha_termino }}</td>
+
 
                                             <td class="td-actions text-right">
                                                 
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('categorias.show',$categoria->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('categorias.edit',$categoria->id) }}" class="btn btn-info"><i class="material-icons">edit</i></a>
-                                                    <form action="{{ route('categorias.destroy',$categoria->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('eventos.show',$evento->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('eventos.edit',$evento->id) }}" class="btn btn-info"><i class="material-icons">edit</i></a>
+                                                    <form action="{{ route('eventos.destroy',$evento->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger" type="submit" rel="tooltip">
@@ -81,12 +88,13 @@
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" type="text/javascript"></script>
                                 <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js" type="text/javascript"></script>
                                 <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js" type="text/javascript"></script>
+        
                                 <script>
                                 $(document).ready(function () {
-                                $('#categorias').DataTable(
+                                $('#eventos').DataTable(
                                 {
                                     responsive:"true",
-                                    dom: 'Bftirpl',
+                                    dom: 'Bftirl',
                                     buttons: 
                                     [
                                         {
@@ -94,7 +102,7 @@
                                             text: '<a href=""><img class="logo d-inline-block align-top" width="40px" src="img/excel.png"/></a>',
                                             titleAttr:'Exportar Excel',
                                             className: 'btn-success',
-                                            title: "Categorias",
+                                            title: "Eventos",
                                             exportOptions: 
                                                 {
                                                 columns: ":not(.no-exportar)"
@@ -105,7 +113,7 @@
                                             text: '<a href=""><img class="logo d-inline-block align-top" width="40px" src="img/pdf.png"/></a>',
                                             titleAttr:'Exportar Excel',
                                             className: 'btn-xs btn-danger',
-                                            title: "Categorias",
+                                            title: "Eventos",
                                             exportOptions: 
                                                 {
                                                 columns: ":not(.no-exportar)"
@@ -116,7 +124,7 @@
                                             text: '<a href=""><img class="logo d-inline-block align-top" width="40px" src="img/print.png"/></a>',
                                             titleAttr:'Imprimir',
                                             className: 'btn-primary',
-                                            title: "<center>Categorias</center>",
+                                            title: "<center>Eventos</center>",
                                             exportOptions: 
                                                 {
                                                 columns: ":not(.no-exportar)"
@@ -146,7 +154,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $categorias->links() !!}
+                {!! $eventos->links() !!}
             </div>
         </div>
     </div>
