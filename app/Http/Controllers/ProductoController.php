@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 use \PDF;
 use App\Producto;
 use App\Categoria;
+use App\Models\Image;
+use Twilio\Rest\Client;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -56,12 +59,17 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $producto = new Producto;
-        $producto->nombre = $request->input('nombre');
-        $producto->descripcion = $request->input('descripcion');
-        $producto->precio = $request->input('precio');
-        $producto->cantidad = $request->input('cantidad');
-        $producto->id_categorias = $request->input('id_categorias');
+        $sid    = "AC2ee1ff3872ff34e27ec4f9e0bdca5046"; 
+        $token  = "cdb7fa375edecd0bf4a8af95d97912e7"; 
+        $twilio = new Client($sid, $token); 
+ 
+        $message = $twilio->messages 
+                  ->create("whatsapp:+56946120688", // to 
+                           array( 
+                               "from" => "whatsapp:+14155238886",       
+                               "body" => "Se a creado un nuevo producto : ".$request->nombre  
+                           ) 
+                  ); 
 
         if($request->hasfile('imagen'))
         {
@@ -69,9 +77,31 @@ class ProductoController extends Controller
             $extention = $file->getClientOriginalExtension();
             $filename = time().'.'.$extention;
             $file->move('uploads/productos/', $filename);
+            
+
+            $producto = new Producto;
+            $producto->nombre = $request->input('nombre');
+            $producto->descripcion = $request->input('descripcion');
+            $producto->precio = $request->input('precio');
+            $producto->cantidad = $request->input('cantidad');
+            $producto->id_categorias = $request->input('id_categorias');
             $producto->imagen = $filename;
-        }
+
         $producto->save();
+        }
+
+        if($request->hasFile("images")){
+            $files=$request->file("images");
+            foreach($files as $file){
+                $imageName=time().'.'.$file->getClientOriginalName();
+                $request['id_producto']=$producto->id;
+                $request['image']=$imageName;
+                $file->move('uploads/productos/',$imageName);
+                Image::create($request->all());
+
+            }
+        }
+        
         return redirect()->route('productos.index')
             ->with('success', 'Producto ingresado con éxito');
     }
@@ -132,6 +162,28 @@ class ProductoController extends Controller
             $file->move('uploads/productos/', $filename);
             $producto->imagen = $filename;
         }
+        
+        if($request->hasFile("images")){
+
+        $images=Image::where("id_producto",$producto->id)->get();
+        foreach($images as $image){
+            $destinatione = 'uploads/productos/'.$image->image;
+            if(File::exists($destinatione))
+            {
+                File::delete($destinatione);
+            }
+            }
+        
+            $files=$request->file("images");
+            foreach($files as $file){
+                $imageName=time().'.'.$file->getClientOriginalName();
+                $request['id_producto']=$producto->id;
+                $request['image']=$imageName;
+                $file->move('uploads/productos/',$imageName);
+                Image::create($request->all());
+
+            }
+        }
 
         $producto->update();
         return redirect()->route('productos.index')
@@ -145,11 +197,31 @@ class ProductoController extends Controller
      */
     public function destroy($id)
     {
-        $producto = Producto::find($id)->delete();
+        $productos = Producto::findorFail($id);
+        $destination = 'uploads/productos/'.$productos->imagen;
+            if(File::exists($destination))
+            {
+                File::delete($destination);
+            }
 
+        $images=Image::where("id_producto",$productos->id)->get();
+        foreach($images as $image){
+            $destinatione = 'uploads/productos/'.$image->image;
+            if(File::exists($destinatione))
+            {
+                File::delete($destinatione);
+            }
+            }
+        $productos->delete();
+        
         return redirect()->route('productos.index')
             ->with('success', '');
     }
+
+
+
+
+
     public function ProductsImport(Request $request)
     {   
         

@@ -36,8 +36,12 @@
                                             <td>{{ $producto->categoria->nombre}}</td>
                                         </tr>
                                         <tr>
-                                            <th>Imagen</th>
+                                            <th>Imagen Presentacion</th>
                                             <td><img src="{{ asset('uploads/productos/'.$producto->imagen) }}" width="80px" height="80px" alt="Image"></td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <th>Galeria de imagenes</th>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -45,7 +49,7 @@
                     
                             <div class="card-footer ">
                                 <div class="button-container">
-                                    <a href="{{ route('productos.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
+                                    <a href="{{ route('productos.index') }}" class="btn btn-sm btn-warning mr-3"> Volver </a>                
                                 </div>
                             </div>
 

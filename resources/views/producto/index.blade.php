@@ -22,13 +22,13 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-                        
+
                         <div class="col-12 text-right">
-                            
+
                             <a href="{{ route('productos.create') }}" class="btn btn-sm btn-facebook">Añadir producto</a>
                             <a href="{{ route('producto_import') }}" class="btn btn-sm btn-facebook">Importar Productos</a>
                         </div>
-                        
+
                     </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -49,8 +49,8 @@
                                         <th>Cantidad</th>
                                         <th class="no-exportar">Imagen</th>
                                         <th>Categoría</th>
-                                       
-										
+
+
                                         <th class="text-right no-exportar"> Acciones </th>
                                     </tr>
                                 </thead>
@@ -58,7 +58,7 @@
                                     @foreach ($productos as $producto)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $producto->nombre }}</td>
 											<td>{{ $producto->descripcion}}</td>
                                             <td>{{ $producto->precio}}</td>
@@ -67,7 +67,7 @@
                                             <td>{{ $producto->categoria->nombre}}</td>
 
                                             <td class="td-actions text-right">
-                                                
+
                                                     <a class="btn btn-sm btn-primary " href="{{ route('productos.show',$producto->id) }}" class="btn btn-info"><i class="material-icons">person</i></a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('productos.edit',$producto->id) }}" class="btn btn-info"><i class="material-icons">edit</i></a>
                                                     <form action="{{ route('productos.destroy',$producto->id) }}" method="POST" style="display: inline-block;" onsubmit="return confirm('Seguro?')">
@@ -93,14 +93,14 @@
                                 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js" type="text/javascript"></script>
                                 <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.html5.min.js" type="text/javascript"></script>
                                 <script src="https://cdn.datatables.net/buttons/1.6.5/js/buttons.print.min.js" type="text/javascript"></script>
-                               
+
                                <script>
                                 $(document).ready(function () {
                                 $('#productos').DataTable(
                                     {
                                         responsive:"true",
                                         dom: 'Bftirpl',
-                                        buttons: 
+                                        buttons:
                                         [
                                             {
                                                 extend: 'excelHtml5',
@@ -108,7 +108,7 @@
                                                 titleAttr:'Exportar Excel',
                                                 className: 'btn-success',
                                                 title: "Productos",
-                                                exportOptions: 
+                                                exportOptions:
                                                     {
                                                     columns: ":not(.no-exportar)"
                                                     }
@@ -119,7 +119,7 @@
                                                 titleAttr:'Exportar Excel',
                                                 className: 'btn-xs btn-danger',
                                                 title: "Productos",
-                                                exportOptions: 
+                                                exportOptions:
                                                     {
                                                     columns: ":not(.no-exportar)"
                                                     }
@@ -130,15 +130,15 @@
                                                 titleAttr:'Imprimir',
                                                 className: 'btn-primary',
                                                 title: "<center>Productos</center>",
-                                                exportOptions: 
+                                                exportOptions:
                                                     {
                                                     columns: ":not(.no-exportar)"
                                                     }
                                             }
-                                        
-                                        ],    
-                                        
-                                        "language": 
+
+                                        ],
+
+                                        "language":
                                         {
                                             "lengthMenu": "Mostrar _MENU_ registros por página",
                                             "zeroRecords": "No hay coincidencias - Verifique",
@@ -150,7 +150,7 @@
                                                 {
                                                 "next": "Siguiente",
                                                 "previous": "Anterior",
-                                                }     
+                                                }
                                         },
                                 });
                                 });

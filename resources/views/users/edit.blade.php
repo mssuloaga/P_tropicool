@@ -71,7 +71,7 @@
                                             <td>
                                                 <div class="form-check">
                                                     <label class="form-check-label">
-                                                        <input class="form-check-input" type="checkbox"
+                                                        <input class="form-check-input" type="radio"
                                                             name="roles[]"
                                                             value="{{ $id }}" {{ $user->roles->contains($id) ? 'checked' : ''}}
                                                         >
@@ -97,8 +97,8 @@
             <!--Footer-->
             <div class="row">
         <div class="text-center p-4">
-            <button type="submit" class="btn btn-primary">Guardar</button>
-            <a href="{{ route('users.index') }}" class="btn btn-success ms-3"> Volver </a>                    
+            <button type="submit" class="btn btn-success">Guardar</button>
+            <a href="{{ route('users.index') }}" class="btn btn-warning ms-3"> Volver </a>                    
         </div>                   
     </div>
             <!--End footer-->

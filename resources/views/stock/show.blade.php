@@ -20,8 +20,8 @@
                                             <td>{{ $stock->cantidad }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Empresa</th>
-                                            <td>{{ $stock->producto->nombre }}</td>
+                                            <th>Nombre</th>
+                                            
                                         </tr>
                                         
                                     </tbody>
@@ -30,7 +30,7 @@
                     
                             <div class="card-footer ">
                                 <div class="button-container">
-                                    <a href="{{ route('stocks.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
+                                    <a href="{{ route('stocks.index') }}" class="btn btn-sm btn-warning mr-3"> Volver </a>                
                                 </div>
                             </div>
 

@@ -20,10 +20,6 @@
                                             <td>{{ $empresa->nombre }}</td>
                                         </tr>
                                         <tr>
-                                            <th>Logo</th>
-                                            <td>{{ $empresa->logo }}</td>
-                                        </tr>
-                                        <tr>
                                             <th>Dirección</th>
                                             <td>{{ $empresa->direccion }}</td>
                                         </tr>
@@ -51,13 +47,17 @@
                                             <th>Facebook</th>
                                             <td>{{ $empresa->facebook }}</td>
                                         </tr>
+                                        <tr>
+                                            <th>Logo</th>
+                                            <td><img src="{{ asset('uploads/empresa/'.$empresa->logo) }}" width="80px" height="80px" alt="Logo"></td>
+                                        </tr>
                                     </tbody>
                                 </table>
                             </div>
                     
                             <div class="card-footer ">
                                 <div class="button-container">
-                                    <a href="{{ route('empresas.index') }}" class="btn btn-sm btn-success mr-3"> Volver </a>                
+                                    <a href="{{ route('empresas.index') }}" class="btn btn-sm btn-warning mr-3"> Volver </a>                
                                 </div>
                             </div>
 

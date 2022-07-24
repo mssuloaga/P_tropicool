@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TrabajadoreController;
 use App\Http\Controllers\ProductoController;
+use App\Http\Controllers\ArticuloController;
+use App\Http\Controllers\BusquedaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +24,13 @@ Route::get('/', function () {
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil');
 Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index'])->name('articulos');
+Route::get('/articulos/{articulosId}', 'App\Http\Controllers\ArticuloController@show')->name('articulos.show');
+Route::get('nosotros', [App\Http\Controllers\NosotrosController::class, 'index'])->name('nosotros');
+Route::get('/busqueda', 'App\Http\Controllers\ArticuloController@busqueda')->name('articulos.busqueda');
+Route::post('/cart-add',    'App\Http\Controllers\CartController@add')->name('cart.add');
+Route::get('/cart-checkout','App\Http\Controllers\CartController@cart')->name('cart.checkout');
+Route::post('/cart-clear',  'App\Http\Controllers\CartController@clear')->name('cart.clear');
+Route::post('/cart-removeitem',  'App\Http\Controllers\CartController@removeitem')->name('cart.removeitem');
 Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
@@ -37,14 +46,14 @@ Route::get('no-autorizado',function(){
 Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->name('perfil')->middleware('auth');
 Route::post('/change/password', [App\Http\Controllers\PerfilController::class, 'changePassword'])->name('changePassword');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+/* Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home'); */
 Route::get('/reset-password/{token}', 'App\Http\Controllers\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('/reset-password','App\Http\Controllers\ResetPasswordController@reset')->name('password.update');
 Route::post('/importar-productos', [ProductoController::class, 'ProductsImport'])->name('producto.import');
 Route::view('/importar-producto', 'producto.producto_import')->name('producto_import');
-Route::get('/{producto}', 'App\Http\Controllers\ArticuloController@show')->name('articulos.show');
 
-Route::group(['middleware' => 'auth','valid'], function() {
+Route::group(['middleware' => ['auth','valid']], function() {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::get('/users/create', [App\Http\Controllers\UserController::class, 'create'])->name('users.create');
     Route::post('/users', [App\Http\Controllers\UserController::class, 'store'])->name('users.store');
     Route::get('/users', [App\Http\Controllers\UserController::class, 'index'])->name('users.index');
