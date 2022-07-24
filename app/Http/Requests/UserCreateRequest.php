@@ -4,6 +4,8 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+
+
 class UserCreateRequest extends FormRequest
 {
     /**
@@ -29,6 +31,7 @@ class UserCreateRequest extends FormRequest
             'email' => 'required|email|unique:users',
             'password' => 'required'
         ];
+        
     }
 
     public function messages()

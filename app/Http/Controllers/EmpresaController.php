@@ -150,6 +150,6 @@ class EmpresaController extends Controller
         $empresa = Empresa::find($id)->delete();
 
         return redirect()->route('empresas.index')
-            ->with('success', '');
+        ->with('eliminar', 'ok');
     }
 }

@@ -59,7 +59,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $sid    = "AC2ee1ff3872ff34e27ec4f9e0bdca5046"; 
+/*         $sid    = "AC2ee1ff3872ff34e27ec4f9e0bdca5046"; 
         $token  = "cdb7fa375edecd0bf4a8af95d97912e7"; 
         $twilio = new Client($sid, $token); 
  
@@ -71,7 +71,7 @@ class ProductoController extends Controller
                            ) 
                   ); 
 
-        if($request->hasfile('imagen'))
+ */        if($request->hasfile('imagen'))
         {
             $file = $request->file('imagen');
             $extention = $file->getClientOriginalExtension();
@@ -215,7 +215,7 @@ class ProductoController extends Controller
         $productos->delete();
         
         return redirect()->route('productos.index')
-            ->with('success', '');
+            ->with('eliminar', 'ok');
     }
 
 

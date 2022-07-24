@@ -98,6 +98,7 @@ class PostController extends Controller
 
         $post->delete();
 
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')
+        ->with('eliminar', 'ok');
     }
 }
