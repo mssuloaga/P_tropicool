@@ -182,11 +182,17 @@
     
     <section class="ftco-section text-center">
         <h1 class="mb-5">Encuéntranos en:</h1>
-        <div>
-            <iframe class="me-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14719.269689674013!2d-72.40755232304765!3d-37.03325147783006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96696b9f5c409261%3A0xe109573d1fe50655!2zQ2FicmVybywgQsOtbyBCw61v!5e0!3m2!1ses-419!2scl!4v1658347780698!5m2!1ses-419!2scl" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <iframe class="ms-5" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14764.635575155658!2d-73.05433459479566!3d-36.79855219785074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669b5d061cae83d%3A0x8f2da2e9988cc125!2sUniversidad%20Cat%C3%B3lica%20de%20la%20Sant%C3%ADsima%20Concepci%C3%B3n!5e0!3m2!1ses-419!2scl!4v1658348010524!5m2!1ses-419!2scl" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="row">
+            <div class="col-lg-1 col-md-1 p-4"></div>
+            <div class="col-lg-4 col-xs-12 col-sm-12">
+                <iframe class="shadow-lg" width="450px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14719.269689674013!2d-72.40755232304765!3d-37.03325147783006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96696b9f5c409261%3A0xe109573d1fe50655!2zQ2FicmVybywgQsOtbyBCw61v!5e0!3m2!1ses-419!2scl!4v1658347780698!5m2!1ses-419!2scl" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-lg-2 col-md-1 p-2"></div>
+            <div class="col-lg-4 col-xs-12 col-sm-12">
+                <iframe class="shadow-lg" width="450px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14764.635575155658!2d-73.05433459479566!3d-36.79855219785074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669b5d061cae83d%3A0x8f2da2e9988cc125!2sUniversidad%20Cat%C3%B3lica%20de%20la%20Sant%C3%ADsima%20Concepci%C3%B3n!5e0!3m2!1ses-419!2scl!4v1658348010524!5m2!1ses-419!2scl" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <div class="col-lg-1 col-md-1 p-4"></div>
         </div>
-
     </section>
 
     <footer class="footer bg-light">
