@@ -1,5 +1,12 @@
 @extends('welcome2', ['activePage' => 'articulos', 'titlePage' => 'Productos'])
 @section('content')
+    <section class="container">
+        <div class="col bg-light" style="text-align: right;">
+            @if (count(Cart::getContent()))
+                <a href="{{route('cart.checkout')}}"> VER CARRITO <span class="badge badge-danger">{{count(Cart::getContent())}}</span></a>
+            @endif
+        </div>
+    </section>
     <section class="container container-fluid">
         <form class="form-inline" action="{{ route('articulos.busqueda') }}">
             <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
@@ -21,7 +28,11 @@
                                             <p class="card-text bi bi-currency-dollar">{{ $articulo->precio .' CLP'}}</p>
                                         </div>
                                         <div class="col">
-                                            <a href="" class="btn btn-success bi bi-bag-plus"> Añadir</a>
+                                            <form action="{{route('cart.add')}}" method="POST">
+                                                @csrf
+                                                <input type="hidden" name="id" value="{{$articulo->id}}">
+                                                <input type="submit" name="btn"  class="btn btn-success bi bi-bag-plus" value="+ Agregar">
+                                            </form>
                                         </div>
                                     </div>
                                 </div>

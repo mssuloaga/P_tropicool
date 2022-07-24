@@ -1,5 +1,12 @@
 @extends('welcome2')
 @section('content')
+    <section class="container">
+        <div class="col bg-light" style="text-align: right;">
+            @if (count(Cart::getContent()))
+                <a href="{{route('cart.checkout')}}"> VER CARRITO <span class="badge badge-danger">{{count(Cart::getContent())}}</span></a>
+            @endif
+        </div>
+    </section>
     <section class="content container-fluid">
         <div class="container align-center" style="text-align: center;">
             <center>
@@ -13,7 +20,11 @@
                                 <p class="bi bi-currency-dollar">{{  $articulos->precio }}</p>
                             </div>
                             <div class="col">
-                                <a href="#" class="btn btn-success bi bi-bag-plus"> Añadir</a>
+                                <form action="{{route('cart.add')}}" method="POST">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$articulos->id}}">
+                                    <input type="submit" name="btn"  class="btn btn-success bi bi-bag-plus" value="+ Agregar">
+                                </form>
                             </div>
                         </div>
                     </div>

@@ -24,7 +24,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Producto extends Model
 {
-    
+
     static $rules = [
 		'nombre' => 'required',
 		'descripcion' => 'required',
@@ -50,7 +50,7 @@ class Producto extends Model
     {
         return $this->hasOne('App\Categoria', 'id', 'id_categorias');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -58,6 +58,6 @@ class Producto extends Model
     {
         return $this->hasMany('App\Stock', 'id_productos', 'id');
     }
-    
+
 
 }
