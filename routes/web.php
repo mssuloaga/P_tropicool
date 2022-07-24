@@ -57,13 +57,10 @@ Route::group(['middleware' => ['auth','valid']], function() {
     Route::get('/users/{user}/edit', [App\Http\Controllers\UserController::class, 'edit'])->name('users.edit');
     Route::put('/users/{user}', [App\Http\Controllers\UserController::class, 'update'])->name('users.update');
     Route::delete('/users/{user}', [App\Http\Controllers\UserController::class, 'destroy'])->name('users.delete');
-
     Route::resource('posts', App\Http\Controllers\PostController::class);
     Route::resource('perfil', App\Http\Controllers\PerfilController::class);
-    Route::get('full-calendar', [App\Http\Controllers\FullCalendarController::class, 'index']);
-
-    Route::post('full-calendar/action', [App\Http\Controllers\FullCalendarController::class, 'action']);
-    
+    Route::get('calendario.full-calendar', [App\Http\Controllers\FullCalendarController::class, 'index']);
+    Route::post('calendario.full-calendar/action', [App\Http\Controllers\FullCalendarController::class, 'action']);
     Route::resource('events', App\Http\Controllers\EventController::class);
     Route::resource('permissions', App\Http\Controllers\PermissionController::class);
     Route::resource('roles', App\Http\Controllers\RoleController::class);
