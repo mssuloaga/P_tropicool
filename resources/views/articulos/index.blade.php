@@ -2,9 +2,7 @@
 @section('content')
     <section class="container container-fluid">
         <form class="form-inline" action="{{ route('articulos.busqueda') }}">
-
             <input name="buscarpor" class="form-control mr-sm-2" type="search" placeholder="Buscar por nombre" aria-label="Search">
-
             <button class="btn btn-outline-success my-2 my-sm-0 bi bi-search" type="submit"> Buscar</button>
         </form>
     </section>
