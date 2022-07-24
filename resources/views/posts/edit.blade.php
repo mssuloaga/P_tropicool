@@ -21,6 +21,9 @@
                 <div class="col-sm-7">
                   <input type="text" class="form-control" name="title" placeholder="Ingrese el title"
                     value="{{ old('title', $post->title) }}" autocomplete="off" autofocus>
+                    @if ($errors->has('title'))
+                    <span class="error text-danger" for="input-title">{{ $errors->first('title') }}</span>
+                  @endif
                 </div>
               </div>
             </div>
