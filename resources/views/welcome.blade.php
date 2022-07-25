@@ -62,9 +62,9 @@
                                 </div>
                             </li>
 
-                            <div class="container">
+                            <!-- <div class="container">
                                 <div class="row ">
-                                    <div class="col-lg-12 col-md-12 col-sm-6 ">
+                                    <div class="col-lg-12 col-md-12 col-sm-6 "> -->
                                         <div class="btn-group">
                                             <a href="#" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-image: url(images/person_1.jpg);">
                                                 <img class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="40px" height="40px" alt="Imagen">
@@ -97,9 +97,9 @@
                                                 </a>
                                             </div>
                                         </div>
-                                    </div>
+                                    <!-- </div>
                                 </div>
-                            </div>
+                            </div> -->
                             
                             <form id="logout-form"  onclick="borrarRegistro()" id="logout" name="logout-form" action="{{ route('logout') }}" type="submit" method="POST" class="d-none formulario-eliminar">
                                 @csrf
