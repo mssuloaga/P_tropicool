@@ -5,7 +5,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <form method="POST" action="{{ route('roles.store') }}" class="form-horizontal">
+        <form method="POST" action="{{ route('roles.store') }}" class="form-horizontal formulario-agregar">
           @csrf
           <div class="card ">
             <!--Header-->
@@ -64,7 +64,7 @@
             <!--Footer-->
             <div class="row">
         <div class="text-center p-4">
-            <button type="submit" class="btn btn-success">Guardar</button>
+            <button type="submit" class="btn btn-success formulario-agregar">Guardar</button>
             <a href="{{ route('roles.index') }}" class="btn btn-warning ms-3"> Volver </a>                    
         </div>                   
     </div>
@@ -76,3 +76,39 @@
   </div>
 </div>
 @endsection
+
+
+
+@section('js')
+                        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        @if(session('agregar') == 'ok')
+                                        <script>
+                                            Swal.fire(
+                                                'Ingresado!',
+                                                'El producto se ingreso con éxito.',
+                                                'success'
+                                            )
+                                        </script>
+                                    @endif
+                                <script>                                
+                                    $('.formulario-agregar').submit(function(e){
+                                        e.preventDefault();
+                                        Swal.fire({
+                                        title: '¿Estás seguro?',
+                                        text: "Este producto se ingresara definitivamente",
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#3085d6',
+                                        cancelButtonColor: '#d33',
+                                        confirmButtonText: '¡Si, ingresar!',
+                                        cancelButtonText: 'Cancelar'
+
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {                                               
+                                                this.submit();                                           
+                                            }
+                                        })
+                                    });                        
+
+                                </script>
+                    @endsection
