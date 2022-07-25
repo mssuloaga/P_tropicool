@@ -69,27 +69,27 @@
                                             <a href="#" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-image: url(images/person_1.jpg);">
                                                 <img class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="40px" height="40px" alt="Imagen">
                                             </a>
-                                            <div style="top: -150%;" class="dropdown-menu">
+                                            <div style="top: -150%;" class="dropdown-menu" id="d22">
 
-                                                <a class="dropdown-item d-flex align-items-center" href="/perfil">
+                                                <a class="dropdown-item d-flex align-items-center d11" href="/perfil">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-person-add"></span>
                                                     </div>
                                                     Perfil
                                                 </a>
-                                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <!-- <a class="dropdown-item d-flex align-items-center d11" href="#">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-settings"></span>
                                                     </div>
                                                     Ajustes
-                                                </a>
-                                                <a class="dropdown-item d-flex align-items-center" href="{{ route('home') }}">
+                                                </a> -->
+                                                <a class="dropdown-item d-flex align-items-center d11" href="{{ route('home') }}">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-cloud-download"></span>
                                                     </div>
                                                     Dashboard
                                                 </a>
-                                                <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                <a class="dropdown-item d-flex align-items-center d11" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-power"></span>
                                                     </div>
