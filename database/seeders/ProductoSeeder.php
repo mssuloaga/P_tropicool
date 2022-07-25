@@ -20,7 +20,7 @@ class ProductoSeeder extends Seeder
                   'descripcion'  => 'Carcasa transparente de cilicona',
                   'precio'  => '6000',
                   'cantidad'  => '10',
-                  'imagen'  => 'image2.png',
+                  'imagen'  => 'carcasa8.jpg',
                   'id_categorias'  => '1',
                   
               )
@@ -31,8 +31,8 @@ class ProductoSeeder extends Seeder
                   'nombre'     => "Protector Iphone 13",
                   'descripcion'  => 'Carcasa de cilicona roja',
                   'precio'  => '7000',
-                  'cantidad'  => '15',
-                  'imagen'  => 'image.png',
+                  'cantidad'  => '6',
+                  'imagen'  => 'carcasa13.jpg',
                   'id_categorias'  => '1',
                   
               )
@@ -43,8 +43,8 @@ class ProductoSeeder extends Seeder
                   'nombre'     => "Cargador Iphone ",
                   'descripcion'  => 'Cargador de 5 volt blanco usb ',
                   'precio'  => '15000',
-                  'cantidad'  => '15',
-                  'imagen'  => 'image2.png',
+                  'cantidad'  => '20',
+                  'imagen'  => 'cargador.jpg',
                   'id_categorias'  => '2',
                   
               )
@@ -56,7 +56,7 @@ class ProductoSeeder extends Seeder
                   'descripcion'  => 'Cargador de 14.5 volt blanco usb-c ',
                   'precio'  => '24000',
                   'cantidad'  => '11',
-                  'imagen'  => 'image.png',
+                  'imagen'  => 'cargarapida.jpg',
                   'id_categorias'  => '2',
                   
               )
