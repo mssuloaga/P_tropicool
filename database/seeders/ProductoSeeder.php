@@ -31,7 +31,7 @@ class ProductoSeeder extends Seeder
                   'nombre'     => "Protector Iphone 13",
                   'descripcion'  => 'Carcasa de cilicona roja',
                   'precio'  => '7000',
-                  'cantidad'  => '15',
+                  'cantidad'  => '6',
                   'imagen'  => 'carcasa13.jpg',
                   'id_categorias'  => '1',
                   
@@ -43,7 +43,7 @@ class ProductoSeeder extends Seeder
                   'nombre'     => "Cargador Iphone ",
                   'descripcion'  => 'Cargador de 5 volt blanco usb ',
                   'precio'  => '15000',
-                  'cantidad'  => '15',
+                  'cantidad'  => '20',
                   'imagen'  => 'cargador.jpg',
                   'id_categorias'  => '2',
                   

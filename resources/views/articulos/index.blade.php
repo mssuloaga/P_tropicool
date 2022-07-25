@@ -21,9 +21,9 @@
                     @if ($aux == $articulo->categoria->nombre)
                         <div class="col">
                             <div class="col">
-                                <div class="card p-5 mt-3">
-                                    <div class="card-body">
-                                        <a href="{{ route('articulos.show', $articulo->id) }}"><img src="{{ asset('uploads/productos/'.$articulo->imagen) }}" class="card-img-top" title="{{ $articulo->descripcion }}" alt="{{ $articulo->descripcion }}"></a>
+                                <div class="card p-5 mt-3 shadow">
+                                    <div class="card-body" >
+                                        <a href="{{ route('articulos.show', $articulo->id) }}"><img width="300px" height="300px" src="{{ asset('uploads/productos/'.$articulo->imagen) }}" class="card-img-top" title="{{ $articulo->descripcion }}" alt="{{ $articulo->descripcion }}"></a>
                                         <a href="{{ route('articulos.show', $articulo->id) }}"><h5 class="card-title">{{ $articulo->nombre }}</h5></a>
                                         <div class="row">
                                             <div class="col">
