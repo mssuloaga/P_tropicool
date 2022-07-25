@@ -26,6 +26,7 @@ Route::get('/perfil', [App\Http\Controllers\PerfilController::class, 'index'])->
 Route::get('/articulos', [App\Http\Controllers\ArticuloController::class, 'index'])->name('articulos');
 Route::get('/articulos/{articulosId}', 'App\Http\Controllers\ArticuloController@show')->name('articulos.show');
 Route::get('nosotros', [App\Http\Controllers\NosotrosController::class, 'index'])->name('nosotros');
+Route::get('contacto', [App\Http\Controllers\ContactoController::class, 'index'])->name('contacto');
 Route::get('/busqueda', 'App\Http\Controllers\ArticuloController@busqueda')->name('articulos.busqueda');
 Route::post('/cart-add', 'App\Http\Controllers\CartController@add')->name('cart.add');
 Route::get('/cart-checkout', 'App\Http\Controllers\CartController@cart')->name('cart.checkout');
