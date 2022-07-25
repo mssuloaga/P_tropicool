@@ -1,6 +1,5 @@
-@extends('welcome2')
+@extends('welcome4')
 @section('content')
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 <div class="container">
     <div class="row">
         <div class="col-sm-12 bg-light">
