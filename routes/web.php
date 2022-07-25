@@ -34,9 +34,6 @@ Route::post('/cart-add', 'App\Http\Controllers\CartController@add')->name('cart.
 Route::get('/cart-checkout', 'App\Http\Controllers\CartController@cart')->name('cart.checkout');
 Route::post('/cart-clear', 'App\Http\Controllers\CartController@clear')->name('cart.clear');
 Route::post('/cart-removeitem', 'App\Http\Controllers\CartController@removeitem')->name('cart.removeitem');
-Route::get('/notificacion', function(){
-    Notification::route('mail', 'soportetropicool@gmail.com')->notify(new NotificacionProducto());
-});
 Route::get('trabajadores/pdf', function () {
     return view('welcome');
 });
@@ -78,10 +75,6 @@ Route::group(['middleware' => ['auth','valid']], function() {
     Route::resource('trabajadores', App\Http\Controllers\TrabajadoreController::class);
     Route::resource('empresas', App\Http\Controllers\EmpresaController::class);
     Route::resource('productos', App\Http\Controllers\ProductoController::class);
-    Route::get('/productos/notificacion', function(){
-        Notification::route('mail', 'soportetropicool@gmail.com')->notify(new NotificacionProducto());
-        return view('producto.index', compact('productos'));
-    });
     Route::resource('stocks', App\Http\Controllers\StockController::class);
     Route::get('/download_pdfempresas', [App\Http\Controllers\EmpresaController::class, 'downloadPdf']);
     Route::get('/download_pdfusers', [App\Http\Controllers\UserController::class, 'downloadPdf']);
