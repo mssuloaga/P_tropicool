@@ -237,8 +237,8 @@ class ProductoController extends Controller
             
             
 
-           //($import->errors());
-            return Response()->json(['response' => 'Excel cargado exitosamente!']);
+           
+            return redirect()->route('productos.index');
         }
     }
 }
