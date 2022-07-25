@@ -29,7 +29,8 @@ class UserCreateRequest extends FormRequest
             'name' => 'required|regex:/^[\pL\s\-]+$/u|min:3|max:20',
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6|max:20'
+            'password' => 'required|min:6|max:20',
+            'image' =>  'mimes:jpg,jpeg,bmp,png'
         ];
         
     }
@@ -47,7 +48,8 @@ class UserCreateRequest extends FormRequest
             'email.unique'=> 'El correo ya existe',
             'password.required' => 'La contraseña es requerida',
             'password.min'=> 'La contraña debe tener al menos 3 caracteres',
-            'password.max'=> 'La contraña debe tener maximo 20 caracteres'
+            'password.max'=> 'La contraña debe tener maximo 20 caracteres',
+            'image.mimes'=> 'la imagen solo debe ser en formato jpg,jpeg,bmp,png'
             
         ];
     }
