@@ -43,7 +43,7 @@
                     <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="/articulos">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="/nosotros">¿Quiénes somos?</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
                     @if (Route::has('login'))
                         @auth
                             <!-- <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">¡Hola, {{ Auth::user()->name }}!</a></li> -->
@@ -77,19 +77,19 @@
                                                     </div>
                                                     Perfil
                                                 </a>
-                                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <!-- <a class="dropdown-item d-flex align-items-center" href="#">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-settings"></span>
                                                     </div>
                                                     Ajustes
-                                                </a>
+                                                </a> -->
                                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('home') }}">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-cloud-download"></span>
                                                     </div>
                                                     Dashboard
                                                 </a>
-                                                <a class="dropdown-item d-flex align-items-center" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                <a class="dropdown-item d-flex align-items-center"  href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-power"></span>
                                                     </div>
@@ -101,17 +101,20 @@
                                 </div>
                             </div> -->
                             
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            <form id="logout-form" name="logout-form" action="{{ route('logout') }}" type="submit" method="POST" class="d-none formularioSalir">
                                 @csrf
+                               
                             </form>
                             @endcan
                         @else
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="material-icons text-light">perm_identity</i>
+                                <li style="position:relative; bottom:12px; right: 14px; font-weight: 700; letter-spacing: 0.0625em; font-size: 0.95rem; font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";" class="nav-item">
+                                    <a class="nav-link">INICIAR SESIÓN <i style="position:relative; top:5px;" class="material-icons text-light">perm_identity</i></a>
+                                </li>
                             </button>
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <div style="top: 35px" class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <li class="nav-item"><a class="dropdown-item" href="{{ route('login') }}">Acceder</a></li>
                             @if (Route::has('register'))
                                 <li class="nav-item"><a class="dropdown-item" href="{{ route('register') }}">Registrarse</a></li>
@@ -125,48 +128,48 @@
         </div>
     </nav>
 
-    <header >
+    <header class="masthead">
         <div class="container position-relative">
             <div class="row justify-content-center">
-                <div class="col-xl-6 p-4">
+                <div class="col-xl-6">
                     <div class="text-center text-white">
-                        <!-- Page heading--> <br>
-                        <h1 class="m-5 p-4"></h1>
-                        <!-- Signup form-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- * * SB Forms Contact Form * *-->
-                        <!-- * * * * * * * * * * * * * * *-->
-                        <!-- This form is pre-integrated with SB Forms.-->
-                        <!-- To make this form functional, sign up at-->
-                        <!-- https://startbootstrap.com/solution/contact-forms-->
-                        <!-- to get an API token!-->
-<!--                             <form class="form-subscribe" id="contactForm" data-sb-form-api-token="API_TOKEN">
--->                                <!-- Email address input-->
-                            <!-- <div class="row">
-                                <div class="col">
-                                    <input class="form-control form-control-lg" id="emailAddress" type="email" placeholder="Email Address" data-sb-validations="required,email" />
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:required">Email Address is required.</div>
-                                    <div class="invalid-feedback text-white" data-sb-feedback="emailAddress:email">Email Address Email is not valid.</div>
-                                </div>
-                                <div class="col-auto"><button class="btn btn-primary btn-lg disabled" id="submitButton" type="submit">Submit</button></div>
-                            </div> -->
-                            <!-- Submit success message-->
-                            <!---->
-                            <!-- This is what your users will see when the form-->
-                            <!-- has successfully submitted-->
-                            <!-- <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    <p>To activate this form, sign up at</p>
-                                    <a class="text-white" href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div> -->
-                            <!-- Submit error message-->
-                            <!---->
-                            <!-- This is what your users will see when there is-->
-                            <!-- an error submitting the form-->
-                            <!-- <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                        </form> -->
+                        <!-- Page heading-->
+                        <h1 class="mb-5">@foreach ($contacto as $contact)</h1>
+                        <div class="container" style="margin: 30px 0px 0px 0px">
+                    <div class="row">
+                        <div class="col">
+                            <h1 style="text-align: center;">{{ $contact->nombre }}</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="margin: 50px 0px 0px 0px">
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="text-align: center;">Dirección</h2>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align: center;">
+                        <div class="col">
+                            <label>{{ $contact->direccion}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="container" style="margin: 50px 0px 0px 0px">
+                    <div class="row">
+                        <div class="col">
+                            <h2 style="text-align: center;">Instagram</h2>
+                        </div>
+                    </div>
+                    <div class="row" style="text-align: center;">
+                        <div class="col">
+                            <a href="https://www.instagram.com/__tropicool_/">
+                            <label>{{ $contact->instagram }}</label>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+            @endforeach
                     </div>
                 </div>
             </div>
@@ -176,18 +179,15 @@
     <section>
         @yield('content')
     </section>
-    
-    
-
 
     <footer class="footer bg-light">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                     <ul class="list-inline mb-2">
-                        <li class="list-inline-item"><a href="nosotros">Sobre Tropicool</a></li>
+                        <li class="list-inline-item"><a href="contacto">Sobre Tropicool</a></li>
                         <li class="list-inline-item">⋅</li>
-                        <li class="list-inline-item"><a href="#!">Términos y condiciones</a></li>
+                        <li class="list-inline-item"><a href="#!">Térmicontact y condiciones</a></li>
                         <li class="list-inline-item">⋅</li>
                         <li class="list-inline-item"><a href="#!">Política de privacidad</a></li>
                     </ul>
@@ -220,5 +220,19 @@
         <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
+        
+            @yield('js')
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+             <script src="{{ asset('js/sweetAlert.js') }}" defer></script>
+
     </body>
 </html>
+
+@section('js')
+<script> 
+ 
+ Swal.fire('Any fool can use a computer')
+ </script>
+
+@endsection
+

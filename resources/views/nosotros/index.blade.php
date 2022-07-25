@@ -43,7 +43,7 @@
                     <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="/articulos">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="/nosotros">¿Quiénes somos?</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
                     @if (Route::has('login'))
                         @auth
                             <!-- <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">¡Hola, {{ Auth::user()->name }}!</a></li> -->
@@ -77,12 +77,12 @@
                                                     </div>
                                                     Perfil
                                                 </a>
-                                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <!-- <a class="dropdown-item d-flex align-items-center" href="#">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-settings"></span>
                                                     </div>
                                                     Ajustes
-                                                </a>
+                                                </a> -->
                                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('home') }}">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-cloud-download"></span>
@@ -109,10 +109,12 @@
                         @else
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="material-icons text-light">perm_identity</i>
+                                <li style="position:relative; bottom:12px; right: 14px; font-weight: 700; letter-spacing: 0.0625em; font-size: 0.95rem; font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";" class="nav-item">
+                                    <a class="nav-link">INICIAR SESIÓN <i style="position:relative; top:5px;" class="material-icons text-light">perm_identity</i></a>
+                                </li>
                             </button>
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <div style="top: 35px" class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <li class="nav-item"><a class="dropdown-item" href="{{ route('login') }}">Acceder</a></li>
                             @if (Route::has('register'))
                                 <li class="nav-item"><a class="dropdown-item" href="{{ route('register') }}">Registrarse</a></li>
