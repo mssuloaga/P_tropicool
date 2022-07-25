@@ -42,8 +42,8 @@ class UserEditRequest extends FormRequest
             'username.unique'=> 'El usuario ya existe',
             'name.regex'=> 'El nombre solo debe llevar letras', 
             'username.required' => 'El usuario es requerido',
-            'email.required' => 'El email es requerido',
-            'email.unique'=> 'El email ya existe',
+            'email.required' => 'El correo es requerido',
+            'email.unique'=> 'El correo ya existe',
             'password.required' => 'La contraseña es requerida'
         ];
     }

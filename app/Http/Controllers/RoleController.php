@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
+use App\Http\Requests\RolesCreateRequest;
+
 
 class RoleController extends Controller
 {
@@ -43,7 +45,7 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RolesCreateRequest $request)
     {
         $role = Role::create($request->only('name'));
 
