@@ -34,8 +34,7 @@ class RolesCreateRequest extends FormRequest
             'name.required' => 'El nombre del rol es requerido',
             'name.unique'=> 'El rol ya existe',
             'name.min'=> 'El nombre del rol debe tener al menos 3 caracteres',
-            'name.max'=> 'El El nombre del rol debe tener maximo 20 caracteres',
-            
+            'name.max'=> 'El nombre del rol debe tener maximo 20 caracteres'            
         ];
     }
 

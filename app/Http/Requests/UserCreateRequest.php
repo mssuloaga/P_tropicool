@@ -38,16 +38,16 @@ class UserCreateRequest extends FormRequest
     {
         return [
             'name.required' => 'El nombre es requerido',
-            'name.min'=> 'El nombre del rol debe tener al menos 3 caracteres',
-            'name.max'=> 'El El nombre del rol debe tener maximo 20 caracteres',
+            'name.min'=> 'El nombre debe tener al menos 3 caracteres',
+            'name.max'=> 'El nombre debe tener maximo 20 caracteres',
             'name.regex'=> 'El nombre solo debe llevar letras',
             'username.required' => 'El usuario es requerido',
             'username.unique'=> 'El usuario ya existe',
             'email.required' => 'El correo es requerido',
             'email.unique'=> 'El correo ya existe',
             'password.required' => 'La contraseña es requerida',
-            'password.min'=> 'El nombre del rol debe tener al menos 3 caracteres',
-            'password.max'=> 'El El nombre del rol debe tener maximo 20 caracteres'
+            'password.min'=> 'La contraña debe tener al menos 3 caracteres',
+            'password.max'=> 'La contraña debe tener maximo 20 caracteres'
             
         ];
     }
