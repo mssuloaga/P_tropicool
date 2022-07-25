@@ -13,7 +13,7 @@
                       <p class="card-category">Ingresar datos</p>
                   </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('trabajadores.store') }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('trabajadores.store') }}"  class="formulario-agregar" role="form" enctype="multipart/form-data">
                             @csrf
 
                             @include('trabajadore.form')
@@ -24,4 +24,38 @@
             </div>
         </div>
     </section>
+@endsection
+
+@section('js')
+                        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        @if(session('agregar') == 'ok')
+                                        <script>
+                                            Swal.fire(
+                                                'Ingresado!',
+                                                'El trabajador se ingreso con éxito.',
+                                                'success'
+                                            )
+                                        </script>
+                                    @endif
+                                <script>                                
+                                    $('.formulario').submit(function(e){
+                                        e.preventDefault();
+                                        Swal.fire({
+                                        title: '¿Estás seguro?',
+                                        text: "'El trabajador se ingresara definitivamente",
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#3085d6',
+                                        cancelButtonColor: '#d33',
+                                        confirmButtonText: '¡Si, ingresar!',
+                                        cancelButtonText: 'Cancelar'
+
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {                                               
+                                                this.submit();                                           
+                                            }
+                                        })
+                                    });                        
+
+                                </script>
 @endsection

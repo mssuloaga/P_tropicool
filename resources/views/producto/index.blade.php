@@ -83,7 +83,6 @@
                                 </tbody>
                             </table>
                             @section('js')
-
                                 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                                 @if(session('eliminar') == 'ok')
                                     <script>
@@ -108,16 +107,15 @@
                                         cancelButtonText: 'Cancelar'
 
                                         }).then((result) => {
-                                        if (result.isConfirmed) {
-                                           /* Swal.fire(
-                                            'Deleted!',
-                                            'Your file has been deleted.',
-                                            'success'
-                                           
-                                            */
-                                           this.submit();
-                                           
-                                        }
+                                            if (result.isConfirmed) {
+                                            /* Swal.fire(
+                                                'Deleted!',
+                                                'Your file has been deleted.',
+                                                'success'
+                                            
+                                                */
+                                            this.submit();                                           
+                                            }
                                         })
                                     });
                                    

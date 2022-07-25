@@ -89,7 +89,7 @@
                                                     </div>
                                                     Dashboard
                                                 </a>
-                                                <a class="dropdown-item d-flex align-items-center"  href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                <a class="dropdown-item d-flex align-items-center" id="logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-power"></span>
                                                     </div>
@@ -101,8 +101,9 @@
                                 </div>
                             </div> -->
                             
-                            <form id="logout-form" name="logout-form" action="{{ route('logout') }}" type="submit" method="POST" class="d-none formularioSalir">
+                            <form id="logout-form"  onclick="borrarRegistro()" id="logout" name="logout-form" action="{{ route('logout') }}" type="submit" method="POST" class="d-none formulario-eliminar">
                                 @csrf
+                                
                                
                             </form>
                             @endcan
@@ -234,15 +235,23 @@
             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
              <script src="{{ asset('js/sweetAlert.js') }}" defer></script>
 
+             <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>                                
+                                <script>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>   
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+      
+<script> $(document).on("click", "#logout", function(e) { e.preventDefault(); var link = $(this).attr("href"); $.confirm({ title: 'Confirm!', content: 'Simple confirm!', buttons: { confirm: function () { $.alert('Confirmed!'); }, cancel: function () { $.alert('Canceled!'); }, somethingElse: { text: 'Something else', btnClass: 'btn-blue', keys: ['enter', 'shift'], action: function(){ $.alert('Something else?'); } } } }); }); </script>
+
+
+
+                                        
+                                
+                                   // onclick="event.preventDefault();document.getElementById('logout-form').submit();
+                                                 
+
+                                </script>
+
     </body>
 </html>
 
-@section('js')
-
-
-<script> 
- 
- Swal.fire('Any fool can use a computer')
- </script>
-
-@endsection

@@ -43,7 +43,8 @@ class CategoriaController extends Controller
     {
         $categoria = new Categoria();
         $empresas=Empresa::all();
-        return view('categoria.create', compact('categoria','empresas'));
+        return view('categoria.create', compact('categoria','empresas'))->with('agregar', 'ok');
+        
     }
 
     /**
@@ -59,7 +60,8 @@ class CategoriaController extends Controller
         $categoria = Categoria::create($request->all());
 
         return redirect()->route('categorias.index')
-            ->with('success', 'Categoría creada con éxito');
+        ->with('agregar', 'ok');
+            
     }
 
     /**
