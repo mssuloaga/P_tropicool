@@ -12,36 +12,46 @@
         <div class="row">
             <label  class="col-sm-2 col-form-label">Rut</label>
                 <div class="col-sm-7">
-            {{ Form::text('rut_trabajador', $trabajadore->rut_trabajador, ['class' => 'form-control' . ($errors->has('rut_trabajador') ? ' is-invalid' : ''), 'placeholder' => 'Rut trabajador']) }}
-            {!! $errors->first('rut_trabajador', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="rut_trabajador" placeholder="Ingrese el rut del trabajador " value="{{ old('rut_trabajador', $trabajadore->rut_trabajador) }}" autofocus>
+                    @if ($errors->has('rut_trabajador'))
+                      <span class="error text-danger" for="input-rut_trabajador">{{ $errors->first('rut_trabajador') }}</span>
+                    @endif
         </div>
     </div>
         <div class="row">
             <label  class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-7">
-            {{ Form::text('nombre', $trabajadore->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-            {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese nombre del trabajador" value="{{ old('nombre', $trabajadore->nombre) }}" autofocus>
+                    @if ($errors->has('nombre'))
+                      <span class="error text-danger" for="input-nombre">{{ $errors->first('nombre') }}</span>
+                    @endif
         </div>
     </div>
         <div class="row">
             <label  class="col-sm-2 col-form-label">Dirección</label>
                 <div class="col-sm-7">
-            {{ Form::text('direccion', $trabajadore->direccion, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Direccion']) }}
-            {!! $errors->first('direccion', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="direccion" placeholder="Ingrese la dirección del trabajador" value="{{ old('direccion', $trabajadore->direccion) }}" autofocus>
+                    @if ($errors->has('direccion'))
+                      <span class="error text-danger" for="input-direccion">{{ $errors->first('direccion') }}</span>
+                    @endif
         </div>
     </div>
         <div class="row">
             <label  class="col-sm-2 col-form-label">Teléfono</label>
                 <div class="col-sm-7">
-            {{ Form::text('telefono', $trabajadore->telefono, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''), 'placeholder' => 'Telefono']) }}
-            {!! $errors->first('telefono', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="telefono" placeholder="Ingrese el telefono del trabajador" value="{{ old('telefono', $trabajadore->telefono) }}" autofocus>
+                    @if ($errors->has('telefono'))
+                      <span class="error text-danger" for="input-telefono">{{ $errors->first('telefono') }}</span>
+                    @endif
         </div>
     </div>
         <div class="row">
             <label  class="col-sm-2 col-form-label">Correo</label>
                 <div class="col-sm-7">
-            {{ Form::email('email', $trabajadore->email, ['class' => 'form-control' . ($errors->has('email') ? ' is-invalid' : ''), 'placeholder' => 'Email']) }}
-            {!! $errors->first('email', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="email" class="form-control" name="email" placeholder="Ingrese el correo del trabajador" value="{{ old('email', $trabajadore->email) }}" autofocus>
+                    @if ($errors->has('email'))
+                      <span class="error text-danger" for="input-email">{{ $errors->first('email') }}</span>
+                    @endif
         </div>
     </div>
         <div class="row">
@@ -54,15 +64,19 @@
         <div class="row">
             <label  class="col-sm-2 col-form-label">Sueldo</label>
                 <div class="col-sm-7">
-            {{ Form::text('sueldo', $trabajadore->sueldo, ['class' => 'form-control' . ($errors->has('sueldo') ? ' is-invalid' : ''), 'placeholder' => 'Sueldo']) }}
-            {!! $errors->first('sueldo', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="sueldo" placeholder="Ingrese el sueldo del trabajador" value="{{ old('sueldo', $trabajadore->sueldo) }}" autofocus>
+                    @if ($errors->has('sueldo'))
+                      <span class="error text-danger" for="input-sueldo">{{ $errors->first('sueldo') }}</span>
+                    @endif
         </div>
     </div>
         <div class="row">
             <label  class="col-sm-2 col-form-label">Cargo</label>
                 <div class="col-sm-7">
-            {{ Form::text('cargo', $trabajadore->cargo, ['class' => 'form-control' . ($errors->has('cargo') ? ' is-invalid' : ''), 'placeholder' => 'Cargo']) }}
-            {!! $errors->first('cargo', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="cargo" placeholder="Ingrese el cargo del trabajador" value="{{ old('cargo', $trabajadore->cargo) }}" autofocus>
+                    @if ($errors->has('cargo'))
+                      <span class="error text-danger" for="input-cargo">{{ $errors->first('cargo') }}</span>
+                    @endif
         </div>
     </div>
 
