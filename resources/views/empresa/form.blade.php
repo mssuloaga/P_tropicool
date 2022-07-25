@@ -2,8 +2,10 @@
         <div class="row">
             <label  class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-7">
-                    {{ Form::text('nombre', $empresa->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-                    {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese nombre de la empresa" value="{{ old('nombre', $empresa->nombre) }}" autofocus>
+                  @if ($errors->has('nombre'))
+                    <span class="error text-danger" for="input-nombre">{{ $errors->first('nombre') }}</span>
+                  @endif
                 </div>
         </div>
         
@@ -18,56 +20,70 @@
         <div class="row">
             <label class="col-sm-2 col-form-label">Dirección</label>
                 <div class="col-sm-7">
-                    {{ Form::text('direccion', $empresa->direccion, ['class' => 'form-control' . ($errors->has('direccion') ? ' is-invalid' : ''), 'placeholder' => 'Direccion']) }}
-                    {!! $errors->first('direccion', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="direccion" placeholder="Ingrese la dirección " value="{{ old('direccion', $empresa->direccion) }}" autofocus>
+                  @if ($errors->has('direccion'))
+                    <span class="error text-danger" for="input-direccion">{{ $errors->first('direccion') }}</span>
+                  @endif
                 </div>
         </div>
 
         <div class="row">
             <label class="col-sm-2 col-form-label">Teléfono</label>
                 <div class="col-sm-7">
-                    {{ Form::text('telefono', $empresa->telefono, ['class' => 'form-control' . ($errors->has('telefono') ? ' is-invalid' : ''), 'placeholder' => 'Telefono']) }}
-                    {!! $errors->first('telefono', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="telefono" placeholder="Ingrese el telefono de la empresa" value="{{ old('telefono', $empresa->telefono) }}" autofocus>
+                  @if ($errors->has('telefono'))
+                    <span class="error text-danger" for="input-telefono">{{ $errors->first('telefono') }}</span>
+                  @endif
                 </div>
         </div>
 
         <div class="row">
             <label class="col-sm-2 col-form-label">Misión</label>
                 <div class="col-sm-7">
-                    {{ Form::text('mision', $empresa->mision, ['class' => 'form-control' . ($errors->has('mision') ? ' is-invalid' : ''), 'placeholder' => 'Mision']) }}
-                    {!! $errors->first('mision', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="mision" placeholder="Ingrese la misión de la empresa" value="{{ old('mision', $empresa->mision) }}" autofocus>
+                  @if ($errors->has('mision'))
+                    <span class="error text-danger" for="input-mision">{{ $errors->first('mision') }}</span>
+                  @endif
                 </div>
         </div>
 
         <div class="row">
             <label class="col-sm-2 col-form-label">Visión</label>
                 <div class="col-sm-7">
-                    {{ Form::text('vision', $empresa->vision, ['class' => 'form-control' . ($errors->has('vision') ? ' is-invalid' : ''), 'placeholder' => 'Vision']) }}
-                    {!! $errors->first('vision', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="vision" placeholder="Ingrese la visión de la empresa" value="{{ old('vision', $empresa->vision) }}" autofocus>
+                  @if ($errors->has('vision'))
+                    <span class="error text-danger" for="input-vision">{{ $errors->first('vision') }}</span>
+                  @endif
                 </div>
         </div>
 
         <div class="row">
             <label class="col-sm-2 col-form-label">Descripción</label>
                 <div class="col-sm-7">
-                    {{ Form::text('descripcion', $empresa->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
-                    {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="descripcion" placeholder="Ingrese descripción de la empresa" value="{{ old('descripcion', $empresa->descripcion) }}" autofocus>
+                  @if ($errors->has('descripcion'))
+                    <span class="error text-danger" for="input-descripcion">{{ $errors->first('descripcion') }}</span>
+                  @endif
                 </div>
         </div>
 
         <div class="row">
             <label class="col-sm-2 col-form-label">Instagram</label>
                 <div class="col-sm-7">
-                    {{ Form::text('instagram', $empresa->instagram, ['class' => 'form-control' . ($errors->has('instagram') ? ' is-invalid' : ''), 'placeholder' => 'Instagram']) }}
-                    {!! $errors->first('instagram', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="instagram" placeholder="Ingrese el instagram de la empresa" value="{{ old('instagram', $empresa->instagram) }}" autofocus>
+                  @if ($errors->has('instagram'))
+                    <span class="error text-danger" for="input-instagram">{{ $errors->first('instagram') }}</span>
+                  @endif
                 </div>
         </div>
 
         <div class="row">
             <label class="col-sm-2 col-form-label">Facebook</label>
                 <div class="col-sm-7">
-                    {{ Form::text('facebook', $empresa->facebook, ['class' => 'form-control' . ($errors->has('facebook') ? ' is-invalid' : ''), 'placeholder' => 'Facebook']) }}
-                    {!! $errors->first('facebook', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="facebook" placeholder="Ingrese el facebook de la empresa" value="{{ old('facebook', $empresa->facebook) }}" autofocus>
+                  @if ($errors->has('facebook'))
+                    <span class="error text-danger" for="input-facebook">{{ $errors->first('facebook') }}</span>
+                  @endif
                 </div>
         </div>
        
