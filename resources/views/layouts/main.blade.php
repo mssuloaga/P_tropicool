@@ -30,7 +30,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   
   @auth()
-    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="formulario-eliminar" style="display: none;">
     @csrf
   </form>
   @include('layouts.page_templates.auth')
@@ -49,7 +49,10 @@
   <script src="{{ asset('js/material-dashboard.js?v=2.1.1') }}" type="text/javascript"></script>
 
   @yield('js')
+
   <script src="{{ asset('js/plugins/perfect-scrollbar.jquery.min.js') }}"></script>
   @stack('js')
 </body>
 </html>
+
+

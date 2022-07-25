@@ -1,15 +1,10 @@
-@extends('welcome2')
-@php
-    $iva = 0;
-    $subtotal = 0;
-    $total = 0;
-@endphp
+@extends('welcome4')
 @section('content')
 <div class="container">
     <div class="row">
-       <div class="col-sm-12 bg-light">
+        <div class="col-sm-12 bg-light">
            @if (count(Cart::getContent()))
-            <table class="table table-striped">
+            <table class="table table-striped" id="cotizacion">
                 <thead>
                     <th>ID</th>
                     <th>NOMBRE</th>
@@ -28,18 +23,11 @@
                                 <form action="{{route('cart.removeitem')}}" method="POST">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$item->id}}">
-                                    <button type="submit" class="btn btn-link btn-sm text-danger">x</button>
+                                    <button type="submit" class="btn btn-danger bi bi-x-lg"></button>
                                 </form>
                             </td>
                         </tr>
-                        @php
-                            $total = $total + ($item->price * $item->quantity);
-                        @endphp
                     @endforeach
-                    @php
-                        $iva = $total * 0.19;
-                        $subtotal = $total - $iva;
-                    @endphp
                     <tbody>
                         <td></td>
                         <td></td>
@@ -50,33 +38,39 @@
                     <tbody>
                         <th>Iva</th>
                         <td></td>
-                        <th>${{ $iva }}</th>
+                        <th>${{Cart::getTotal() * 0.19}}</th>
                         <td></td>
                         <td></td>
                     </tbody>
                     <tbody>
                         <th>Subtotal</th>
                         <td></td>
-                        <th>${{ $subtotal }}</th>
+                        <th>${{ Cart::getTotal() - (Cart::getTotal() * 0.19) }}</th>
                         <td></td>
                         <td></td>
                     </tbody>
                     <thead>
                         <th>Total</th>
                         <th></th>
-                        <th>${{ $total }}</th>
-                        <th></th>
+                        <th>${{Cart::getTotal()}}</th>
+                        <th>{{Cart::getTotalQuantity()}}</th>
                         <th></th>
                     </thead>
                 </tbody>
             </table>
 
             @else
-                <p>Carrito vacio</p>
+                <p class="bi bi-cart-x"> Carrito vacio</p>
            @endif
-
-       </div>
-
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <a href="{{ url()->previous() }}"><button type="submit" class="btn btn-success">Volver</button></a>
+        </div>
+        <div class="col" style="text-align: right;">
+            <a href="#" id="cotizacion"><input type="submit" class="btn btn-danger" value="PDF"></a>
+        </div>
     </div>
 </div>
 @endsection
