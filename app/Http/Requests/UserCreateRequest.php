@@ -29,7 +29,7 @@ class UserCreateRequest extends FormRequest
             'name' => 'required|regex:/^[\pL\s\-]+$/u|min:3|max:20',
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6|max:20'
         ];
         
     }
@@ -38,12 +38,17 @@ class UserCreateRequest extends FormRequest
     {
         return [
             'name.required' => 'El nombre es requerido',
-            'username.unique'=> 'El usuario ya existe',
-            'name.regex'=> 'El nombre solo debe llevar letras', 
+            'name.min'=> 'El nombre del rol debe tener al menos 3 caracteres',
+            'name.max'=> 'El El nombre del rol debe tener maximo 20 caracteres',
+            'name.regex'=> 'El nombre solo debe llevar letras',
             'username.required' => 'El usuario es requerido',
+            'username.unique'=> 'El usuario ya existe',
             'email.required' => 'El correo es requerido',
             'email.unique'=> 'El correo ya existe',
-            'password.required' => 'La contraseña es requerida'
+            'password.required' => 'La contraseña es requerida',
+            'password.min'=> 'El nombre del rol debe tener al menos 3 caracteres',
+            'password.max'=> 'El El nombre del rol debe tener maximo 20 caracteres'
+            
         ];
     }
 }
