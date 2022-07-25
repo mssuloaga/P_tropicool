@@ -51,7 +51,7 @@ class RoleController extends Controller
         $role->syncPermissions($request->input('permissions', []));
 
         return redirect()->route('roles.index')
-        ->with('success', 'Categoría creada con éxito');
+        ->with('success', 'Rol creado con éxito');
     }
 
     /**

@@ -14,7 +14,13 @@
             <h4 class="card-title">Publicación</h4>
             <p class="card-category">Lista de publicaciones registradas</p>
           </div>
+          
           <div class="card-body">
+          @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+          @endif
             <div class="row">
               <div class="col-12 text-right">
                 @can('post_create')
