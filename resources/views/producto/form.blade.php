@@ -4,30 +4,38 @@
     <div class="row">
             <label  class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-7">
-            {{ Form::text('nombre', $producto->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-            {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre del producto" value="{{ old('nombre') }}" autofocus>
+                    @if ($errors->has('nombre'))
+                      <span class="error text-danger" for="input-nombre">{{ $errors->first('nombre') }}</span>
+                    @endif
                 </div>
     </div>
 
         <div class="row">
             <label  class="col-sm-2 col-form-label">Descripción</label>
                 <div class="col-sm-7">
-            {{ Form::text('descripcion', $producto->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
-            {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripción" value="{{ old('descripcion') }}" autofocus>
+                    @if ($errors->has('descripcion'))
+                      <span class="error text-danger" for="input-descripcion">{{ $errors->first('descripcion') }}</span>
+                    @endif
         </div></div>
 
         <div class="row">
             <label  class="col-sm-2 col-form-label">Precio</label>
                 <div class="col-sm-7">
-            {{ Form::text('precio', $producto->precio, ['class' => 'form-control' . ($errors->has('precio') ? ' is-invalid' : ''), 'placeholder' => 'Precio']) }}
-            {!! $errors->first('precio', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="precio" placeholder="Ingrese el preocio del producto" value="{{ old('precio') }}" autofocus>
+                    @if ($errors->has('precio'))
+                      <span class="error text-danger" for="input-precio">{{ $errors->first('precio') }}</span>
+                    @endif
         </div></div>
 
         <div class="row">
             <label  class="col-sm-2 col-form-label">Cantidad</label>
                 <div class="col-sm-7">
-            {{ Form::text('cantidad', $producto->cantidad, ['class' => 'form-control' . ($errors->has('cantidad') ? ' is-invalid' : ''), 'placeholder' => 'Cantidad']) }}
-            {!! $errors->first('cantidad', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="cantidad" placeholder="Ingrese la cantidad en stock" value="{{ old('cantidad') }}" autofocus>
+                    @if ($errors->has('cantidad'))
+                      <span class="error text-danger" for="input-cantidad">{{ $errors->first('cantidad') }}</span>
+                    @endif
         </div></div>
 
         <div class="row">
