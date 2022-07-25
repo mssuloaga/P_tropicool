@@ -107,11 +107,13 @@
                             </form>
                             @endcan
                         @else
+        
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="material-icons text-light">perm_identity</i>
+                                <li style="position:relative; bottom: 12px; right: 14px; font-weight: 700; letter-spacing: 0.0625em; font-size: 0.95rem; font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";" class="nav-item">
+                                    <a class="nav-link">INICIAR SESIÓN <i style="position:relative; top:5px;" class="material-icons text-light">perm_identity</i></a>
+                                </li>
                             </button>
-
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <li class="nav-item"><a class="dropdown-item" href="{{ route('login') }}">Acceder</a></li>
                             @if (Route::has('register'))
