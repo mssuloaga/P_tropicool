@@ -113,7 +113,7 @@
                                 </li>
                             </button>
 
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+                        <div style="top: 35px" class="dropdown-menu" aria-labelledby="dropdownMenu2">
                             <li class="nav-item"><a class="dropdown-item" href="{{ route('login') }}">Acceder</a></li>
                             @if (Route::has('register'))
                                 <li class="nav-item"><a class="dropdown-item" href="{{ route('register') }}">Registrarse</a></li>
