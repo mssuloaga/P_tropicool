@@ -77,12 +77,12 @@
                                                     </div>
                                                     Perfil
                                                 </a>
-                                                <a class="dropdown-item d-flex align-items-center" href="#">
+                                                <!-- <a class="dropdown-item d-flex align-items-center" href="#">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-settings"></span>
                                                     </div>
                                                     Ajustes
-                                                </a>
+                                                </a> -->
                                                 <a class="dropdown-item d-flex align-items-center" href="{{ route('home') }}">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-cloud-download"></span>
