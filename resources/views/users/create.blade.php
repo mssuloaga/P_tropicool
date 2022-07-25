@@ -4,7 +4,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-      <form action="{{ route('users.store') }}" method="post" class="form-horizontal" enctype="multipart/form-data">
+      <form action="{{ route('users.store') }}" method="post" class="form-horizontal formulario-agregar" enctype="multipart/form-data">
           @csrf
           <div class="card">
             <div class="card-header card-header-primary">
@@ -117,3 +117,38 @@
 </div>
 @endsection
 
+
+
+@section('js')
+                        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                        @if(session('agregar') == 'ok')
+                                        <script>
+                                            Swal.fire(
+                                                'Ingresado!',
+                                                'El usuario se ingreso con éxito.',
+                                                'success'
+                                            )
+                                        </script>
+                                    @endif
+                                <script>                                
+                                    $('.formulario-agregar').submit(function(e){
+                                        e.preventDefault();
+                                        Swal.fire({
+                                        title: '¿Estás seguro?',
+                                        text: "Este usuario se ingresara definitivamente",
+                                        icon: 'warning',
+                                        showCancelButton: true,
+                                        confirmButtonColor: '#3085d6',
+                                        cancelButtonColor: '#d33',
+                                        confirmButtonText: '¡Si, ingresar!',
+                                        cancelButtonText: 'Cancelar'
+
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {                                               
+                                                this.submit();                                           
+                                            }
+                                        })
+                                    });                        
+
+                                </script>
+                    @endsection
