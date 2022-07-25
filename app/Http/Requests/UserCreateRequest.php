@@ -26,10 +26,10 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:3|max:20',
+            'name' => 'required|regex:/^[\pL\s\-]+$/u|min:3|max:20',
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
-            'password' => 'required'
+            'password' => 'required|min:6'
         ];
         
     }
@@ -39,8 +39,10 @@ class UserCreateRequest extends FormRequest
         return [
             'name.required' => 'El nombre es requerido',
             'username.unique'=> 'El usuario ya existe',
+            'name.regex'=> 'El nombre solo debe llevar letras', 
             'username.required' => 'El usuario es requerido',
             'email.required' => 'El email es requerido',
+            'email.unique'=> 'El email ya existe',
             'password.required' => 'La contraseña es requerida'
         ];
     }

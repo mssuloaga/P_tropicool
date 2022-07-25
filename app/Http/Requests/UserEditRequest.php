@@ -25,7 +25,7 @@ class UserEditRequest extends FormRequest
     {
         $user = $this->route('user');
         return [
-            'name' => 'required',
+            'name' => ['required','regex:/^[\pL\s\-]+$/u','min:3','max:20'],
 
             'username' => ['required', 'min:3', 'unique:users,username,' . $user->id],
             'email' => [
@@ -40,8 +40,10 @@ class UserEditRequest extends FormRequest
         return [
             'name.required' => 'El nombre es requerido',
             'username.unique'=> 'El usuario ya existe',
+            'name.regex'=> 'El nombre solo debe llevar letras', 
             'username.required' => 'El usuario es requerido',
             'email.required' => 'El email es requerido',
+            'email.unique'=> 'El email ya existe',
             'password.required' => 'La contraseña es requerida'
         ];
     }
