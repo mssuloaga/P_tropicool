@@ -68,7 +68,7 @@
                     center:'title',
                     right:'month,agendaWeek,agendaDay'
                 },
-                events:'/full-calendar',
+                events:'/calendario.full-calendar',
                 selectable:true,
                 selectHelper: true,
                 eventColor: '#ffffa2',
@@ -83,7 +83,7 @@
                         var end = $.fullCalendar.formatDate(end, 'Y-MM-DD HH:mm:ss');
 
                         $.ajax({
-                            url:"/full-calendar/action",
+                            url:"/calendario.full-calendar/action",
                             type:"POST",
                             data:{
                                 title: title,
@@ -107,7 +107,7 @@
                     var title = event.title;
                     var id = event.id;
                     $.ajax({
-                        url:"/full-calendar/action",
+                        url:"/calendario.full-calendar/action",
                         type:"POST",
                         data:{
                             title: title,
@@ -130,7 +130,7 @@
                     var title = event.title;
                     var id = event.id;
                     $.ajax({
-                        url:"/full-calendar/action",
+                        url:"/calendario.full-calendar/action",
                         type:"POST",
                         data:{
                             title: title,
@@ -153,7 +153,7 @@
                     {
                         var id = event.id;
                         $.ajax({
-                            url:"/full-calendar/action",
+                            url:"/calendario.full-calendar/action",
                             type:"POST",
                             data:{
                                 id:id,

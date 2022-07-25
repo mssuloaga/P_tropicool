@@ -33,7 +33,7 @@
         </a>
       </li>
       <li class="nav-item{{ $activePage == 'calendario' ? ' active' : '' }}">
-        <a class="nav-link" href="{{ url('full-calendar') }}">
+        <a class="nav-link" href="{{ url('calendario.full-calendar') }}">
           <i class="material-icons">event</i>
             <p>{{ __('Calendario') }}</p>
         </a>

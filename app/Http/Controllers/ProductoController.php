@@ -59,7 +59,7 @@ class ProductoController extends Controller
      */
     public function store(Request $request)
     {
-        $sid    = "AC2ee1ff3872ff34e27ec4f9e0bdca5046"; 
+       /*  $sid    = "AC2ee1ff3872ff34e27ec4f9e0bdca5046"; 
         $token  = "cdb7fa375edecd0bf4a8af95d97912e7"; 
         $twilio = new Client($sid, $token); 
  
@@ -69,7 +69,7 @@ class ProductoController extends Controller
                                "from" => "whatsapp:+14155238886",       
                                "body" => "Se a creado un nuevo producto : ".$request->nombre  
                            ) 
-                  ); 
+                  );  */
 
         if($request->hasfile('imagen'))
         {
