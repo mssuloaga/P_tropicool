@@ -25,4 +25,6 @@
             <a href="{{ route('categorias.index') }}" class="btn btn-warning ms-3"> Volver </a>                    
         </div>                   
     </div>
+
+    
              
