@@ -2,8 +2,10 @@
         <div class="row">
             <label  class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-7">
-                {{ Form::text('nombre', $categoria->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
-            {!! $errors->first('nombre', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre" value="{{ old('nombre') }}" autofocus>
+                    @if ($errors->has('nombre'))
+                      <span class="error text-danger" for="input-nombre">{{ $errors->first('nombre') }}</span>
+                    @endif
                 </div>
         </div>
         
