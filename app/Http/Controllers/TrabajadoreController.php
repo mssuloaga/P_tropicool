@@ -7,6 +7,7 @@ use App\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\TrabajadoresRequest;
 
 /**
  * Class TrabajadoreController
@@ -52,7 +53,7 @@ class TrabajadoreController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TrabajadoresRequest $request)
     {
         $trabajadore = new Trabajadore;
         $trabajadore->rut_trabajador = $request->input('rut_trabajador');
@@ -121,7 +122,7 @@ class TrabajadoreController extends Controller
      * @param  Trabajadore $trabajadore
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Trabajadore $trabajadore)
+    public function update(TrabajadoresRequest $request, Trabajadore $trabajadore)
     {
        
         $trabajadore->rut_trabajador = $request->input('rut_trabajador');
