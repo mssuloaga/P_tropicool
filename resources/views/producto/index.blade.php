@@ -20,6 +20,11 @@
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
+                @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
                         
@@ -31,13 +36,10 @@
                         
                     </div>
                     </div>
-                    @if ($message = Session::get('success'))
-                        <div class="alert alert-success">
-                            <p>{{ $message }}</p>
-                        </div>
-                    @endif
+                   
 
                     <div class="card-body">
+                    
                         <div class="table-responsive">
                             <table class="table table-striped shadow-lg mt-4" style="width:100%" id="productos">
                                 <thead class="text-primary">
@@ -83,7 +85,6 @@
                                 </tbody>
                             </table>
                             @section('js')
-
                                 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                                 @if(session('eliminar') == 'ok')
                                     <script>
@@ -108,16 +109,15 @@
                                         cancelButtonText: 'Cancelar'
 
                                         }).then((result) => {
-                                        if (result.isConfirmed) {
-                                           /* Swal.fire(
-                                            'Deleted!',
-                                            'Your file has been deleted.',
-                                            'success'
-                                           
-                                            */
-                                           this.submit();
-                                           
-                                        }
+                                            if (result.isConfirmed) {
+                                            /* Swal.fire(
+                                                'Deleted!',
+                                                'Your file has been deleted.',
+                                                'success'
+                                            
+                                                */
+                                            this.submit();                                           
+                                            }
                                         })
                                     });
                                    

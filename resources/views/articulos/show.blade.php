@@ -3,7 +3,7 @@
     <section class="container">
         <div class="col bg-light" style="text-align: right;">
             @if (count(Cart::getContent()))
-                <a href="{{route('cart.checkout')}}"> VER CARRITO <span class="badge badge-danger">{{count(Cart::getContent())}}</span></a>
+                <a href="{{route('cart.checkout')}}" class="bi bi-cart-check"> VER CARRITO <span class="badge badge-danger">{{count(Cart::getContent())}}</span></a>
             @endif
         </div>
     </section>

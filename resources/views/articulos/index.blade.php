@@ -3,7 +3,7 @@
     <section class="container">
         <div class="col bg-light" style="text-align: right;">
             @if (count(Cart::getContent()))
-                <a href="{{route('cart.checkout')}}"> VER CARRITO <span class="badge badge-danger">{{count(Cart::getContent())}}</span></a>
+                <a href="{{route('cart.checkout')}}" class="bi bi-cart-check"> VER CARRITO <span class="badge badge-danger">{{count(Cart::getContent())}}</span></a>
             @endif
         </div>
     </section>
@@ -21,9 +21,9 @@
                     @if ($aux == $articulo->categoria->nombre)
                         <div class="col">
                             <div class="col">
-                                <div class="card p-5 mt-3">
-                                    <div class="card-body">
-                                        <a href="{{ route('articulos.show', $articulo->id) }}"><img src="{{ asset('uploads/productos/'.$articulo->imagen) }}" class="card-img-top" title="{{ $articulo->descripcion }}" alt="{{ $articulo->descripcion }}"></a>
+                                <div class="card p-5 mt-3 shadow">
+                                    <div class="card-body" >
+                                        <a href="{{ route('articulos.show', $articulo->id) }}"><img width="300px" height="300px" src="{{ asset('uploads/productos/'.$articulo->imagen) }}" class="card-img-top" title="{{ $articulo->descripcion }}" alt="{{ $articulo->descripcion }}"></a>
                                         <a href="{{ route('articulos.show', $articulo->id) }}"><h5 class="card-title">{{ $articulo->nombre }}</h5></a>
                                         <div class="row">
                                             <div class="col">
