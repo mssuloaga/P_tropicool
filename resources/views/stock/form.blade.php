@@ -25,8 +25,10 @@
         <div class="row">
             <label  class="col-sm-2 col-form-label">Cantidad</label>
                 <div class="col-sm-7">
-            {{ Form::text('cantidad', $stock->cantidad, ['class' => 'form-control' . ($errors->has('cantidad') ? ' is-invalid' : ''), 'placeholder' => 'Cantidad']) }}
-            {!! $errors->first('cantidad', '<div class="invalid-feedback">:message</div>') !!}
+                    <input type="text" class="form-control" name="cantidad" placeholder="Ingrese la cantidad en stock" value="{{ old('cantidad', $stock->cantidad) }}" autofocus>
+                    @if ($errors->has('cantidad'))
+                      <span class="error text-danger" for="input-cantidad">{{ $errors->first('cantidad') }}</span>
+                    @endif
         </div></div>
 
         <div class="row" style="display: none;">

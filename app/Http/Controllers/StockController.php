@@ -7,6 +7,7 @@ use App\Producto;
 use App\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ProductosRequest;
 
 /**
  * Class StockController
@@ -94,7 +95,7 @@ class StockController extends Controller
      * @param  Stock $stock
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $stock)
+    public function update(ProductosRequest $request, Producto $stock)
     {
         request()->validate(Producto::$rules);
 
