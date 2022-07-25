@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\File;
 
 use App\Imports\ProductsImport;
 use Maatwebsite\Excel\Facades\Excel;
+
+use App\Http\Requests\ProductosRequest;
 /**
  * Class ProductoController
  * @package App\Http\Controllers
@@ -57,7 +59,7 @@ class ProductoController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProductosRequest $request)
     {
        /*  $sid    = "AC2ee1ff3872ff34e27ec4f9e0bdca5046"; 
         $token  = "cdb7fa375edecd0bf4a8af95d97912e7"; 
@@ -140,7 +142,7 @@ class ProductoController extends Controller
      * @param  Producto $producto
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Producto $producto)
+    public function update(ProductosRequest $request, Producto $producto)
     {
        
         $producto->nombre = $request->input('nombre');
