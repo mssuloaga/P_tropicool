@@ -5,6 +5,7 @@ use \PDF;
 use App\Empresa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+use App\Http\Requests\EmpresasRequest;
 
 /**
  * Class EmpresaController
@@ -50,7 +51,7 @@ class EmpresaController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(EmpresasRequest $request)
     {
         $empresa = new Empresa;
         $empresa->nombre = $request->input('nombre');
@@ -109,7 +110,7 @@ class EmpresaController extends Controller
      * @param  Empresa $empresa
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empresa $empresa)
+    public function update(EmpresasRequest $request, Empresa $empresa)
     {
        
         $empresa->nombre = $request->input('nombre');
