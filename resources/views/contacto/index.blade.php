@@ -165,7 +165,14 @@
                             <a href="https://www.instagram.com/__tropicool_/">
                             <label>{{ $contact->instagram }}</label>
                             </a>
-                            
+                        </div>
+                    </div>
+                    <div class="row" style="text-align: center;">
+                        <div class="col p pt-4">
+                            <h2 class="pt-2">Código QR:</h2>
+                            <div>
+                                {!!QrCode::size(200)->generate('http://143.110.229.105/');!!}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -175,7 +182,6 @@
             </div>
         </div>
     </header>
-
     <section>
         @yield('content')
     </section>
