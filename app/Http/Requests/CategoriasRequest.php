@@ -24,16 +24,16 @@ class CategoriasRequest extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required|regex:/^[\pL\s\-]+$/u|min:3|max:20', 
+            'nombre' => 'required|regex:/^[\pL\s\-]+$/u|min:3|max:30', 
         ];
     }
     public function messages()
     {
         return [
-            'nombre.required' => 'El nombre es requerido',
-            'nombre.min'=> 'El nombre debe tener al menos 3 caracteres',
-            'nombre.max'=> 'El nombre debe tener maximo 20 caracteres',
-            'nombre.regex'=> 'El nombre solo debe llevar letras',
+            'nombre.required' => 'El nombre de la categoria es requerido',
+            'nombre.min'=> 'El nombre de la categoria debe tener al menos 3 caracteres',
+            'nombre.max'=> 'El nombre de la categoria debe tener maximo 30 caracteres',
+            'nombre.regex'=> 'El nombre de la categoria solo debe llevar letras',
         ];
     }
 }

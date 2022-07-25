@@ -99,7 +99,7 @@ class CategoriaController extends Controller
      * @param  Categoria $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(CategoriasRequest $request, Categoria $categoria)
     {
         request()->validate(Categoria::$rules);
 
