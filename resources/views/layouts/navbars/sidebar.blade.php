@@ -153,7 +153,7 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
             aria-expanded="true" aria-controls="collapseFive">
-            <i style="position: relative; bottom: 0px;" class="material-icons">analytics</i>
+            <i style="position: relative; bottom: 4px;" class="material-icons">analytics</i>
           <span style="font-size: 14px; font-weight: 400;">Datos empresa</span>
         </a>
         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
@@ -180,8 +180,8 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix"
             aria-expanded="true" aria-controls="collapseSix">
-            <i style="position: relative; bottom: 0px;" class="material-icons">analytics</i>
-          <span style="font-size: 14px; font-weight: 400;">Terrenos</span>
+            <i style="position: relative; bottom: 5px;" class="material-icons">calendar_month</i>
+          <span style="font-size: 14px; font-weight: 400;">Eventos</span>
         </a>
         <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar">
           <div class="bg-black py-2 collapse-inner rounded">
