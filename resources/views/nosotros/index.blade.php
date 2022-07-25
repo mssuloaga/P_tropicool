@@ -43,7 +43,7 @@
                     <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="/articulos">Productos</a></li>
                     <li class="nav-item"><a class="nav-link" href="/nosotros">¿Quiénes somos?</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
                     @if (Route::has('login'))
                         @auth
                             <!-- <li class="nav-item"><a class="nav-link" href="{{ url('/home') }}">¡Hola, {{ Auth::user()->name }}!</a></li> -->

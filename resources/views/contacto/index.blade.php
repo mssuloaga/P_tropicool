@@ -42,7 +42,7 @@
                 <ul class="navbar-nav text-uppercase ms-auto py-4 py-lg-0">
                     <li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
                     <li class="nav-item"><a class="nav-link" href="/articulos">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/contacto">¿Quiénes somos?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/nosotros">¿Quiénes somos?</a></li>
                     <li class="nav-item"><a class="nav-link" href="/contacto">Contacto</a></li>
                     @if (Route::has('login'))
                         @auth
