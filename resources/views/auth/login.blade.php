@@ -17,23 +17,6 @@
                     </div>
                     <div class="card-body">
                         <p class="card-description text-center">{{ __('') }}</p>
-                        {{-- <div class="bmd-form-group{{ $errors->has('email') ? ' has-danger' : '' }}">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text">
-                                        <i class="material-icons">email</i>
-                                    </span>
-                                </div>
-                                <input type="email" name="email" class="form-control" placeholder="{{ __('Correo...') }}"
-                                    value="{{ old('email', null) }}" required autocomplete="email" autofocus>
-                            </div>
-                            @if ($errors->has('email'))
-                            <div id="email-error" class="error text-danger pl-3" for="email" style="display: block;">
-                                <strong>{{ $errors->first('email') }}</strong>
-                            </div>
-                            @endif
-                        </div> --}}
-                        {{-- Username --}}
                         <div class="bmd-form-group{{ $errors->has('username') ? ' has-danger' : '' }}">
                             <div class="input-group">
                                 <div class="input-group-prepend">

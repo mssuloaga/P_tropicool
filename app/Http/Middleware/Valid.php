@@ -19,7 +19,7 @@ class Valid
         if(auth()->user()->hasRole('Admin')){
             return $next($request);
         }else{
-            return redirect('no-autorizado');
+            return redirect('error.404');
         }
         
     }
