@@ -57,7 +57,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
             aria-expanded="true" aria-controls="collapseTwo">
             <i style="position: relative; bottom: 5px;" class="material-icons">shopping_bag</i>
-          <span style="font-size: 14px; font-weight: 400;">Categoría de productos</span>
+          <span style="font-size: 14px; font-weight: 400;">Inventario</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-black py-2 collapse-inner rounded">
@@ -91,8 +91,8 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree"
             aria-expanded="true" aria-controls="collapseThree">
-            <i style="position: relative; top: 5px;" class="material-icons">account_box</i>
-          <span style="font-size: 14px; font-weight: 400;">Categoría de personal y usuarios</span>
+            <i style="position: relative; bottom: 4px;" class="material-icons">account_box</i>
+          <span style="font-size: 14px; font-weight: 400;">Recursos humanos</span>
         </a>
         <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionSidebar">
           <div class="bg-black py-2 collapse-inner rounded">
@@ -122,8 +122,8 @@
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFour"
             aria-expanded="true" aria-controls="collapseFour">
-            <i style="position: relative; bottom: 5px;" class="material-icons">credit_card</i>
-          <span style="font-size: 14px; font-weight: 400;">Categoría de permisos</span>
+            <i style="position: relative; bottom: 4px;" class="material-icons">credit_card</i>
+          <span style="font-size: 14px; font-weight: 400;">Acceso</span>
         </a>
         <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionSidebar">
           <div class="bg-black py-2 collapse-inner rounded">
@@ -146,15 +146,15 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-          Gestión de empresa y eventos
+          Gestión de empresa
       </div>
 
       @can('role_index')
       <li class="nav-item">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive"
             aria-expanded="true" aria-controls="collapseFive">
-            <i style="position: relative; bottom: 5px;" class="material-icons">analytics</i>
-          <span style="font-size: 14px; font-weight: 400;">Categoría de empresa y eventos</span>
+            <i style="position: relative; bottom: 0px;" class="material-icons">analytics</i>
+          <span style="font-size: 14px; font-weight: 400;">Datos empresa</span>
         </a>
         <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
           <div class="bg-black py-2 collapse-inner rounded">
@@ -163,6 +163,29 @@
               <i class="material-icons">home_filled</i>
                 <p>{{ __('Empresa') }}</p>
             </a>
+          </div>
+        </div>
+      </li>
+      @endcan
+
+      <!-- Divider -->
+      <hr class="mt-3 sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+          Gestión de eventos
+      </div>
+
+      @can('role_index')
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSix"
+            aria-expanded="true" aria-controls="collapseSix">
+            <i style="position: relative; bottom: 0px;" class="material-icons">analytics</i>
+          <span style="font-size: 14px; font-weight: 400;">Terrenos</span>
+        </a>
+        <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionSidebar">
+          <div class="bg-black py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Personalizar:</h6>
             <a class="nav-link" href="{{ url('calendario.full-calendar') }}">
               <i class="material-icons">event</i>
                 <p>{{ __('Calendario') }}</p>
