@@ -16,14 +16,14 @@ class CreateTrabajadoresTable extends Migration
         Schema::create('trabajadores', function (Blueprint $table) {
             $table->engine="InnoDB";
             $table->bigIncrements('id');          
-            $table->string('imagen');
+            $table->string('imagen')->nullable;
             $table->string('curriculum')->nullable();
             $table->bigInteger('rut_trabajador');
             $table->string('nombre');
             $table->string('direccion');
             $table->string('telefono');
             $table->string('email');
-            $table->date('fecha_ingreso');       
+            $table->date('fecha_ingreso')->nullable;       
             $table->integer('sueldo');
             $table->string('cargo');
             $table->timestamps();

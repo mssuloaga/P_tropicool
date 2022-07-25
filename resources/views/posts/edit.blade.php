@@ -17,10 +17,13 @@
             <!--Body-->
             <div class="card-body">
               <div class="row">
-                <label for="title" class="col-sm-2 col-form-label">Nombre Publicación</label>
+                <label for="title" class="col-sm-2 col-form-label">Detalle Publicación</label>
                 <div class="col-sm-7">
                   <input type="text" class="form-control" name="title" placeholder="Ingrese el title"
                     value="{{ old('title', $post->title) }}" autocomplete="off" autofocus>
+                    @if ($errors->has('title'))
+                    <span class="error text-danger" for="input-title">{{ $errors->first('title') }}</span>
+                  @endif
                 </div>
               </div>
             </div>

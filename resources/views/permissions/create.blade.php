@@ -18,6 +18,9 @@
                 <div class="col-sm-7">
                   <div class="form-group">
                     <input type="text" class="form-control" name="name" autofocus>
+                    @if ($errors->has('name'))
+                    <span class="error text-danger" for="input-name">{{ $errors->first('name') }}</span>
+                  @endif
                   </div>
                 </div>
               </div>

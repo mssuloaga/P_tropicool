@@ -6,6 +6,8 @@ use App\Empresa;
 use App\Categoria;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\CategoriasRequest;
+
 
 /**
  * Class CategoriaController
@@ -53,9 +55,9 @@ class CategoriaController extends Controller
      * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CategoriasRequest $request)
     {
-        request()->validate(Categoria::$rules);
+        
 
         $categoria = Categoria::create($request->all());
 
@@ -97,7 +99,7 @@ class CategoriaController extends Controller
      * @param  Categoria $categoria
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Categoria $categoria)
+    public function update(CategoriasRequest $request, Categoria $categoria)
     {
         request()->validate(Categoria::$rules);
 

@@ -32,7 +32,7 @@
               <table class="table table-striped shadow-lg mt-4" style="width:100%" id="posts">
                 <thead class="text-primary">
                   <th> ID </th>
-                  <th> Nombre </th>
+                  <th> Detalle </th>
                   <th> Fecha de Creación </th>
                   <th class="text-right no-exportar"> Acciones </th>
                 </thead>

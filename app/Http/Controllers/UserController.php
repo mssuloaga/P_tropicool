@@ -36,12 +36,7 @@ class UserController extends Controller
 
     public function store(UserCreateRequest $request)
     {
-        // $request->validate([
-        //     'name' => 'required|min:3|max:5',
-        //     'username' => 'required',
-        //     'email' => 'required|email|unique:users',
-        //     'password' => 'required'
-        // ]);
+    
         $user = new User;
         $user->name = $request->input('name');
         $user->email = $request->input('email');
@@ -67,8 +62,7 @@ class UserController extends Controller
     public function show(User $user)
     {
         abort_if(Gate::denies('user_show'), 403);
-        // $user = User::findOrFail($id);
-        // dd($user);
+        
         $user->load('roles');
         return view('users.show', compact('user'));
     }
@@ -83,21 +77,14 @@ class UserController extends Controller
 
     public function update(UserEditRequest $request, User $user)
     {
-        // $user=User::findOrFail($id);
+       
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->username = $request->input('username');
         $user->password = bcrypt($request->input('password'));
         $roles = $request->input('roles', []);
         $user->syncRoles($roles);
-        // if(trim($request->password)=='')
-        // {
-        //     $data=$request->except('password');
-        // }
-        // else{
-        //     $data=$request->all();
-        //     $data['password']=bcrypt($request->password);
-        // }
+        
 
         if($request->hasfile('image'))
         {
