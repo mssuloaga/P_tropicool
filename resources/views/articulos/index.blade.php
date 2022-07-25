@@ -65,11 +65,11 @@
                             <!-- <div class="container">
                                 <div class="row justify-content-center">
                                     <div class="col-md-6 d-flex justify-content-center"> -->
-                                        <div class="btn-group">
+                                        <div class="btn-group drop11">
                                             <a href="#" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-image: url(images/person_1.jpg);">
-                                                <img class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="40px" height="40px" alt="Imagen">
+                                                <img style="right: 100%;" class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="40px" height="40px" alt="Imagen">
                                             </a>
-                                            <div style="top: -150%;" class="dropdown-menu">
+                                            <div style="top: -150%; right: 100%;" class="dropdown-menu">
                         
                                                 <a class="dropdown-item d-flex align-items-center" href="/perfil">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
@@ -102,7 +102,12 @@
                         @else
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="material-icons text-light">perm_identity</i>
+                                <li>
+                                    <a style="color: black; position:relative; bottom: 5px; right: 14px; font-weight: 600; letter-spacing: 0.0625em; font-size: 0.95rem; font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";" class="nav-item">
+                                        INICIAR SESIÓN 
+                                        <i style="position:relative; top:5px;" class="material-icons text-light">perm_identity</i>
+                                    </a>
+                                </li>
                             </button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">

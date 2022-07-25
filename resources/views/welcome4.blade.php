@@ -108,7 +108,12 @@
                         @else
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i class="material-icons text-light">perm_identity</i>
+                                <li>
+                                    <a style="color: black; position:relative; bottom: 5px; right: 14px; font-weight: 600; letter-spacing: 0.0625em; font-size: 0.95rem; font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";" class="nav-item">
+                                        INICIAR SESIÓN 
+                                        <i style="position:relative; top:5px;" class="material-icons text-light">perm_identity</i>
+                                    </a>
+                                </li>
                             </button>
 
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">

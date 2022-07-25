@@ -62,16 +62,16 @@
                                 </div>
                             </li>
 
-                            <!-- <div class="container">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-6 d-flex justify-content-center"> -->
+                            <div class="container">
+                                <div class="row ">
+                                    <div class="col-lg-12 col-md-12 col-sm-6 ">
                                         <div class="btn-group">
                                             <a href="#" class="btn-img img dropdown-toggle rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-image: url(images/person_1.jpg);">
                                                 <img class="rounded-circle" src="{{ asset('uploads/usuarios/'.Auth::user()->image) }}" width="40px" height="40px" alt="Imagen">
                                             </a>
-                                            <div style="top: -150%;" class="dropdown-menu">
+                                            <div style="top: -150%;" class="dropdown-menu" id="d22">
                         
-                                                <a class="dropdown-item d-flex align-items-center" href="/perfil">
+                                                <a class="dropdown-item d-flex align-items-center d11" href="/perfil">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-person-add"></span>
                                                     </div>
@@ -83,13 +83,13 @@
                                                     </div>
                                                     Ajustes
                                                 </a> -->
-                                                <a class="dropdown-item d-flex align-items-center" href="{{ route('home') }}">
+                                                <a class="dropdown-item d-flex align-items-center d11" href="{{ route('home') }}">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-cloud-download"></span>
                                                     </div>
                                                     Dashboard
                                                 </a>
-                                                <a class="dropdown-item d-flex align-items-center" id="logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+                                                <a class="dropdown-item d-flex align-items-center d11" id="logout" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
                                                     <div class="icon d-flex align-items-center justify-content-center mr-3">
                                                         <span class="ion-ios-power"></span>
                                                     </div>
@@ -97,9 +97,9 @@
                                                 </a>
                                             </div>
                                         </div>
-                                    <!-- </div>
+                                    </div>
                                 </div>
-                            </div> -->
+                            </div>
                             
                             <form id="logout-form"  onclick="borrarRegistro()" id="logout" name="logout-form" action="{{ route('logout') }}" type="submit" method="POST" class="d-none formulario-eliminar">
                                 @csrf
@@ -109,8 +109,11 @@
         
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <li style="position:relative; bottom: 12px; right: 14px; font-weight: 700; letter-spacing: 0.0625em; font-size: 0.95rem; font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";" class="nav-item">
-                                    <a class="nav-link">INICIAR SESIÓN <i style="position:relative; top:5px;" class="material-icons text-light">perm_identity</i></a>
+                                <li>
+                                    <a style="color: black; position:relative; bottom: 5px; right: 14px; font-weight: 600; letter-spacing: 0.0625em; font-size: 0.95rem; font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";" class="nav-item">
+                                        INICIAR SESIÓN 
+                                        <i style="position:relative; top:5px;" class="material-icons text-light">perm_identity</i>
+                                    </a>
                                 </li>
                             </button>
                         <div style="top: 35px" class="dropdown-menu" aria-labelledby="dropdownMenu2">
