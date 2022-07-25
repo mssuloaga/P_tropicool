@@ -191,12 +191,6 @@
             <div class="col-lg-4 col-xs-12 col-sm-12">
                 <iframe class="shadow-lg" width="450px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14764.635575155658!2d-73.05433459479566!3d-36.79855219785074!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9669b5d061cae83d%3A0x8f2da2e9988cc125!2sUniversidad%20Cat%C3%B3lica%20de%20la%20Sant%C3%ADsima%20Concepci%C3%B3n!5e0!3m2!1ses-419!2scl!4v1658348010524!5m2!1ses-419!2scl" width="600" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
-<<<<<<< Updated upstream
-            <div class="col-lg-1 col-md-1 p-4"></div>
-        </div>
-    </section>
-
-=======
                 <!-- {!!QrCode::size(250)->generate('http://143.110.229.105');!!} -->
         </div>
     </section>
@@ -214,8 +208,7 @@
                     size(200)
                     ->generate('http://143.110.229.105/')}}
         </div> -->
-
->>>>>>> Stashed changes
+        
     <footer class="footer bg-light">
         <div class="container">
             <div class="row">
