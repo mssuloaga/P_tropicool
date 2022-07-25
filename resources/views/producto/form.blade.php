@@ -4,17 +4,17 @@
     <div class="row">
             <label  class="col-sm-2 col-form-label">Nombre</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese el nombre del producto" value="{{ old('nombre') }}" autofocus>
-                    @if ($errors->has('nombre'))
-                      <span class="error text-danger" for="input-nombre">{{ $errors->first('nombre') }}</span>
-                    @endif
+                    <input type="text" class="form-control" name="nombre" placeholder="Ingrese nombre del producto" value="{{ old('nombre', $producto->nombre) }}" autofocus>
+                  @if ($errors->has('nombre'))
+                    <span class="error text-danger" for="input-nombre">{{ $errors->first('nombre') }}</span>
+                  @endif
                 </div>
     </div>
 
         <div class="row">
             <label  class="col-sm-2 col-form-label">Descripción</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripción" value="{{ old('descripcion') }}" autofocus>
+                    <input type="text" class="form-control" name="descripcion" placeholder="Ingrese la descripción" value="{{ old('descripcion', $producto->descripcion) }}" autofocus>
                     @if ($errors->has('descripcion'))
                       <span class="error text-danger" for="input-descripcion">{{ $errors->first('descripcion') }}</span>
                     @endif
@@ -23,7 +23,7 @@
         <div class="row">
             <label  class="col-sm-2 col-form-label">Precio</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" name="precio" placeholder="Ingrese el preocio del producto" value="{{ old('precio') }}" autofocus>
+                    <input type="text" class="form-control" name="precio" placeholder="Ingrese el preocio del producto" value="{{ old('precio', $producto->precio) }}" autofocus>
                     @if ($errors->has('precio'))
                       <span class="error text-danger" for="input-precio">{{ $errors->first('precio') }}</span>
                     @endif
@@ -32,7 +32,7 @@
         <div class="row">
             <label  class="col-sm-2 col-form-label">Cantidad</label>
                 <div class="col-sm-7">
-                    <input type="text" class="form-control" name="cantidad" placeholder="Ingrese la cantidad en stock" value="{{ old('cantidad') }}" autofocus>
+                    <input type="text" class="form-control" name="cantidad" placeholder="Ingrese la cantidad en stock" value="{{ old('cantidad', $producto->cantidad) }}" autofocus>
                     @if ($errors->has('cantidad'))
                       <span class="error text-danger" for="input-cantidad">{{ $errors->first('cantidad') }}</span>
                     @endif
