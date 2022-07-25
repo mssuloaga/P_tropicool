@@ -5,6 +5,9 @@ use App\Http\Controllers\TrabajadoreController;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ArticuloController;
 use App\Http\Controllers\BusquedaController;
+use App\Notifications\NotificacionProducto;
+use Illuminate\Notifications\Notifiable;
+use App\Producto;
 
 /*
 |--------------------------------------------------------------------------
